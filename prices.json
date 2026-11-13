@@ -1,0 +1,402 @@
+{
+  "updated": "2026-11-13T09:00:00+01:00",
+  "_nota": "Precio reacondicionado más bajo visto por modelo. 'from': euros (null = sin reacondicionados). 'src': fuente. 'date': fecha en que se vio. Lo actualiza la tarea programada a las 3:00 y 15:00 (hora de Madrid); si no encuentra un dato, conserva el anterior.",
+  "prices": {
+    "iphone-12mini": {
+      "name": "iPhone 12 mini",
+      "from": 146,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "iphone-12": {
+      "name": "iPhone 12",
+      "from": 149,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "iphone-12pro": {
+      "name": "iPhone 12 Pro",
+      "from": 222,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "iphone-12promax": {
+      "name": "iPhone 12 Pro Max",
+      "from": 267,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "iphone-14": {
+      "name": "iPhone 14",
+      "from": 278,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "iphone-14plus": {
+      "name": "iPhone 14 Plus",
+      "from": 288,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "iphone-14pro": {
+      "name": "iPhone 14 Pro",
+      "from": 371,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "iphone-14promax": {
+      "name": "iPhone 14 Pro Max",
+      "from": 379,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "iphone-15": {
+      "name": "iPhone 15",
+      "from": 387,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "iphone-15plus": {
+      "name": "iPhone 15 Plus",
+      "from": 419,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "iphone-15pro": {
+      "name": "iPhone 15 Pro",
+      "from": 479,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "iphone-15promax": {
+      "name": "iPhone 15 Pro Max",
+      "from": 535,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "iphone-16e": {
+      "name": "iPhone 16e",
+      "from": 430,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "iphone-16": {
+      "name": "iPhone 16",
+      "from": 509,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "iphone-16plus": {
+      "name": "iPhone 16 Plus",
+      "from": 519,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "iphone-16pro": {
+      "name": "iPhone 16 Pro",
+      "from": 618,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "iphone-16promax": {
+      "name": "iPhone 16 Pro Max",
+      "from": 718,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "iphone-17e": {
+      "name": "iPhone 17e",
+      "from": 558,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "iphone-17": {
+      "name": "iPhone 17",
+      "from": 727,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "iphone-air": {
+      "name": "iPhone Air",
+      "from": 689,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "iphone-17pro": {
+      "name": "iPhone 17 Pro",
+      "from": 941,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "iphone-17promax": {
+      "name": "iPhone 17 Pro Max",
+      "from": 999,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "iphone-18pro": {
+      "name": "iPhone 18 Pro",
+      "from": 1369,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "iphone-18promax": {
+      "name": "iPhone 18 Pro Max",
+      "from": 1479,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "iphone-duo": {
+      "name": "iPhone Duo",
+      "from": null,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "ipad-ipad9": {
+      "name": "iPad 9 (2021)",
+      "from": 173,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "ipad-ipad10": {
+      "name": "iPad 10 (2022)",
+      "from": 309,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "ipad-ipad11": {
+      "name": "iPad 11 (A16, 2025)",
+      "from": 404,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "ipad-mini6": {
+      "name": "iPad mini 6 (2021)",
+      "from": 336,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "ipad-mini7": {
+      "name": "iPad mini 7 (A17 Pro, 2024)",
+      "from": 449,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "ipad-mini8": {
+      "name": "iPad mini 8 (2026)",
+      "from": null,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "ipad-air5": {
+      "name": "iPad Air 5 (M1, 2022)",
+      "from": 390,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "ipad-air11m2": {
+      "name": "iPad Air 11\" M2 (2024)",
+      "from": 550,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "ipad-air13m2": {
+      "name": "iPad Air 13\" M2 (2024)",
+      "from": 679,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "ipad-air11m3": {
+      "name": "iPad Air 11\" M3 (2025)",
+      "from": 569,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "ipad-air13m3": {
+      "name": "iPad Air 13\" M3 (2025)",
+      "from": 699,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "ipad-air11m4": {
+      "name": "iPad Air 11\" M4 (2026)",
+      "from": 679,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "ipad-air13m4": {
+      "name": "iPad Air 13\" M4 (2026)",
+      "from": 839,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "ipad-pro11m1": {
+      "name": "iPad Pro 11\" M1 (2021)",
+      "from": 485,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "ipad-pro129m1": {
+      "name": "iPad Pro 12,9\" M1 (2021)",
+      "from": 565,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "ipad-pro11m2": {
+      "name": "iPad Pro 11\" M2 (2022)",
+      "from": 542,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "ipad-pro129m2": {
+      "name": "iPad Pro 12,9\" M2 (2022)",
+      "from": 649,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "ipad-pro11m4": {
+      "name": "iPad Pro 11\" M4 (2024)",
+      "from": 799,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "ipad-pro13m4": {
+      "name": "iPad Pro 13\" M4 (2024)",
+      "from": 909,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "ipad-pro11m5": {
+      "name": "iPad Pro 11\" M5 (2025)",
+      "from": 929,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "ipad-pro13m5": {
+      "name": "iPad Pro 13\" M5 (2025)",
+      "from": 1130,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "watch-s7": {
+      "name": "Apple Watch Series 7",
+      "from": 185,
+      "src": "PcComponentes, ago 2026",
+      "date": null
+    },
+    "watch-s8": {
+      "name": "Apple Watch Series 8",
+      "from": 180,
+      "src": "Back Market, jul 2026",
+      "date": null
+    },
+    "watch-s9": {
+      "name": "Apple Watch Series 9",
+      "from": 198,
+      "src": "Back Market, jul 2026",
+      "date": null
+    },
+    "watch-s10": {
+      "name": "Apple Watch Series 10",
+      "from": 350,
+      "src": "Back Market, jul 2026",
+      "date": null
+    },
+    "watch-s11": {
+      "name": "Apple Watch Series 11",
+      "from": 358,
+      "src": "Back Market (ficha), 2026",
+      "date": null
+    },
+    "watch-s12": {
+      "name": "Apple Watch Series 12",
+      "from": null,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "watch-se2": {
+      "name": "Apple Watch SE (2.ª gen)",
+      "from": 175,
+      "src": "Back Market, ago 2026",
+      "date": null
+    },
+    "watch-se3": {
+      "name": "Apple Watch SE 3",
+      "from": 220,
+      "src": "PcComponentes, 2026",
+      "date": null
+    },
+    "watch-u1": {
+      "name": "Apple Watch Ultra",
+      "from": 329,
+      "src": "Back Market, jul 2026",
+      "date": null
+    },
+    "watch-u2": {
+      "name": "Apple Watch Ultra 2",
+      "from": 498,
+      "src": "Back Market, jul 2026",
+      "date": null
+    },
+    "watch-u3": {
+      "name": "Apple Watch Ultra 3",
+      "from": 702,
+      "src": "PcComponentes, 2026",
+      "date": null
+    },
+    "watch-u4": {
+      "name": "Apple Watch Ultra 4",
+      "from": null,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "airpods-ap3": {
+      "name": "AirPods (3.ª gen)",
+      "from": 87,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "airpods-ap4": {
+      "name": "AirPods 4",
+      "from": 70,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "airpods-ap4anc": {
+      "name": "AirPods 4 con ANC",
+      "from": 89,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "airpods-ap5": {
+      "name": "AirPods 5",
+      "from": 162,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "airpods-pro2": {
+      "name": "AirPods Pro 2",
+      "from": 148,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "airpods-pro3": {
+      "name": "AirPods Pro 3",
+      "from": 150,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "airpods-max1": {
+      "name": "AirPods Max (1.ª gen)",
+      "from": 271,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    },
+    "airpods-max2": {
+      "name": "AirPods Max 2",
+      "from": 170,
+      "src": "RefurbMe",
+      "date": "2026-11-12"
+    }
+  }
+}

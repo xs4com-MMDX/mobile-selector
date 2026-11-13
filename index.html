@@ -404,7 +404,7 @@ function podsIcon(m,H){const t=m.type;const w=H*1.0;
  return `<svg width="${w}" height="${H}" viewBox="0 0 100 100"><rect x="${50-cw/2}" y="${92-ch}" width="${cw}" height="${ch}" rx="${pro?16:20}" fill="#f2f2f4" stroke="#d2d2d6"/><line x1="${50-cw/2}" y1="${92-ch+ch*0.32}" x2="${50+cw/2}" y2="${92-ch+ch*0.32}" stroke="#d2d2d6"/><circle cx="50" cy="${92-ch*0.45}" r="1.6" fill="#7bd36b"/>
  <g transform="translate(30 6)"><ellipse cx="9" cy="10" rx="9" ry="8" fill="#fafafa" stroke="#d2d2d6"/>${pro?'<ellipse cx="3" cy="11" rx="4" ry="5" fill="#e4e4e8"/>':''}<rect x="${pro?11:12}" y="12" width="5" height="${pro?14:22}" rx="2.5" fill="#fafafa" stroke="#d2d2d6"/></g>
  <g transform="translate(52 6)"><ellipse cx="9" cy="10" rx="9" ry="8" fill="#fafafa" stroke="#d2d2d6"/>${pro?'<ellipse cx="15" cy="11" rx="4" ry="5" fill="#e4e4e8"/>':''}<rect x="${pro?2:1}" y="12" width="5" height="${pro?14:22}" rx="2.5" fill="#fafafa" stroke="#d2d2d6"/></g></svg>`}
-let PHOTOS={};const photoKey=m=>cat+"-"+m.id;
+let PHOTOS={};var PRICES_UPDATED=null;const photoKey=m=>cat+"-"+m.id;
 function photo(m){const p=PHOTOS[photoKey(m)];return p&&p.src?p:null}
 function devImg(m,H,opts={}){const p=photo(m);if(p)return `<img src="${p.src}" alt="${m.name}" loading="lazy" style="height:${Math.round(H)}px;width:auto;max-width:100%;object-fit:contain" onerror="this.replaceWith(document.createRange().createContextualFragment(drawImg(CATS[cat].M.find(x=>x.id==='${m.id}'),${Math.round(H)})))">`;return drawImg(m,H,opts)}
 function drawImg(m,H,opts={}){const c=firstColor(m);
@@ -425,7 +425,7 @@ function resetCat(){C=CATS[cat];gsel=new Set(C.def);msel=new Set(C.M.filter(m=>g
 function renderCats(){document.getElementById("cats").innerHTML=Object.keys(CATS).map(k=>`<button class="${k===cat?'on':''}" data-c="${k}">${k==="watch"?"Watch":CATS[k].name}</button>`).join("");
  const H=HERO[cat];document.getElementById("heroTitle").textContent=H[0];document.getElementById("heroSub").textContent=H[1];
  document.getElementById("catTitle").textContent=cat==="watch"?"Apple Watch":C.name;
- const pr=C.M.filter(m=>m.from!==null).map(m=>m.from);document.getElementById("heroMeta").textContent=`${C.M.length} modelos · reacondicionados desde ${Math.min(...pr)} €`}
+ const pr=C.M.filter(m=>m.from!==null).map(m=>m.from);document.getElementById("heroMeta").textContent=`${C.M.length} modelos · reacondicionados desde ${Math.min(...pr)} €`+(typeof PRICES_UPDATED==="string"?` · precios actualizados el ${new Date(PRICES_UPDATED).toLocaleString("es-ES",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit",timeZone:"Europe/Madrid"})}`:"")}
 document.getElementById("cats").onclick=e=>{const b=e.target.closest("button");if(!b)return;cat=b.dataset.c;resetCat();renderAll();show("resumen")};
 const tabs=document.querySelectorAll("#tabs button");
 function show(t){tabs.forEach(b=>b.classList.toggle("on",b.dataset.t===t));document.querySelectorAll("section.tab").forEach(s=>s.classList.toggle("on",s.id===t));window.scrollTo({top:0,behavior:"smooth"})}
@@ -504,6 +504,9 @@ function renderCredits(){const used=Object.entries(PHOTOS).filter(([k,p])=>p&&p.
  el.innerHTML=`<p><b>Créditos de las fotos:</b> `+used.map(([k,p])=>`${k.replace(/^[a-z]+-/,"")}: ${p.source?`<a href="${p.source}" target="_blank" rel="noopener">${p.author||"autor"}</a>`:(p.author||"")}${p.license?" ("+p.license+")":""}`).join(" · ")+`</p>`}
 function renderAll(){renderCats();renderModels();renderPresets();renderPick();renderTable();renderPrices();renderShopSel();renderQuiz();renderTips();renderFoot()}
 resetCat();renderAll();
+fetch("prices.json",{cache:"no-cache"}).then(r=>r.ok?r.json():null).then(j=>{if(!j||!j.prices)return;PRICES_UPDATED=j.updated||null;
+ for(const [c,C2] of Object.entries(CATS))for(const m of C2.M){const p=j.prices[c+"-"+m.id];if(p&&typeof p.from==="number"){m.from=p.from;if(p.src)m.src=p.src+(p.date?", "+new Date(p.date).toLocaleDateString("es-ES",{day:"numeric",month:"short",year:"numeric"}):"")}}
+ renderAll()}).catch(()=>{});
 fetch("images.json",{cache:"no-cache"}).then(r=>r.ok?r.json():{}).then(j=>{PHOTOS=Object.fromEntries(Object.entries(j).filter(([k,v])=>!k.startsWith("_")));if(Object.values(PHOTOS).some(p=>p&&p.src))renderAll();renderCredits()}).catch(()=>{});
 let rt;window.addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(()=>{renderModels();renderTable()},250)});
 
