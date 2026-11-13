@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Visitas · Panel privado</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f5f7;--white:#fff;--ink:#1d1d1f;--mute:#6e6e73;--soft:#86868b;--line:#d2d2d7;--blue:#0071e3;--link:#0066cc;--red:#c4382a;
+ --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Inter,Arial,sans-serif}
+@media (prefers-color-scheme:dark){:root{--bg:#000;--white:#1d1d1f;--ink:#f5f5f7;--mute:#a1a1a6;--line:#424245;--blue:#0a84ff;--link:#2997ff;--red:#ff6961}}
+*{box-sizing:border-box}body{margin:0;font-family:var(--font);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;letter-spacing:-.016em}
+a{color:var(--link)}
+.gnav{position:sticky;top:0;z-index:5;height:48px;background:rgba(251,251,253,.8);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.06)}
+@media (prefers-color-scheme:dark){.gnav{background:rgba(22,22,23,.8)}}
+.gnav .in{max-width:1200px;margin:0 auto;height:100%;display:flex;align-items:center;gap:14px;padding:0 16px;font-size:14px}
+.gnav b{margin-right:auto}
+.wrap{max-width:1200px;margin:0 auto;padding:20px 16px 60px}
+h1{font-size:clamp(32px,6vw,48px);margin:24px 0 6px;font-weight:700}
+.sub{color:var(--mute);margin:0 0 24px}
+.login{max-width:420px;margin:12vh auto 0;background:var(--white);border-radius:28px;padding:34px 28px;text-align:center}
+.login h2{font-size:28px;margin:0 0 8px}
+input[type=password],input[type=search]{width:100%;font:17px var(--font);padding:13px 16px;border-radius:12px;border:1px solid var(--line);background:var(--white);color:var(--ink)}
+.btn{background:var(--blue);color:#fff;border:0;border-radius:980px;padding:11px 22px;font:500 16px var(--font);cursor:pointer}
+.btn.sm{padding:6px 14px;font-size:13px}.btn.ghost{background:none;color:var(--link);border:1px solid var(--line)}.btn.danger{background:none;color:var(--red);border:1px solid var(--line)}
+.err{color:var(--red);font-size:14px;min-height:20px;margin-top:10px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-bottom:18px}
+.kpi{background:var(--white);border-radius:22px;padding:18px 20px}
+.kpi .v{font-size:32px;font-weight:700;letter-spacing:-.02em}.kpi .l{color:var(--mute);font-size:13px}
+.cols{display:grid;grid-template-columns:2fr 1fr 1fr;gap:14px;margin-bottom:18px}
+@media (max-width:800px){.cols{grid-template-columns:1fr}}
+.card{background:var(--white);border-radius:22px;padding:18px 20px}
+.card h3{margin:0 0 12px;font-size:17px}
+.bars{display:flex;align-items:flex-end;gap:4px;height:140px}
+.bars div{flex:1;background:var(--blue);border-radius:4px 4px 0 0;min-height:2px;position:relative}
+.bars div span{position:absolute;bottom:-18px;left:50%;transform:translateX(-50%);font-size:10px;color:var(--soft);white-space:nowrap}
+.bars div b{position:absolute;top:-16px;left:50%;transform:translateX(-50%);font-size:10px;color:var(--mute);font-weight:500}
+.top{list-style:none;padding:0;margin:0;font-size:14px}.top li{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--line)}
+.tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:8px 0 12px}
+.tools input{max-width:320px}
+.tablewrap{background:var(--white);border-radius:22px;overflow:auto;max-height:70vh}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+th{position:sticky;top:0;background:var(--white);font-weight:600;font-size:12px;color:var(--mute);text-transform:uppercase;letter-spacing:.03em}
+td.ua{white-space:normal;min-width:180px;color:var(--mute)}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px}
+.hide{display:none}
+</style>
+</head>
+<body>
+<nav class="gnav"><div class="in"><b>Panel de visitas</b><a href="/">← Volver al comparador</a><button class="btn sm ghost hide" id="logout">Cerrar sesión</button></div></nav>
+
+<div class="wrap">
+ <div class="login" id="loginBox">
+  <h2>Acceso privado</h2>
+  <p class="sub">Introduce la contraseña configurada en Netlify.</p>
+  <form id="loginForm"><input type="password" id="pwd" placeholder="Contraseña" autocomplete="current-password" required><div style="margin-top:16px"><button class="btn" type="submit">Entrar</button></div></form>
+  <div class="err" id="err"></div>
+ </div>
+
+ <div id="panel" class="hide">
+  <h1>Visitas.</h1>
+  <p class="sub" id="updated"></p>
+  <div class="kpis" id="kpis"></div>
+  <div class="cols">
+   <div class="card"><h3>Últimos 14 días</h3><div class="bars" id="bars"></div><div style="height:20px"></div></div>
+   <div class="card"><h3>Países</h3><ul class="top" id="topC"></ul></div>
+   <div class="card"><h3>Ciudades</h3><ul class="top" id="topCity"></ul></div>
+  </div>
+  <div class="tools">
+   <input type="search" id="q" placeholder="Buscar IP, ciudad, país, navegador…">
+   <label style="font-size:14px;color:var(--mute)"><input type="checkbox" id="today"> Solo hoy</label>
+   <button class="btn sm" id="reload">Actualizar</button>
+   <button class="btn sm ghost" id="csv">Descargar CSV</button>
+   <button class="btn sm danger" id="wipe">Borrar todos los registros</button>
+  </div>
+  <div class="tablewrap"><table><thead><tr><th>Fecha y hora</th><th>IP</th><th>Ciudad</th><th>Región</th><th>País</th><th>Dispositivo</th><th>Idioma</th><th>Pantalla</th><th>Origen</th><th class="ua">Navegador (user agent)</th></tr></thead><tbody id="rows"></tbody></table></div>
+  <p class="sub" style="font-size:12px;margin-top:12px">Hora mostrada en tu zona horaria. La ubicación es aproximada (se deduce de la IP) y puede no coincidir con la real, sobre todo con VPN o datos móviles.</p>
+ </div>
+</div>
+
+<script>
+let PWD="",DATA=[];
+const $=id=>document.getElementById(id);
+const fmt=t=>new Date(t).toLocaleString("es-ES",{dateStyle:"short",timeStyle:"medium"});
+const flag=cc=>cc&&cc.length===2?String.fromCodePoint(...[...cc.toUpperCase()].map(c=>127397+c.charCodeAt(0))):"";
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function device(ua){ua=ua||"";const os=/iPhone/.test(ua)?"iPhone":/iPad/.test(ua)?"iPad":/Android/.test(ua)?"Android":/Mac OS X/.test(ua)?"Mac":/Windows/.test(ua)?"Windows":/Linux/.test(ua)?"Linux":"Otro";
+ const br=/Edg\//.test(ua)?"Edge":/OPR\//.test(ua)?"Opera":/SamsungBrowser/.test(ua)?"Samsung":/CriOS|Chrome\//.test(ua)?"Chrome":/FxiOS|Firefox\//.test(ua)?"Firefox":/Safari\//.test(ua)?"Safari":"";
+ const bot=/bot|crawl|spider|preview|curl|python/i.test(ua)?" · bot":"";return os+(br?" · "+br:"")+bot}
+const host=r=>{try{return r?new URL(r).hostname:"directo"}catch(e){return r}};
+
+async function load(){
+ const r=await fetch("/api/visits?limit=5000",{headers:{"x-admin-password":PWD}});
+ const j=await r.json().catch(()=>({error:"Respuesta no válida"}));
+ if(!r.ok){throw new Error(j.error||("Error "+r.status))}
+ DATA=j.visits;$("updated").textContent=`Total contador: ${j.total} · registros guardados: ${j.stored} · mostrando ${j.returned} · actualizado ${new Date().toLocaleTimeString("es-ES")}`;
+ render();
+}
+function render(){
+ const q=$("q").value.toLowerCase().trim();const td=new Date().toDateString();
+ const list=DATA.filter(v=>(!$("today").checked||new Date(v.t).toDateString()===td)&&(!q||[v.ip,v.city,v.region,v.country,v.ua,v.lang,v.ref].join(" ").toLowerCase().includes(q)));
+ const ips=new Set(DATA.map(v=>v.ip));const today=DATA.filter(v=>new Date(v.t).toDateString()===td).length;
+ const countries=new Set(DATA.map(v=>v.country).filter(Boolean));
+ $("kpis").innerHTML=[["Visitas registradas",DATA.length],["IPs únicas",ips.size],["Hoy",today],["Países",countries.size]].map(([l,v])=>`<div class="kpi"><div class="v">${v.toLocaleString("es-ES")}</div><div class="l">${l}</div></div>`).join("");
+ // 14 days
+ const days=[...Array(14)].map((_,i)=>{const d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()-13+i);return d});
+ const cnt=days.map(d=>DATA.filter(v=>new Date(v.t).toDateString()===d.toDateString()).length);const mx=Math.max(1,...cnt);
+ $("bars").innerHTML=days.map((d,i)=>`<div style="height:${cnt[i]/mx*100}%"><b>${cnt[i]||""}</b><span>${d.getDate()}/${d.getMonth()+1}</span></div>`).join("");
+ const top=(key,fl)=>{const m={};DATA.forEach(v=>{const k=v[key]||"Desconocido";m[k]=(m[k]||0)+1});return Object.entries(m).sort((a,b)=>b[1]-a[1]).slice(0,8).map(([k,n])=>`<li><span>${fl?flag((DATA.find(v=>v.country===k)||{}).cc)+" ":""}${esc(k)}</span><b>${n}</b></li>`).join("")};
+ $("topC").innerHTML=top("country",true);$("topCity").innerHTML=top("city");
+ $("rows").innerHTML=list.map(v=>`<tr><td>${fmt(v.t)}</td><td class="mono">${esc(v.ip)}</td><td>${esc(v.city)}</td><td>${esc(v.region)}</td><td>${flag(v.cc)} ${esc(v.country)}</td><td>${esc(device(v.ua))}</td><td>${esc(v.lang)}</td><td>${esc(v.screen)}</td><td>${esc(host(v.ref))}</td><td class="ua">${esc(v.ua)}</td></tr>`).join("")||`<tr><td colspan="10" style="color:var(--mute)">Sin visitas que mostrar.</td></tr>`;
+}
+$("loginForm").onsubmit=async e=>{e.preventDefault();PWD=$("pwd").value;$("err").textContent="Comprobando…";
+ try{await load();try{sessionStorage.setItem("adm",PWD)}catch(_){}$("loginBox").classList.add("hide");$("panel").classList.remove("hide");$("logout").classList.remove("hide");$("err").textContent=""}
+ catch(err){$("err").textContent=err.message}};
+$("q").oninput=render;$("today").onchange=render;
+$("reload").onclick=()=>load().catch(e=>alert(e.message));
+$("logout").onclick=()=>{try{sessionStorage.removeItem("adm")}catch(_){}location.reload()};
+$("csv").onclick=()=>{const cols=["t","ip","city","region","country","cc","tz","lat","lon","lang","screen","ref","path","ua"];
+ const csv=[cols.join(";")].concat(DATA.map(v=>cols.map(c=>'"'+String(v[c]??"").replace(/"/g,'""')+'"').join(";"))).join("\n");
+ const a=document.createElement("a");a.href=URL.createObjectURL(new Blob(["﻿"+csv],{type:"text/csv"}));a.download="visitas-"+new Date().toISOString().slice(0,10)+".csv";a.click()};
+$("wipe").onclick=async()=>{if(!confirm("¿Borrar TODOS los registros de visitas y poner el contador a cero? No se puede deshacer."))return;
+ const r=await fetch("/api/visits",{method:"DELETE",headers:{"x-admin-password":PWD}});const j=await r.json();alert(r.ok?`Borrados ${j.deleted} registros.`:j.error);load()};
+(async()=>{let p="";try{p=sessionStorage.getItem("adm")||""}catch(_){}if(p){PWD=p;try{await load();$("loginBox").classList.add("hide");$("panel").classList.remove("hide");$("logout").classList.remove("hide")}catch(e){}}})();
+</script>
+</body>
+</html>

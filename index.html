@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reacondicionado · Comparador de iPhone, iPad, Watch y AirPods</title>
+<meta name="description" content="Comparador independiente de iPhone, iPad, Apple Watch y AirPods reacondicionados: especificaciones, precios y tiendas en España.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f5f7;--white:#fff;--ink:#1d1d1f;--mute:#6e6e73;--soft:#86868b;--line:#d2d2d7;--blue:#0071e3;--link:#0066cc;--good:#1d8a3a;--bad:#c4382a;
+ --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Inter,Arial,sans-serif}
+@media (prefers-color-scheme:dark){:root{--bg:#000;--white:#1d1d1f;--ink:#f5f5f7;--mute:#a1a1a6;--soft:#86868b;--line:#424245;--blue:#0a84ff;--link:#2997ff;--good:#30d158;--bad:#ff6961}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--font);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;font-size:17px;line-height:1.47;letter-spacing:-.022em}
+a{color:var(--link);text-decoration:none}a:hover{text-decoration:underline}
+button{font-family:var(--font)}
+/* global nav */
+.gnav{position:sticky;top:0;z-index:20;height:48px;background:rgba(251,251,253,.8);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.06)}
+@media (prefers-color-scheme:dark){.gnav{background:rgba(22,22,23,.8);border-bottom-color:rgba(255,255,255,.08)}}
+.gnav .in{max-width:1000px;margin:0 auto;height:100%;display:flex;align-items:center;gap:6px;padding:0 16px}
+.brand{font-weight:600;font-size:15px;letter-spacing:-.01em;margin-right:auto;white-space:nowrap;color:var(--ink)}
+.brand b{font-weight:700}
+.gnav .cl{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.gnav .cl button{background:none;border:0;color:var(--ink);opacity:.8;font-size:13px;padding:8px 10px;border-radius:8px;cursor:pointer;white-space:nowrap}
+.gnav .cl button.on{opacity:1;font-weight:600;background:rgba(0,0,0,.05)}
+@media (prefers-color-scheme:dark){.gnav .cl button.on{background:rgba(255,255,255,.1)}}
+/* local nav */
+.lnav{position:sticky;top:48px;z-index:19;background:rgba(245,245,247,.82);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.08)}
+@media (prefers-color-scheme:dark){.lnav{background:rgba(0,0,0,.75);border-bottom-color:rgba(255,255,255,.1)}}
+.lnav .in{max-width:1000px;margin:0 auto;display:flex;align-items:center;gap:4px;padding:0 16px;height:52px}
+.lnav h2{font-size:21px;font-weight:600;margin:0 auto 0 0;letter-spacing:.011em;white-space:nowrap}
+.lnav .tl{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;margin-left:12px}
+.lnav .tl button{background:none;border:0;color:var(--ink);font-size:12.5px;padding:6px 8px;cursor:pointer;white-space:nowrap;opacity:.85}
+.lnav .tl button.on{opacity:1;color:var(--soft);cursor:default}
+.pillbtn{background:var(--blue);color:#fff;border:0;border-radius:980px;padding:5px 13px;font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap}
+.pillbtn:hover{filter:brightness(1.08);text-decoration:none}
+.pillbtn.lg{font-size:17px;padding:11px 22px}
+.pillbtn.ghost{background:none;color:var(--link);border:1px solid var(--link)}
+@media (max-width:640px){.lnav h2{display:none}.lnav .tl{margin-left:0}.brand .bx{display:none}.gnav .cl button{padding:8px 7px}}
+/* hero */
+.hero{text-align:center;padding:56px 20px 28px;max-width:980px;margin:0 auto}
+.hero h1{font-size:clamp(40px,8vw,80px);line-height:1.05;font-weight:700;letter-spacing:-.015em;margin:0}
+.hero p{font-size:clamp(19px,3vw,24px);color:var(--ink);font-weight:500;margin:10px 0 0;letter-spacing:.009em}
+.hero .sub{font-size:15px;color:var(--mute);font-weight:400;margin-top:8px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 16px 40px}
+section.tab{display:none}section.tab.on{display:block}
+.h2{font-size:clamp(28px,5vw,40px);font-weight:700;letter-spacing:-.01em;line-height:1.1;margin:36px 0 18px}
+.h3{font-size:21px;font-weight:600;margin:34px 0 14px;display:flex;align-items:center;gap:10px}
+.year{font-size:13px;color:var(--soft);font-weight:500}
+/* chips */
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;align-items:center}
+.lbl{width:100%;font-size:12px;color:var(--soft);font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin:6px 0 0}
+.chip{border:1px solid var(--line);background:var(--white);color:var(--ink);padding:8px 15px;border-radius:980px;font-size:14px;cursor:pointer;white-space:nowrap;display:inline-flex;align-items:center;gap:6px;transition:border-color .2s}
+.chip:hover{border-color:var(--soft)}
+.chip.on{border:2px solid var(--blue);padding:7px 14px}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;flex:0 0 auto}
+/* tiles */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.tile{background:var(--white);border-radius:28px;padding:28px 24px 22px;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s}
+.tile:hover{transform:translateY(-3px);box-shadow:0 12px 34px rgba(0,0,0,.08)}
+.tile .img{display:flex;align-items:flex-end;justify-content:center;gap:12px;height:190px;margin-bottom:16px}
+.tile .new{font-size:12px;color:#bf4800;font-weight:600;text-align:center}
+@media (prefers-color-scheme:dark){.tile .new{color:#ff9f0a}}
+.tile h4{font-size:24px;font-weight:600;text-align:center;margin:2px 0 2px;letter-spacing:.004em;line-height:1.15}
+.tile .tag{text-align:center;color:var(--mute);font-size:15px}
+.tile .price{text-align:center;font-size:17px;margin:14px 0 2px}
+.tile .price b{font-weight:600}
+.tile .src{text-align:center;font-size:12px;color:var(--soft)}
+.tile .act{display:flex;justify-content:center;align-items:center;gap:18px;margin:14px 0 6px}
+.colors{display:flex;justify-content:center;gap:6px;margin-top:10px;flex-wrap:wrap}
+.colors i{width:12px;height:12px;border-radius:50%;box-shadow:inset 0 1px 2px rgba(0,0,0,.25)}
+details.specs{margin-top:10px;border-top:1px solid var(--line)}
+details.specs summary{list-style:none;cursor:pointer;color:var(--link);font-size:15px;text-align:center;padding:12px 0 2px}
+details.specs summary::-webkit-details-marker{display:none}
+details.specs[open] summary .op{display:none}details.specs:not([open]) summary .cl{display:none}
+.keys{list-style:none;padding:0;margin:6px 0 0;font-size:14px;line-height:1.4}
+.keys li{padding:7px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px}
+.keys li span:first-child{color:var(--mute)}
+.keys li span:last-child{text-align:right;font-weight:500}
+.keys li.sg{display:block;border:0;padding:16px 0 4px;font-size:12px;font-weight:600;color:var(--ink);text-transform:uppercase;letter-spacing:.04em}
+.yes{color:var(--good);font-weight:600}.no{color:var(--soft)}.nd{color:var(--soft);font-weight:400}
+/* size stage */
+.stage{background:var(--white);border-radius:28px;padding:30px 16px 20px;margin:8px 0 6px}
+.stage .devs{display:flex;align-items:flex-end;justify-content:center;gap:clamp(10px,3vw,30px);flex-wrap:wrap}
+.stage figure{margin:0;text-align:center}
+.stage figcaption{font-size:12px;color:var(--mute);margin-top:10px;line-height:1.35}
+.stage figcaption b{color:var(--ink);font-weight:600;display:block;font-size:13px}
+.note{font-size:12px;color:var(--soft);line-height:1.5;margin-top:10px}
+.center{text-align:center}
+/* compare */
+.toggle{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--mute);margin:6px 0 14px}
+.tablewrap{overflow:auto;max-height:82vh;border-radius:28px;background:var(--white)}
+table{border-collapse:separate;border-spacing:0;width:100%;font-size:14px}
+th,td{padding:12px 14px;text-align:center;border-bottom:1px solid var(--line);vertical-align:top;min-width:150px}
+thead th{position:sticky;top:0;background:var(--white);z-index:2;font-weight:600;padding-top:20px}
+thead th .im{height:130px;display:flex;align-items:flex-end;justify-content:center;margin-bottom:10px}
+thead th .nm{font-size:16px;line-height:1.2}
+thead th .pr{font-weight:400;color:var(--mute);font-size:13px;margin:4px 0 8px}
+td.k,th.k{text-align:left;color:var(--mute);font-weight:400;position:sticky;left:0;background:var(--white);min-width:120px;z-index:1}
+thead th.k{z-index:3}
+tr.grp td{font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--ink);padding-top:22px;background:var(--white)}
+tr.diff td:not(.k){font-weight:600}
+/* prices */
+.plist{background:var(--white);border-radius:28px;padding:10px 24px}
+.prow{padding:14px 0;border-bottom:1px solid var(--line)}.prow:last-child{border:0}
+.prow .t{display:flex;justify-content:space-between;gap:10px;font-size:15px}
+.bar{height:6px;border-radius:3px;background:var(--bg);margin-top:8px;overflow:hidden}.bar i{display:block;height:100%;border-radius:3px}
+/* shop */
+select{font-family:var(--font);font-size:17px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--white);color:var(--ink);width:100%;max-width:420px}
+.shopbox{background:var(--white);border-radius:28px;padding:28px 24px;margin-top:16px}
+.shopbox .head{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.shops{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:20px}
+.shops a{display:flex;flex-direction:column;gap:2px;color:var(--ink);background:var(--bg);border-radius:18px;padding:16px 18px;font-weight:600;font-size:16px;transition:transform .2s}
+.shops a:hover{text-decoration:none;transform:scale(1.02)}
+.shops a small{color:var(--mute);font-weight:400;font-size:13px}
+.shops a::after{content:"Ir a la tienda ›";color:var(--link);font-weight:400;font-size:13px;margin-top:6px}
+/* quiz */
+.quiz{background:var(--white);border-radius:28px;padding:26px 24px}
+.quiz .q{margin:22px 0 10px;font-weight:600;font-size:19px}.quiz .q:first-child{margin-top:0}
+.quiz .opts{display:flex;gap:8px;flex-wrap:wrap}
+.quiz .opts button{border:1px solid var(--line);background:var(--white);color:var(--ink);border-radius:14px;padding:12px 16px;font-size:15px;cursor:pointer}
+.quiz .opts button.on{border:2px solid var(--blue);padding:11px 15px}
+.result{margin-top:22px;padding:24px;border-radius:24px;background:var(--bg);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.result .rt{flex:1;min-width:220px}
+.result .k{font-size:12px;color:#bf4800;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.result h5{font-size:24px;margin:4px 0;font-weight:600}
+.tips{background:var(--white);border-radius:28px;padding:10px 28px}
+.tips li{margin:16px 0;line-height:1.5;font-size:16px}
+/* footer */
+footer{background:var(--bg);border-top:1px solid var(--line);margin-top:30px}
+footer .in{max-width:1000px;margin:0 auto;padding:20px 16px 40px;font-size:12px;color:var(--mute);line-height:1.6}
+footer .in p{margin:0 0 10px}
+.visits{display:inline-flex;align-items:center;gap:6px;color:var(--mute);font-size:12px;cursor:pointer;background:none;border:0;padding:0}
+.visits:hover{color:var(--link)}
+</style>
+</head>
+<body>
+<nav class="gnav"><div class="in"><span class="brand"><b>Reacondicionado</b><span class="bx"> · Comparador</span></span><div class="cl" id="cats"></div></div></nav>
+<div class="lnav"><div class="in"><h2 id="catTitle">iPhone</h2><div class="tl" id="tabs">
+ <button data-t="resumen" class="on">Modelos</button><button data-t="comparar">Comparar</button><button data-t="precios">Precios</button><button data-t="elegir">¿Cuál elijo?</button><button data-t="consejos">Consejos</button>
+</div><button class="pillbtn" data-t="comprar" id="buyTop">Comprar</button></div></div>
+
+<div class="hero"><h1 id="heroTitle">iPhone.</h1><p id="heroSub"></p><div class="sub" id="heroMeta"></div></div>
+
+<div class="wrap">
+<section class="tab on" id="resumen">
+  <div class="row" id="genFilter"></div>
+  <div class="stage" id="stage"><div class="devs" id="sizes"></div><p class="note center" id="stageNote"></p></div>
+  <div id="cards"></div>
+</section>
+
+<section class="tab" id="comparar">
+  <div class="h2">Compara modelos.</div>
+  <div class="row" id="presets"></div>
+  <div class="row" id="pick"></div>
+  <label class="toggle"><input type="checkbox" id="onlyDiff"> Mostrar solo las diferencias</label>
+  <div class="tablewrap"><table id="tbl"></table></div>
+</section>
+
+<section class="tab" id="precios">
+  <div class="h2">Cuánto te ahorras.</div>
+  <div class="plist" id="priceList"></div>
+  <p class="note">Barra de color: precio reacondicionado más bajo visto. Barra gris: precio de lanzamiento en España (versión base).</p>
+</section>
+
+<section class="tab" id="comprar">
+  <div class="h2">Dónde comprar.</div>
+  <select id="shopSel"></select>
+  <div class="shopbox" id="shopBox"></div>
+  <p class="note">Back Market, Amazon, eBay y MediaMarkt son marketplaces: cada oferta la vende un reacondicionador distinto. Los reacondicionados oficiales de Apple traen batería nueva y 1 año de garantía, pero suelen ser más caros. RefurbMe compara precios entre tiendas.</p>
+</section>
+
+<section class="tab" id="elegir">
+  <div class="h2">¿Cuál es para ti?</div>
+  <div class="quiz"><div id="quizBox"></div><div id="res"></div></div>
+</section>
+
+<section class="tab" id="consejos">
+  <div class="h2">Antes de comprar.</div>
+  <ul class="tips" id="tipsList"></ul>
+</section>
+</div>
+
+<footer><div class="in">
+  <p><button class="visits" id="visits" title="Ver estadísticas de visitas">◉ <span id="vcount">—</span> visitas</button></p>
+  <p id="foot"></p>
+  <div id="credits"></div>
+  <p>Sitio independiente, sin relación con Apple Inc. iPhone, iPad, Apple Watch y AirPods son marcas de Apple Inc. Las imágenes son fotos con licencia libre o propias (ver créditos) o, si no hay foto, dibujos esquemáticos.</p>
+  <p><b>Privacidad:</b> para elaborar estadísticas, este sitio registra de cada visita la fecha y hora, la dirección IP, la ubicación aproximada que deduce de ella y el navegador. Estos datos solo los ve el administrador del sitio y no se ceden a terceros.</p>
+</div></footer>
+
+<script>
+const Y=true,N=false,ND="n/d";
+const yn=v=>v===true?'<span class="yes">Sí</span>':v===false?'<span class="no">No</span>':(v===ND||v===undefined?'<span class="nd">n/d</span>':v);
+const enc=s=>encodeURIComponent(s);
+const dec=n=>String(n).replace(".",",");
+const link=(n,u,s)=>`<a href="${u}" target="_blank" rel="noopener">${n}<small>${s}</small></a>`;
+const REF="RefurbMe, nov 2026";
+/* ======================= iPHONE ======================= */
+const IPH_F={"12":{n:"iPhone 12",c:"#c0392b",y:"2020"},"14":{n:"iPhone 14",c:"#7b5ea7",y:"2022"},"15":{n:"iPhone 15",c:"#3a7bd5",y:"2023"},"16":{n:"iPhone 16",c:"#18a37b",y:"2024–25"},"17":{n:"iPhone 17",c:"#e07a1f",y:"2025–26"},"18":{n:"iPhone 18 y Duo",c:"#8e1f3f",y:"2026"}};
+const ip=(o)=>Object.assign({camc:N,sim:"nano‑SIM + eSIM",bio:"Face ID"},o);
+const IPH=[
+ ip({id:"12mini",f:"12",yr:2020,name:"iPhone 12 mini",slug:"iphone-12-mini",tag:"El más pequeño",from:146,launch:809,h:131.5,w:64.2,in:5.4,res:"2340 × 1080",hz:60,aod:N,isl:N,nits:"1200 nits (HDR)",chip:"A14 Bionic",ram:4,sto:"64 / 128 / 256 GB",ai:N,main:"12 MP ƒ/1.6",uw:"12 MP ƒ/2.4",tele:"—",opt:"—",dig:"hasta 5x",lidar:N,front:"12 MP",video:"4K 60 fps · Dolby Vision",bat:15,port:"Lightning (USB 2)",wl:"MagSafe 12 W",mat:"Aluminio",dims:"131,5 × 64,2 × 7,4",wt:133,btn:"Interruptor de silencio",wifi:"Wi‑Fi 6",cols:"Negro, blanco, rojo, verde, azul, morado"}),
+ ip({id:"12",f:"12",yr:2020,name:"iPhone 12",slug:"iphone-12",tag:"El iPhone 5G más barato",from:149,launch:909,h:146.7,w:71.5,in:6.1,res:"2532 × 1170",hz:60,aod:N,isl:N,nits:"1200 nits (HDR)",chip:"A14 Bionic",ram:4,sto:"64 / 128 / 256 GB",ai:N,main:"12 MP ƒ/1.6",uw:"12 MP ƒ/2.4",tele:"—",opt:"—",dig:"hasta 5x",lidar:N,front:"12 MP",video:"4K 60 fps · Dolby Vision",bat:17,port:"Lightning (USB 2)",wl:"MagSafe 15 W",mat:"Aluminio",dims:"146,7 × 71,5 × 7,4",wt:162,btn:"Interruptor de silencio",wifi:"Wi‑Fi 6",cols:"Negro, blanco, rojo, verde, azul, morado"}),
+ ip({id:"12pro",f:"12",yr:2020,name:"iPhone 12 Pro",slug:"iphone-12-pro",tag:"Triple cámara barata",from:222,launch:1159,h:146.7,w:71.5,in:6.1,res:"2532 × 1170",hz:60,aod:N,isl:N,nits:"1200 nits (HDR)",chip:"A14 Bionic",ram:6,sto:"128 / 256 / 512 GB",ai:N,main:"12 MP ƒ/1.6",uw:"12 MP ƒ/2.4",tele:"12 MP 2x ƒ/2.0",opt:"hasta 2x",dig:"hasta 10x",lidar:Y,front:"12 MP",video:"4K 60 fps · Dolby Vision",bat:17,port:"Lightning (USB 2)",wl:"MagSafe 15 W",mat:"Acero inoxidable",dims:"146,7 × 71,5 × 7,4",wt:187,btn:"Interruptor de silencio",wifi:"Wi‑Fi 6",cols:"Grafito, plata, oro, azul pacífico"}),
+ ip({id:"12promax",f:"12",yr:2020,name:"iPhone 12 Pro Max",slug:"iphone-12-pro-max",tag:"Pantalla grande barata",from:267,launch:1259,h:160.8,w:78.1,in:6.7,res:"2778 × 1284",hz:60,aod:N,isl:N,nits:"1200 nits (HDR)",chip:"A14 Bionic",ram:6,sto:"128 / 256 / 512 GB",ai:N,main:"12 MP ƒ/1.6 (sensor mayor)",uw:"12 MP ƒ/2.4",tele:"12 MP 2,5x ƒ/2.2",opt:"hasta 2,5x",dig:"hasta 12x",lidar:Y,front:"12 MP",video:"4K 60 fps · Dolby Vision",bat:20,port:"Lightning (USB 2)",wl:"MagSafe 15 W",mat:"Acero inoxidable",dims:"160,8 × 78,1 × 7,4",wt:226,btn:"Interruptor de silencio",wifi:"Wi‑Fi 6",cols:"Grafito, plata, oro, azul pacífico"}),
+
+ ip({id:"14",f:"14",yr:2022,name:"iPhone 14",slug:"iphone-14",tag:"Básico económico",from:278,launch:1009,h:146.7,w:71.5,in:6.1,res:"2532 × 1170",hz:60,aod:N,isl:N,nits:"1200 nits (HDR)",chip:"A15 Bionic",ram:6,sto:"128 / 256 / 512 GB",ai:N,main:"12 MP ƒ/1.5",uw:"12 MP ƒ/2.4",tele:"—",opt:"—",dig:"hasta 5x",lidar:N,front:"12 MP",video:"4K 60 fps · modo Cine",bat:20,port:"Lightning (USB 2)",wl:"MagSafe 15 W",mat:"Aluminio",dims:"146,7 × 71,5 × 7,80",wt:172,btn:"Interruptor de silencio",wifi:"Wi‑Fi 6",cols:"Medianoche, blanco estrella, morado, azul, amarillo, rojo"}),
+ ip({id:"14plus",f:"14",yr:2022,name:"iPhone 14 Plus",slug:"iphone-14-plus",tag:"Pantalla grande barata",from:288,launch:1159,h:160.8,w:78.1,in:6.7,res:"2778 × 1284",hz:60,aod:N,isl:N,nits:"1200 nits (HDR)",chip:"A15 Bionic",ram:6,sto:"128 / 256 / 512 GB",ai:N,main:"12 MP ƒ/1.5",uw:"12 MP ƒ/2.4",tele:"—",opt:"—",dig:"hasta 5x",lidar:N,front:"12 MP",video:"4K 60 fps · modo Cine",bat:26,port:"Lightning (USB 2)",wl:"MagSafe 15 W",mat:"Aluminio",dims:"160,8 × 78,1 × 7,80",wt:203,btn:"Interruptor de silencio",wifi:"Wi‑Fi 6",cols:"Medianoche, blanco estrella, morado, azul, amarillo, rojo"}),
+ ip({id:"14pro",f:"14",yr:2022,name:"iPhone 14 Pro",slug:"iphone-14-pro",tag:"Pro más barato con 120 Hz",from:371,launch:1319,h:147.5,w:71.5,in:6.1,res:"2556 × 1179",hz:120,aod:Y,isl:Y,nits:"2000 nits",chip:"A16 Bionic",ram:6,sto:"128 GB – 1 TB",ai:N,main:"48 MP ƒ/1.78",uw:"12 MP ƒ/2.2 (macro)",tele:"12 MP 3x ƒ/2.8",opt:"hasta 3x",dig:"hasta 15x",lidar:Y,front:"12 MP",video:"4K 60 fps · ProRes",bat:23,port:"Lightning (USB 2)",wl:"MagSafe 15 W",mat:"Acero inoxidable",dims:"147,5 × 71,5 × 7,85",wt:206,btn:"Interruptor de silencio",wifi:"Wi‑Fi 6",cols:"Negro espacial, plata, oro, morado oscuro"}),
+ ip({id:"14promax",f:"14",yr:2022,name:"iPhone 14 Pro Max",slug:"iphone-14-pro-max",tag:"Pro grande más barato",from:379,launch:1469,h:160.7,w:77.6,in:6.7,res:"2796 × 1290",hz:120,aod:Y,isl:Y,nits:"2000 nits",chip:"A16 Bionic",ram:6,sto:"128 GB – 1 TB",ai:N,main:"48 MP ƒ/1.78",uw:"12 MP ƒ/2.2 (macro)",tele:"12 MP 3x ƒ/2.8",opt:"hasta 3x",dig:"hasta 15x",lidar:Y,front:"12 MP",video:"4K 60 fps · ProRes",bat:29,port:"Lightning (USB 2)",wl:"MagSafe 15 W",mat:"Acero inoxidable",dims:"160,7 × 77,6 × 7,85",wt:240,btn:"Interruptor de silencio",wifi:"Wi‑Fi 6",cols:"Negro espacial, plata, oro, morado oscuro"}),
+
+ ip({id:"15",f:"15",yr:2023,name:"iPhone 15",slug:"iphone-15",tag:"Primer USB‑C",from:387,launch:959,h:147.6,w:71.6,in:6.1,res:"2556 × 1179",hz:60,aod:N,isl:Y,nits:"2000 nits",chip:"A16 Bionic",ram:6,sto:"128 / 256 / 512 GB",ai:N,main:"48 MP ƒ/1.6",uw:"12 MP ƒ/2.4",tele:"—",opt:"2x (recorte del sensor)",dig:"hasta 10x",lidar:N,front:"12 MP",video:"4K 60 fps · modo Cine",bat:20,port:"USB‑C (USB 2)",wl:"MagSafe · Qi2 15 W",mat:"Aluminio",dims:"147,6 × 71,6 × 7,80",wt:171,btn:"Interruptor de silencio",wifi:"Wi‑Fi 6",cols:"Negro, azul, verde, amarillo, rosa"}),
+ ip({id:"15plus",f:"15",yr:2023,name:"iPhone 15 Plus",slug:"iphone-15-plus",tag:"Mucha batería",from:419,launch:1109,h:160.9,w:77.8,in:6.7,res:"2796 × 1290",hz:60,aod:N,isl:Y,nits:"2000 nits",chip:"A16 Bionic",ram:6,sto:"128 / 256 / 512 GB",ai:N,main:"48 MP ƒ/1.6",uw:"12 MP ƒ/2.4",tele:"—",opt:"2x (recorte del sensor)",dig:"hasta 10x",lidar:N,front:"12 MP",video:"4K 60 fps · modo Cine",bat:26,port:"USB‑C (USB 2)",wl:"MagSafe · Qi2 15 W",mat:"Aluminio",dims:"160,9 × 77,8 × 7,80",wt:201,btn:"Interruptor de silencio",wifi:"Wi‑Fi 6",cols:"Negro, azul, verde, amarillo, rosa"}),
+ ip({id:"15pro",f:"15",yr:2023,name:"iPhone 15 Pro",slug:"iphone-15-pro",tag:"Pro compacto, gran precio",from:479,launch:1219,h:146.6,w:70.6,in:6.1,res:"2556 × 1179",hz:120,aod:Y,isl:Y,nits:"2000 nits",chip:"A17 Pro",ram:8,sto:"128 GB – 1 TB",ai:Y,main:"48 MP ƒ/1.78",uw:"12 MP ƒ/2.2 (macro)",tele:"12 MP 3x ƒ/2.8",opt:"hasta 3x",dig:"hasta 15x",lidar:Y,front:"12 MP",video:"4K 60 fps · ProRes · Log",bat:23,port:"USB‑C (USB 3, 10 Gb/s)",wl:"MagSafe · Qi2 15 W",mat:"Titanio",dims:"146,6 × 70,6 × 8,25",wt:187,btn:"Botón de Acción",wifi:"Wi‑Fi 6E",cols:"Titanio natural, azul, blanco, negro"}),
+ ip({id:"15promax",f:"15",yr:2023,name:"iPhone 15 Pro Max",slug:"iphone-15-pro-max",tag:"Zoom 5x asequible",from:535,launch:1469,h:159.9,w:76.7,in:6.7,res:"2796 × 1290",hz:120,aod:Y,isl:Y,nits:"2000 nits",chip:"A17 Pro",ram:8,sto:"256 GB – 1 TB",ai:Y,main:"48 MP ƒ/1.78",uw:"12 MP ƒ/2.2 (macro)",tele:"12 MP 5x ƒ/2.8",opt:"hasta 5x",dig:"hasta 25x",lidar:Y,front:"12 MP",video:"4K 60 fps · ProRes · Log",bat:29,port:"USB‑C (USB 3, 10 Gb/s)",wl:"MagSafe · Qi2 15 W",mat:"Titanio",dims:"159,9 × 76,7 × 8,25",wt:221,btn:"Botón de Acción",wifi:"Wi‑Fi 6E",cols:"Titanio natural, azul, blanco, negro"}),
+
+ ip({id:"16e",f:"16",yr:2025,name:"iPhone 16e",slug:"iphone-16e",tag:"Básico con Apple Intelligence",from:430,launch:709,h:146.7,w:71.5,in:6.1,res:"2532 × 1170",hz:60,aod:N,isl:N,nits:"1200 nits (HDR)",chip:"A18",ram:8,sto:"128 / 256 / 512 GB",ai:Y,main:"48 MP ƒ/1.6",uw:"—",tele:"—",opt:"2x (recorte del sensor)",dig:"hasta 10x",lidar:N,front:"12 MP",video:"4K 60 fps",bat:26,port:"USB‑C (USB 2)",wl:"Qi 7,5 W (sin MagSafe)",mat:"Aluminio",dims:"146,7 × 71,5 × 7,80",wt:167,btn:"Botón de Acción",wifi:"Wi‑Fi 6",cols:"Negro, blanco"}),
+ ip({id:"16",f:"16",yr:2024,name:"iPhone 16",slug:"iphone-16",tag:"Equilibrado con IA",from:509,launch:959,h:147.6,w:71.6,in:6.1,res:"2556 × 1179",hz:60,aod:N,isl:Y,nits:"2000 nits",chip:"A18",ram:8,sto:"128 / 256 / 512 GB",ai:Y,main:"48 MP ƒ/1.6",uw:"12 MP ƒ/2.2 (macro)",tele:"—",opt:"2x (recorte del sensor)",dig:"hasta 10x",lidar:N,front:"12 MP",video:"4K 60 fps · vídeo espacial",bat:22,port:"USB‑C (USB 2)",wl:"MagSafe · Qi2",mat:"Aluminio",dims:"147,6 × 71,6 × 7,80",wt:170,btn:"Acción + Control de Cámara",camc:Y,wifi:"Wi‑Fi 7",cols:"Negro, blanco, rosa, verde azulado, ultramar"}),
+ ip({id:"16plus",f:"16",yr:2024,name:"iPhone 16 Plus",slug:"iphone-16-plus",tag:"Grande y con IA",from:519,launch:1109,h:160.9,w:77.8,in:6.7,res:"2796 × 1290",hz:60,aod:N,isl:Y,nits:"2000 nits",chip:"A18",ram:8,sto:"128 / 256 / 512 GB",ai:Y,main:"48 MP ƒ/1.6",uw:"12 MP ƒ/2.2 (macro)",tele:"—",opt:"2x (recorte del sensor)",dig:"hasta 10x",lidar:N,front:"12 MP",video:"4K 60 fps · vídeo espacial",bat:27,port:"USB‑C (USB 2)",wl:"MagSafe · Qi2",mat:"Aluminio",dims:"160,9 × 77,8 × 7,80",wt:199,btn:"Acción + Control de Cámara",camc:Y,wifi:"Wi‑Fi 7",cols:"Negro, blanco, rosa, verde azulado, ultramar"}),
+ ip({id:"16pro",f:"16",yr:2024,name:"iPhone 16 Pro",slug:"iphone-16-pro",tag:"Zoom 5x compacto",from:618,launch:1219,h:149.6,w:71.5,in:6.3,res:"2622 × 1206",hz:120,aod:Y,isl:Y,nits:"2000 nits",chip:"A18 Pro",ram:8,sto:"128 GB – 1 TB",ai:Y,main:"48 MP ƒ/1.78",uw:"48 MP ƒ/2.2 (macro)",tele:"12 MP 5x ƒ/2.8",opt:"hasta 5x",dig:"hasta 25x",lidar:Y,front:"12 MP",video:"4K 120 fps · ProRes · Log",bat:27,port:"USB‑C (USB 3, 10 Gb/s)",wl:"MagSafe · Qi2",mat:"Titanio",dims:"149,6 × 71,5 × 8,25",wt:199,btn:"Acción + Control de Cámara",camc:Y,wifi:"Wi‑Fi 7",cols:"Titanio desierto, natural, blanco, negro"}),
+ ip({id:"16promax",f:"16",yr:2024,name:"iPhone 16 Pro Max",slug:"iphone-16-pro-max",tag:"6,9\" a buen precio",from:718,launch:1469,h:163.0,w:77.6,in:6.9,res:"2868 × 1320",hz:120,aod:Y,isl:Y,nits:"2000 nits",chip:"A18 Pro",ram:8,sto:"256 GB – 1 TB",ai:Y,main:"48 MP ƒ/1.78",uw:"48 MP ƒ/2.2 (macro)",tele:"12 MP 5x ƒ/2.8",opt:"hasta 5x",dig:"hasta 25x",lidar:Y,front:"12 MP",video:"4K 120 fps · ProRes · Log",bat:33,port:"USB‑C (USB 3, 10 Gb/s)",wl:"MagSafe · Qi2",mat:"Titanio",dims:"163,0 × 77,6 × 8,25",wt:227,btn:"Acción + Control de Cámara",camc:Y,wifi:"Wi‑Fi 7",cols:"Titanio desierto, natural, blanco, negro"}),
+
+ ip({id:"17e",f:"17",yr:2026,name:"iPhone 17e",slug:"iphone-17e",tag:"Básico 2026, 256 GB",from:558,launch:709,h:146.7,w:71.5,in:6.1,res:"2532 × 1170",hz:60,aod:N,isl:N,nits:"1200 nits (HDR)",chip:"A19",ram:8,sto:"256 / 512 GB",ai:Y,main:"48 MP ƒ/1.6",uw:"—",tele:"—",opt:"2x (recorte del sensor)",dig:"hasta 10x",lidar:N,front:"12 MP",video:"4K 60 fps",bat:26,port:"USB‑C (USB 2)",wl:"MagSafe · Qi2 15 W",mat:"Aluminio",dims:"146,7 × 71,5 × 7,80",wt:170,btn:"Botón de Acción",wifi:ND,cols:"Negro, blanco, rosa pálido"}),
+ ip({id:"17",f:"17",yr:2025,name:"iPhone 17",slug:"iphone-17",tag:"120 Hz sin pagar Pro",from:727,launch:959,h:149.6,w:71.5,in:6.3,res:"2622 × 1206",hz:120,aod:Y,isl:Y,nits:"3000 nits",chip:"A19",ram:8,sto:"256 / 512 GB",ai:Y,main:"48 MP ƒ/1.6",uw:"48 MP ƒ/2.2 (macro)",tele:"—",opt:"2x (recorte del sensor)",dig:"hasta 10x",lidar:N,front:"18 MP Center Stage",video:"4K 60 fps",bat:30,port:"USB‑C (USB 2)",wl:"MagSafe · Qi2 25 W",mat:"Aluminio",dims:"149,6 × 71,5 × 7,95",wt:177,btn:"Acción + Control de Cámara",camc:Y,wifi:"Wi‑Fi 7",cols:"Negro, blanco, azul niebla, salvia, lavanda"}),
+ ip({id:"air",f:"17",yr:2025,name:"iPhone Air",slug:"iphone-air",tag:"El más fino (5,6 mm)",from:689,launch:1219,h:156.2,w:74.7,in:6.5,res:"2736 × 1260",hz:120,aod:Y,isl:Y,nits:"3000 nits",chip:"A19 Pro",ram:12,sto:"256 GB – 1 TB",ai:Y,main:"48 MP ƒ/1.6",uw:"—",tele:"—",opt:"2x (recorte del sensor)",dig:"hasta 10x",lidar:N,front:"18 MP Center Stage",video:"4K 60 fps",bat:27,port:"USB‑C (USB 2)",wl:"MagSafe · Qi2",mat:"Titanio",dims:"156,2 × 74,7 × 5,64",wt:165,btn:"Acción + Control de Cámara",camc:Y,wifi:"Wi‑Fi 7",sim:"Solo eSIM",cols:"Negro espacial, blanco nube, oro claro, azul celeste"}),
+ ip({id:"17pro",f:"17",yr:2025,name:"iPhone 17 Pro",slug:"iphone-17-pro",tag:"Pro compacto 2025",from:941,launch:1319,h:150.0,w:71.9,in:6.3,res:"2622 × 1206",hz:120,aod:Y,isl:Y,nits:"3000 nits",chip:"A19 Pro",ram:12,sto:"256 GB – 1 TB",ai:Y,main:"48 MP ƒ/1.78",uw:"48 MP ƒ/2.2 (macro)",tele:"48 MP 4x ƒ/2.8",opt:"hasta 4x (8x calidad óptica)",dig:"hasta 40x",lidar:Y,front:"18 MP Center Stage",video:"4K 120 fps · ProRes RAW · Log",bat:31,port:"USB‑C (USB 3, 10 Gb/s)",wl:"MagSafe · Qi2 25 W",mat:"Aluminio unibody",dims:"150,0 × 71,9 × 8,75",wt:204,btn:"Acción + Control de Cámara",camc:Y,wifi:"Wi‑Fi 7",cols:"Plata, naranja cósmico, azul profundo"}),
+ ip({id:"17promax",f:"17",yr:2025,name:"iPhone 17 Pro Max",slug:"iphone-17-pro-max",tag:"Tope de gama 2025",from:999,launch:1469,h:163.4,w:78.0,in:6.9,res:"2868 × 1320",hz:120,aod:Y,isl:Y,nits:"3000 nits",chip:"A19 Pro",ram:12,sto:"256 GB – 2 TB",ai:Y,main:"48 MP ƒ/1.78",uw:"48 MP ƒ/2.2 (macro)",tele:"48 MP 4x ƒ/2.8",opt:"hasta 4x (8x calidad óptica)",dig:"hasta 40x",lidar:Y,front:"18 MP Center Stage",video:"4K 120 fps · ProRes RAW · Log",bat:37,port:"USB‑C (USB 3, 10 Gb/s)",wl:"MagSafe · Qi2 25 W",mat:"Aluminio unibody",dims:"163,4 × 78,0 × 8,75",wt:231,btn:"Acción + Control de Cámara",camc:Y,wifi:"Wi‑Fi 7",cols:"Plata, naranja cósmico, azul profundo"}),
+
+ ip({id:"18pro",f:"18",yr:2026,name:"iPhone 18 Pro",slug:"iphone-18-pro",tag:"Apertura variable",from:1369,launch:1469,h:150.0,w:71.9,in:6.3,res:"2622 × 1206",hz:120,aod:Y,isl:"Sí (más pequeña)",nits:"3000 nits",chip:"A20 Pro",ram:12,sto:"256 GB – 2 TB",ai:Y,main:"48 MP ƒ/1.48–ƒ/4 (apertura variable)",uw:"48 MP",tele:"48 MP 4x",opt:"hasta 4x (8x calidad óptica)",dig:ND,lidar:Y,front:"18 MP Center Stage",video:"4K 120 fps · ProRes",bat:34,port:"USB‑C (USB 3)",wl:"MagSafe · Qi2 25 W",mat:"Aluminio",dims:"150,0 × 71,9 × 8,75",wt:211,btn:"Acción + Control de Cámara",camc:Y,wifi:"Wi‑Fi 7",cols:"Negro, plata, azul glaciar, burdeos"}),
+ ip({id:"18promax",f:"18",yr:2026,name:"iPhone 18 Pro Max",slug:"iphone-18-pro-max",tag:"Récord de batería",from:1479,launch:1619,h:163.4,w:78.0,in:6.9,res:"2868 × 1320",hz:120,aod:Y,isl:"Sí (más pequeña)",nits:"3000 nits",chip:"A20 Pro",ram:12,sto:"256 GB – 2 TB",ai:Y,main:"48 MP ƒ/1.48–ƒ/4 (apertura variable)",uw:"48 MP",tele:"48 MP 4x",opt:"hasta 4x (8x calidad óptica)",dig:ND,lidar:Y,front:"18 MP Center Stage",video:"4K 120 fps · ProRes",bat:43,port:"USB‑C (USB 3)",wl:"MagSafe · Qi2 25 W",mat:"Aluminio",dims:"163,4 × 78,0 × 8,75",wt:249,btn:"Acción + Control de Cámara",camc:Y,wifi:"Wi‑Fi 7",cols:"Negro, plata, azul glaciar, burdeos"}),
+ ip({id:"duo",f:"18",yr:2026,name:"iPhone Duo",slug:"iphone-duo",tag:"El primer iPhone plegable",from:null,launch:2339,h:117.8,w:84.1,in:7.6,res:"Interior 2670 × 1878 · exterior 5,4\"",hz:120,aod:Y,isl:"Sí (vertical, en el lateral)",nits:"3000 nits",chip:"A20 Pro",ram:12,sto:"256 GB – 2 TB",ai:Y,main:"48 MP Fusion",uw:"48 MP Fusion (macro)",tele:"—",opt:"2x (recorte del sensor)",dig:ND,lidar:ND,front:"Center Stage + cámara bajo la pantalla interior",video:"4K 120 fps · Dolby Vision",bat:ND,port:"USB‑C",wl:"MagSafe · Qi2",mat:"Titanio grado 5 pulido",dims:"Cerrado 117,8 × 84,1 × 11,3 · abierto 5,2 de grosor",wt:254,btn:"Control de Cámara",camc:Y,wifi:ND,sim:"Solo eSIM",bio:"Touch ID (botón lateral)",cols:"Blanco estrella, cielo nocturno"})
+];
+const IPH_ROWS=[
+ ["Pantalla"],["in","Tamaño",v=>dec(v)+'"'],["res","Resolución"],["hz","Frecuencia",v=>v===120?"ProMotion 120 Hz":"60 Hz"],["aod","Siempre activa"],["isl","Dynamic Island",v=>v===false?'<span class="no">No (notch)</span>':yn(v)],["nits","Brillo máximo"],
+ ["Rendimiento"],["chip","Chip"],["ram","RAM",v=>v+" GB"],["sto","Almacenamiento"],["ai","Apple Intelligence"],
+ ["Cámaras"],["main","Principal"],["uw","Ultra gran angular"],["tele","Teleobjetivo"],["opt","Zoom óptico"],["dig","Zoom digital"],["lidar","Escáner LiDAR"],["front","Frontal"],["video","Vídeo"],["camc","Control de Cámara"],
+ ["Batería y carga"],["bat","Reproducción vídeo",v=>v===ND?yn(v):"hasta "+v+" h"],["port","Conector"],["wl","Carga inalámbrica"],
+ ["Diseño"],["mat","Material"],["dims","Medidas (mm)"],["wt","Peso",v=>v+" g"],["btn","Botones"],["bio","Desbloqueo"],["cols","Colores"],
+ ["Conectividad"],["wifi","Wi‑Fi"],["sim","SIM (versión UE)"]
+];
+
+/* ======================= iPAD ======================= */
+const IPD_F={base:{n:"iPad",c:"#3a7bd5"},mini:{n:"iPad mini",c:"#d6457a"},air:{n:"iPad Air",c:"#18a37b"},pro:{n:"iPad Pro",c:"#4b4b52"}};
+const pd=o=>Object.assign({bat:"hasta 10 h",cell:"Wi‑Fi o Wi‑Fi + 5G"},o);
+const IPD=[
+ pd({id:"ipad9",f:"base",yr:2021,name:"iPad 9 (2021)",tag:"El más barato",from:173,launch:379,h:250.6,w:174.1,in:10.2,disp:"Retina LCD",res:"2160 × 1620",hz:60,chip:"A13 Bionic",ram:"3 GB",sto:"64 / 256 GB",ai:N,bio:"Touch ID (botón de inicio)",port:"Lightning",pencil:"Apple Pencil (1.ª gen)",rear:"8 MP",front:"12 MP ultra gran angular · Center Stage",lidar:N,cell:"Wi‑Fi o Wi‑Fi + 4G",wt:487,thick:"7,5 mm"}),
+ pd({id:"ipad10",f:"base",yr:2022,name:"iPad 10 (2022)",tag:"Diseño moderno barato",from:309,launch:579,h:248.6,w:179.5,in:10.9,disp:"Liquid Retina LCD",res:"2360 × 1640",hz:60,chip:"A14 Bionic",ram:"4 GB",sto:"64 / 256 GB",ai:N,bio:"Touch ID (botón superior)",port:"USB‑C",pencil:"Pencil 1.ª gen (adaptador) · Pencil USB‑C",rear:"12 MP",front:"12 MP horizontal",lidar:N,wt:477,thick:"7,0 mm"}),
+ pd({id:"ipad11",f:"base",yr:2025,name:"iPad 11 (A16, 2025)",tag:"Básico actual",from:404,launch:399,h:248.6,w:179.5,in:11,disp:"Liquid Retina LCD",res:"2360 × 1640",hz:60,chip:"A16",ram:"6 GB",sto:"128 / 256 / 512 GB",ai:N,bio:"Touch ID (botón superior)",port:"USB‑C",pencil:"Pencil 1.ª gen (adaptador) · Pencil USB‑C",rear:"12 MP",front:"12 MP horizontal",lidar:N,wt:477,thick:"7,0 mm"}),
+ pd({id:"mini6",f:"mini",yr:2021,name:"iPad mini 6 (2021)",tag:"Compacto barato",from:336,launch:549,h:195.4,w:134.8,in:8.3,disp:"Liquid Retina LCD",res:"2266 × 1488",hz:60,chip:"A15 Bionic",ram:"4 GB",sto:"64 / 256 GB",ai:N,bio:"Touch ID (botón superior)",port:"USB‑C",pencil:"Apple Pencil (2.ª gen)",rear:"12 MP",front:"12 MP ultra gran angular · Center Stage",lidar:N,wt:293,thick:"6,3 mm"}),
+ pd({id:"mini7",f:"mini",yr:2024,name:"iPad mini 7 (A17 Pro, 2024)",tag:"Compacto con IA",from:449,launch:599,h:195.4,w:134.8,in:8.3,disp:"Liquid Retina LCD",res:"2266 × 1488",hz:60,chip:"A17 Pro",ram:"8 GB",sto:"128 / 256 / 512 GB",ai:Y,bio:"Touch ID (botón superior)",port:"USB‑C",pencil:"Pencil Pro · Pencil USB‑C",rear:"12 MP",front:"12 MP ultra gran angular · Center Stage",lidar:N,wt:293,thick:"6,3 mm"}),
+ pd({id:"mini8",f:"mini",yr:2026,name:"iPad mini 8 (2026)",tag:"Primer mini OLED",from:null,launch:749,h:195.3,w:132.6,in:8.5,disp:"OLED",res:"2316 × 1512",hz:60,chip:"A20 Pro",ram:ND,sto:"128 / 256 / 512 GB",ai:Y,bio:ND,port:"USB‑C",pencil:ND,rear:ND,front:ND,lidar:N,wt:255,thick:"5,4 mm"}),
+ pd({id:"air5",f:"air",yr:2022,name:"iPad Air 5 (M1, 2022)",tag:"M1 a precio bajo",from:390,launch:679,h:247.6,w:178.5,in:10.9,disp:"Liquid Retina LCD",res:"2360 × 1640",hz:60,chip:"M1",ram:"8 GB",sto:"64 / 256 GB",ai:Y,bio:"Touch ID (botón superior)",port:"USB‑C",pencil:"Apple Pencil (2.ª gen)",rear:"12 MP",front:"12 MP ultra gran angular · Center Stage",lidar:N,wt:461,thick:"6,1 mm"}),
+ pd({id:"air11m2",f:"air",yr:2024,name:"iPad Air 11\" M2 (2024)",tag:"Air moderno",from:550,launch:699,h:247.6,w:178.5,in:11,disp:"Liquid Retina LCD",res:"2360 × 1640",hz:60,chip:"M2",ram:"8 GB",sto:"128 GB – 1 TB",ai:Y,bio:"Touch ID (botón superior)",port:"USB‑C",pencil:"Pencil Pro · Pencil USB‑C",rear:"12 MP",front:"12 MP horizontal",lidar:N,wt:462,thick:"6,1 mm"}),
+ pd({id:"air13m2",f:"air",yr:2024,name:"iPad Air 13\" M2 (2024)",tag:"Pantalla grande sin pagar Pro",from:679,launch:949,h:280.6,w:214.9,in:13,disp:"Liquid Retina LCD",res:"2732 × 2048",hz:60,chip:"M2",ram:"8 GB",sto:"128 GB – 1 TB",ai:Y,bio:"Touch ID (botón superior)",port:"USB‑C",pencil:"Pencil Pro · Pencil USB‑C",rear:"12 MP",front:"12 MP horizontal",lidar:N,wt:617,thick:"6,1 mm"}),
+ pd({id:"air11m3",f:"air",yr:2025,name:"iPad Air 11\" M3 (2025)",tag:"Air 2025",from:569,launch:699,h:247.6,w:178.5,in:11,disp:"Liquid Retina LCD",res:"2360 × 1640",hz:60,chip:"M3",ram:"8 GB",sto:"128 GB – 1 TB",ai:Y,bio:"Touch ID (botón superior)",port:"USB‑C",pencil:"Pencil Pro · Pencil USB‑C",rear:"12 MP",front:"12 MP horizontal",lidar:N,wt:460,thick:"6,1 mm"}),
+ pd({id:"air13m3",f:"air",yr:2025,name:"iPad Air 13\" M3 (2025)",tag:"Air grande 2025",from:699,launch:949,h:280.6,w:214.9,in:13,disp:"Liquid Retina LCD",res:"2732 × 2048",hz:60,chip:"M3",ram:"8 GB",sto:"128 GB – 1 TB",ai:Y,bio:"Touch ID (botón superior)",port:"USB‑C",pencil:"Pencil Pro · Pencil USB‑C",rear:"12 MP",front:"12 MP horizontal",lidar:N,wt:616,thick:"6,1 mm"}),
+ pd({id:"air11m4",f:"air",yr:2026,name:"iPad Air 11\" M4 (2026)",tag:"Air más reciente",from:679,launch:699,h:247.6,w:178.5,in:11,disp:"Liquid Retina LCD",res:"2360 × 1640",hz:60,chip:"M4",ram:"12 GB",sto:"128 GB – 1 TB",ai:Y,bio:"Touch ID (botón superior)",port:"USB‑C",pencil:"Pencil Pro · Pencil USB‑C",rear:"12 MP",front:"12 MP horizontal · Center Stage",lidar:N,wt:ND,thick:"6,1 mm"}),
+ pd({id:"air13m4",f:"air",yr:2026,name:"iPad Air 13\" M4 (2026)",tag:"Air grande más reciente",from:839,launch:949,h:280.6,w:214.9,in:13,disp:"Liquid Retina LCD",res:"2732 × 2048",hz:60,chip:"M4",ram:"12 GB",sto:"128 GB – 1 TB",ai:Y,bio:"Touch ID (botón superior)",port:"USB‑C",pencil:"Pencil Pro · Pencil USB‑C",rear:"12 MP",front:"12 MP horizontal · Center Stage",lidar:N,wt:ND,thick:"6,1 mm"}),
+ pd({id:"pro11m1",f:"pro",yr:2021,name:"iPad Pro 11\" M1 (2021)",tag:"120 Hz a precio de Air",from:485,launch:879,h:247.6,w:178.5,in:11,disp:"Liquid Retina LCD",res:"2388 × 1668",hz:120,chip:"M1",ram:"8 / 16 GB",sto:"128 GB – 2 TB",ai:Y,bio:"Face ID",port:"Thunderbolt / USB 4",pencil:"Apple Pencil (2.ª gen)",rear:"12 MP + 10 MP ultra gran angular",front:"12 MP ultra gran angular · Center Stage",lidar:Y,wt:466,thick:"5,9 mm"}),
+ pd({id:"pro129m1",f:"pro",yr:2021,name:"iPad Pro 12,9\" M1 (2021)",tag:"Mini‑LED barato",from:565,launch:1199,h:280.6,w:214.9,in:12.9,disp:"Liquid Retina XDR (mini‑LED)",res:"2732 × 2048",hz:120,chip:"M1",ram:"8 / 16 GB",sto:"128 GB – 2 TB",ai:Y,bio:"Face ID",port:"Thunderbolt / USB 4",pencil:"Apple Pencil (2.ª gen)",rear:"12 MP + 10 MP ultra gran angular",front:"12 MP ultra gran angular · Center Stage",lidar:Y,wt:682,thick:"6,4 mm"}),
+ pd({id:"pro11m2",f:"pro",yr:2022,name:"iPad Pro 11\" M2 (2022)",tag:"Pro con hover del Pencil",from:542,launch:1049,h:247.6,w:178.5,in:11,disp:"Liquid Retina LCD",res:"2388 × 1668",hz:120,chip:"M2",ram:"8 / 16 GB",sto:"128 GB – 2 TB",ai:Y,bio:"Face ID",port:"Thunderbolt / USB 4",pencil:"Pencil 2.ª gen (con hover)",rear:"12 MP + 10 MP ultra gran angular",front:"12 MP ultra gran angular · Center Stage",lidar:Y,wt:466,thick:"5,9 mm"}),
+ pd({id:"pro129m2",f:"pro",yr:2022,name:"iPad Pro 12,9\" M2 (2022)",tag:"Mini‑LED con M2",from:649,launch:1469,h:280.6,w:214.9,in:12.9,disp:"Liquid Retina XDR (mini‑LED)",res:"2732 × 2048",hz:120,chip:"M2",ram:"8 / 16 GB",sto:"128 GB – 2 TB",ai:Y,bio:"Face ID",port:"Thunderbolt / USB 4",pencil:"Pencil 2.ª gen (con hover)",rear:"12 MP + 10 MP ultra gran angular",front:"12 MP ultra gran angular · Center Stage",lidar:Y,wt:682,thick:"6,4 mm"}),
+ pd({id:"pro11m4",f:"pro",yr:2024,name:"iPad Pro 11\" M4 (2024)",tag:"OLED, ultrafino",from:799,launch:1199,h:249.7,w:177.5,in:11,disp:"Ultra Retina XDR (OLED tándem)",res:"2420 × 1668",hz:120,chip:"M4",ram:"8 / 16 GB",sto:"256 GB – 2 TB",ai:Y,bio:"Face ID (horizontal)",port:"Thunderbolt / USB 4",pencil:"Pencil Pro · Pencil USB‑C",rear:"12 MP",front:"12 MP horizontal",lidar:Y,wt:444,thick:"5,3 mm"}),
+ pd({id:"pro13m4",f:"pro",yr:2024,name:"iPad Pro 13\" M4 (2024)",tag:"OLED grande",from:909,launch:1549,h:281.6,w:215.5,in:13,disp:"Ultra Retina XDR (OLED tándem)",res:"2752 × 2064",hz:120,chip:"M4",ram:"8 / 16 GB",sto:"256 GB – 2 TB",ai:Y,bio:"Face ID (horizontal)",port:"Thunderbolt / USB 4",pencil:"Pencil Pro · Pencil USB‑C",rear:"12 MP",front:"12 MP horizontal",lidar:Y,wt:579,thick:"5,1 mm"}),
+ pd({id:"pro11m5",f:"pro",yr:2025,name:"iPad Pro 11\" M5 (2025)",tag:"Pro más reciente",from:929,launch:1199,h:249.7,w:177.5,in:11,disp:"Ultra Retina XDR (OLED tándem)",res:"2420 × 1668",hz:120,chip:"M5",ram:"12 / 16 GB",sto:"256 GB – 2 TB",ai:Y,bio:"Face ID (horizontal)",port:"Thunderbolt / USB 4",pencil:"Pencil Pro · Pencil USB‑C",rear:"12 MP",front:"12 MP horizontal",lidar:Y,wt:444,thick:"5,3 mm"}),
+ pd({id:"pro13m5",f:"pro",yr:2025,name:"iPad Pro 13\" M5 (2025)",tag:"Tope de gama",from:1130,launch:1549,h:281.6,w:215.5,in:13,disp:"Ultra Retina XDR (OLED tándem)",res:"2752 × 2064",hz:120,chip:"M5",ram:"12 / 16 GB",sto:"256 GB – 2 TB",ai:Y,bio:"Face ID (horizontal)",port:"Thunderbolt / USB 4",pencil:"Pencil Pro · Pencil USB‑C",rear:"12 MP",front:"12 MP horizontal",lidar:Y,wt:579,thick:"5,1 mm"})
+];
+const IPD_ROWS=[
+ ["Pantalla"],["in","Tamaño",v=>dec(v)+'"'],["disp","Tipo"],["res","Resolución"],["hz","Frecuencia",v=>v===120?"ProMotion 120 Hz":"60 Hz"],
+ ["Rendimiento"],["chip","Chip"],["ram","RAM"],["sto","Almacenamiento"],["ai","Apple Intelligence"],
+ ["Uso"],["bio","Desbloqueo"],["port","Conector"],["pencil","Apple Pencil compatible"],["cell","Conectividad"],
+ ["Cámaras"],["rear","Trasera"],["front","Frontal"],["lidar","Escáner LiDAR"],
+ ["Diseño y batería"],["wt","Peso (Wi‑Fi)",v=>v===ND?yn(v):v+" g"],["thick","Grosor"],["bat","Batería"]
+];
+
+/* ======================= APPLE WATCH ======================= */
+const AW_F={series:{n:"Series",c:"#e0452f"},se:{n:"SE",c:"#3a7bd5"},ultra:{n:"Ultra",c:"#e07a1f"}};
+const BMJ="Back Market, jul 2026";
+const AW=[
+ {id:"s7",f:"series",yr:2021,name:"Apple Watch Series 7",tag:"Pantalla grande barata",from:185,src:"PcComponentes, ago 2026",launch:429,size:"41 / 45 mm",mat:"Aluminio, acero, titanio",chip:"S7",aod:Y,nits:"1000 nits",bat:18,ecg:Y,spo2:Y,temp:N,apnea:N,hyper:N,crash:N,dtap:N,gps:"GPS",water:"WR50 (50 m)",sat:N,cell:"Opcional (LTE)"},
+ {id:"s8",f:"series",yr:2022,name:"Apple Watch Series 8",tag:"Mejor calidad‑precio",from:180,src:BMJ,launch:499,size:"41 / 45 mm",mat:"Aluminio, acero",chip:"S8",aod:Y,nits:"1000 nits",bat:18,ecg:Y,spo2:Y,temp:Y,apnea:N,hyper:N,crash:Y,dtap:N,gps:"GPS",water:"WR50 (50 m)",sat:N,cell:"Opcional (LTE)"},
+ {id:"s9",f:"series",yr:2023,name:"Apple Watch Series 9",tag:"Doble toque y 2000 nits",from:198,src:BMJ,launch:449,size:"41 / 45 mm",mat:"Aluminio, acero",chip:"S9",aod:Y,nits:"2000 nits",bat:18,ecg:Y,spo2:Y,temp:Y,apnea:Y,hyper:Y,crash:Y,dtap:Y,gps:"GPS",water:"WR50 (50 m)",sat:N,cell:"Opcional (LTE)"},
+ {id:"s10",f:"series",yr:2024,name:"Apple Watch Series 10",tag:"Más fino, pantalla mayor",from:350,src:BMJ,launch:449,size:"42 / 46 mm",mat:"Aluminio, titanio",chip:"S10",aod:Y,nits:"2000 nits",bat:18,ecg:Y,spo2:Y,temp:Y,apnea:Y,hyper:Y,crash:Y,dtap:Y,gps:"GPS",water:"WR50 · profundímetro 6 m",sat:N,cell:"Opcional (LTE)"},
+ {id:"s11",f:"series",yr:2025,name:"Apple Watch Series 11",tag:"24 h de batería",from:358,src:"Back Market (ficha), 2026",launch:449,size:"42 / 46 mm",mat:"Aluminio, titanio",chip:"S10",aod:Y,nits:"2000 nits",bat:24,ecg:Y,spo2:Y,temp:Y,apnea:Y,hyper:Y,crash:Y,dtap:Y,gps:"GPS",water:"WR50 · profundímetro 6 m",sat:N,cell:"Opcional (5G)"},
+ {id:"s12",f:"series",yr:2026,name:"Apple Watch Series 12",tag:"Pulso cada 5 s",from:null,launch:449,size:"42 / 46 mm",mat:"Aluminio, cerámica",chip:"S11",aod:Y,nits:ND,bat:24,ecg:Y,spo2:Y,temp:Y,apnea:Y,hyper:Y,crash:Y,dtap:Y,gps:"GPS",water:ND,sat:N,cell:"Opcional"},
+ {id:"se2",f:"se",yr:2022,name:"Apple Watch SE (2.ª gen)",tag:"El más barato",from:175,src:"Back Market, ago 2026",launch:309,size:"40 / 44 mm",mat:"Aluminio",chip:"S8",aod:N,nits:"1000 nits",bat:18,ecg:N,spo2:N,temp:N,apnea:N,hyper:N,crash:Y,dtap:N,gps:"GPS",water:"WR50 (50 m)",sat:N,cell:"Opcional (LTE)"},
+ {id:"se3",f:"se",yr:2025,name:"Apple Watch SE 3",tag:"SE con pantalla siempre activa",from:220,src:"PcComponentes, 2026",launch:269,size:"40 / 44 mm",mat:"Aluminio",chip:"S10",aod:Y,nits:"1000 nits",bat:18,ecg:N,spo2:N,temp:Y,apnea:Y,hyper:N,crash:Y,dtap:Y,gps:"GPS",water:"WR50 (50 m)",sat:N,cell:"Opcional (5G)"},
+ {id:"u1",f:"ultra",yr:2022,name:"Apple Watch Ultra",tag:"Ultra más barato",from:329,src:BMJ,launch:999,size:"49 mm",mat:"Titanio",chip:"S8",aod:Y,nits:"2000 nits",bat:36,ecg:Y,spo2:Y,temp:Y,apnea:N,hyper:N,crash:Y,dtap:N,gps:"GPS doble frecuencia",water:"WR100 · buceo 40 m",sat:N,cell:"Incluida (LTE)"},
+ {id:"u2",f:"ultra",yr:2023,name:"Apple Watch Ultra 2",tag:"3000 nits",from:498,src:BMJ,launch:899,size:"49 mm",mat:"Titanio",chip:"S9",aod:Y,nits:"3000 nits",bat:36,ecg:Y,spo2:Y,temp:Y,apnea:Y,hyper:Y,crash:Y,dtap:Y,gps:"GPS doble frecuencia",water:"WR100 · buceo 40 m",sat:N,cell:"Incluida (LTE)"},
+ {id:"u3",f:"ultra",yr:2025,name:"Apple Watch Ultra 3",tag:"Satélite y 42 h",from:702,src:"PcComponentes, 2026",launch:899,size:"49 mm",mat:"Titanio",chip:"S10",aod:Y,nits:"3000 nits",bat:42,ecg:Y,spo2:Y,temp:Y,apnea:Y,hyper:Y,crash:Y,dtap:Y,gps:"GPS doble frecuencia",water:"WR100 · buceo 40 m",sat:Y,cell:"Incluida (5G)"},
+ {id:"u4",f:"ultra",yr:2026,name:"Apple Watch Ultra 4",tag:"El más completo",from:null,launch:899,size:"49 mm",mat:"Titanio",chip:"S11",aod:Y,nits:ND,bat:ND,ecg:Y,spo2:Y,temp:Y,apnea:Y,hyper:Y,crash:Y,dtap:Y,gps:"GPS doble frecuencia",water:"WR100 · buceo 40 m",sat:Y,cell:"Incluida"}
+];
+const AW_ROWS=[
+ ["Diseño"],["size","Tamaños"],["mat","Material de la caja"],["chip","Chip"],
+ ["Pantalla y batería"],["aod","Siempre activa"],["nits","Brillo máximo"],["bat","Batería (uso normal)",v=>v===ND?yn(v):"hasta "+v+" h"],
+ ["Salud"],["ecg","Electrocardiograma"],["spo2","Oxígeno en sangre"],["temp","Sensor de temperatura"],["apnea","Aviso de apnea del sueño"],["hyper","Aviso de hipertensión"],
+ ["Seguridad y uso"],["crash","Detección de accidentes"],["dtap","Gesto doble toque"],["sat","Mensajes por satélite"],["gps","GPS"],["water","Resistencia al agua"],["cell","Versión con datos móviles"]
+];
+
+/* ======================= AIRPODS ======================= */
+const AP_F={std:{n:"AirPods",c:"#3a7bd5"},pro:{n:"AirPods Pro",c:"#4b4b52"},max:{n:"AirPods Max",c:"#d6457a"}};
+const AP=[
+ {id:"ap3",f:"std",yr:2021,name:"AirPods (3.ª gen)",tag:"Abiertos, audio espacial",from:87,launch:199,type:"Abiertos",chip:"H1",anc:N,adapt:N,bud:"6 h",total:"30 h",case:"Lightning · MagSafe",ip:"IPX4",hr:N,spk:N},
+ {id:"ap4",f:"std",yr:2024,name:"AirPods 4",tag:"Los más baratos",from:70,launch:149,type:"Abiertos",chip:"H2",anc:N,adapt:N,bud:"5 h",total:"30 h",case:"USB‑C",ip:"IP54",hr:N,spk:N},
+ {id:"ap4anc",f:"std",yr:2024,name:"AirPods 4 con ANC",tag:"ANC más barata",from:89,launch:199,type:"Abiertos",chip:"H2",anc:Y,adapt:Y,bud:"5 h (4 h con ANC)",total:"30 h (20 h con ANC)",case:"USB‑C · inalámbrica",ip:"IP54",hr:N,spk:Y},
+ {id:"ap5",f:"std",yr:2026,name:"AirPods 5",tag:"Los más nuevos",from:162,launch:"149 / 169",type:"Abiertos",chip:"H2",anc:Y,adapt:ND,bud:"6 h (4 h con ANC)",total:"26 h",case:"USB‑C (inalámbrica en versión de 169 €)",ip:"IP57",hr:ND,spk:"Versión inalámbrica"},
+ {id:"pro2",f:"pro",yr:2022,name:"AirPods Pro 2",tag:"ANC top a buen precio",from:148,launch:299,type:"Intrauditivos",chip:"H2",anc:Y,adapt:Y,bud:"6 h",total:"30 h",case:"Lightning (2022) / USB‑C (2023) · inalámbrica",ip:"IP54",hr:N,spk:Y},
+ {id:"pro3",f:"pro",yr:2025,name:"AirPods Pro 3",tag:"Mejor ANC + pulso",from:150,launch:249,type:"Intrauditivos",chip:"H2",anc:Y,adapt:Y,bud:"8 h",total:"24 h",case:"USB‑C · inalámbrica",ip:"IP57",hr:Y,spk:Y},
+ {id:"max1",f:"max",yr:2020,name:"AirPods Max (1.ª gen)",tag:"Diadema (USB‑C desde 2024)",from:271,launch:579,type:"Diadema",chip:"H1",anc:Y,adapt:N,bud:"20 h",total:"20 h (sin estuche de carga)",case:"Lightning (2020) / USB‑C (2024)",ip:"—",hr:N,spk:N},
+ {id:"max2",f:"max",yr:2026,name:"AirPods Max 2",tag:"Diadema con chip H2",from:170,launch:579,type:"Diadema",chip:"H2",anc:Y,adapt:ND,bud:ND,total:ND,case:"USB‑C",ip:ND,hr:ND,spk:N}
+];
+const AP_ROWS=[
+ ["General"],["type","Tipo"],["chip","Chip"],
+ ["Sonido"],["anc","Cancelación activa de ruido"],["adapt","Audio adaptativo"],
+ ["Batería"],["bud","Autonomía auricular"],["total","Total con estuche"],["case","Carga"],
+ ["Otros"],["ip","Resistencia"],["hr","Sensor de ritmo cardíaco"],["spk","Altavoz en estuche (Buscar)"]
+];
+
+/* ======================= CATEGORIES ======================= */
+const bmS=q=>"https://www.backmarket.es/es-es/search?q="+enc(q);
+const amz=q=>"https://www.amazon.es/s?k="+enc(q+" reacondicionado");
+const eby=q=>"https://www.ebay.es/sch/i.html?_nkw="+enc(q+" reacondicionado");
+const mm=q=>"https://www.mediamarkt.es/es/search.html?query="+enc(q+" reacondicionado");
+const CATS={
+ iphone:{name:"iPhone",F:IPH_F,M:IPH,ROWS:IPH_ROWS,sizes:true,def:["15"],
+  shops:m=>[["Back Market",m.id==="15"?"https://www.backmarket.es/es-es/l/iphone-15/1f9abfba-28bb-4eb5-832b-201b4fba0652":bmS(m.name),"24 meses garantía"],["Swappie","https://swappie.com/es/modelo/"+m.slug+"/","24 meses · batería nueva opcional"],["RefurbMe","https://www.refurb.me/es/refurbished/iphone/"+m.slug,"Compara todas las tiendas"],["Amazon Renewed",amz(m.name),"Amazon Reacondicionado"],["eBay",eby(m.name),"eBay Refurbished"],["MediaMarkt",mm(m.name),"Marketplace"],["Apple","https://www.apple.com/es/shop/refurbished/iphone","Oficial · 1 año"]],
+  quiz:[
+   {k:"size",q:"Tamaño de pantalla",o:[["s","Compacto (5,4–6,3\")"],["l","Grande (6,5\" o más)"],["x","Me da igual"]],f:(m,v)=>v==="x"||(v==="s"?m.in<6.5:m.in>=6.5)},
+   {k:"tele",q:"¿Necesitas teleobjetivo (zoom óptico)?",o:[["n","No"],["y","Sí"]],f:(m,v)=>v==="n"||m.tele!=="—"},
+   {k:"hz",q:"¿Pantalla a 120 Hz?",o:[["n","No me importa"],["y","Sí"]],f:(m,v)=>v==="n"||m.hz===120},
+   {k:"ai",q:"¿Apple Intelligence?",o:[["n","No me importa"],["y","Sí"]],f:(m,v)=>v==="n"||m.ai===true},
+   {k:"bud",q:"Presupuesto máximo",o:[["200","200 €"],["350","350 €"],["500","500 €"],["700","700 €"],["1000","1000 €"],["99999","Sin límite"]],f:(m,v)=>m.from!==null&&m.from<=+v}],
+  tips:["<b>Batería:</b> busca salud ≥ 85 %. En un iPhone 12 o 14 merece la pena pagar el extra por batería nueva.","<b>Conector:</b> las familias 12 y 14 usan <b>Lightning</b>; desde el 15, todos son USB‑C.","<b>SIM:</b> compra la versión europea \"Libre\" (nano‑SIM + eSIM). El <b>iPhone Air</b> y el <b>iPhone Duo</b> son solo eSIM.","<b>Apple Intelligence:</b> solo en 15 Pro/Pro Max y posteriores (incluidos 16e, 17e y Air).","<b>iPhone Duo:</b> es plegable, con Touch ID en el botón lateral (sin Face ID). Aún no hay reacondicionados.","<b>Garantía:</b> Back Market y Swappie dan 24 meses; Apple, 1 año."]},
+ ipad:{name:"iPad",F:IPD_F,M:IPD,ROWS:IPD_ROWS,sizes:true,def:["air"],
+  shops:m=>[["Back Market",bmS(m.name.replace(/\s*\(.*\)/,"")),"24 meses garantía"],["RefurbMe","https://www.refurb.me/es/refurbished/ipad","Compara todas las tiendas"],["Amazon Renewed",amz(m.name.replace(/\s*\(.*\)/,"")),"Amazon Reacondicionado"],["eBay",eby(m.name.replace(/\s*\(.*\)/,"")),"eBay Refurbished"],["MediaMarkt",mm(m.name.replace(/\s*\(.*\)/,"")),"Marketplace"],["Apple","https://www.apple.com/es/shop/refurbished/ipad","Oficial · 1 año"]],
+  quiz:[
+   {k:"size",q:"Tamaño",o:[["s","Pequeño (8–8,5\")"],["m","Mediano (10–11\")"],["l","Grande (12,9–13\")"],["x","Me da igual"]],f:(m,v)=>v==="x"||(v==="s"?m.in<9:v==="m"?(m.in>=9&&m.in<12):m.in>=12)},
+   {k:"pen",q:"¿Necesitas Apple Pencil Pro?",o:[["n","No"],["y","Sí"]],f:(m,v)=>v==="n"||String(m.pencil).includes("Pro")},
+   {k:"hz",q:"¿Pantalla a 120 Hz?",o:[["n","No me importa"],["y","Sí"]],f:(m,v)=>v==="n"||m.hz===120},
+   {k:"ai",q:"¿Apple Intelligence?",o:[["n","No me importa"],["y","Sí"]],f:(m,v)=>v==="n"||m.ai===true},
+   {k:"bud",q:"Presupuesto máximo",o:[["250","250 €"],["400","400 €"],["600","600 €"],["900","900 €"],["99999","Sin límite"]],f:(m,v)=>m.from!==null&&m.from<=+v}],
+  tips:["<b>Batería:</b> pide la salud de batería; en iPad se degrada más despacio que en iPhone, pero en un 2021 conviene comprobarla.","<b>Apple Pencil:</b> cada iPad admite modelos concretos; revisa la fila \"Apple Pencil compatible\" antes de comprar uno.","<b>Datos móviles:</b> los precios \"desde\" suelen ser Wi‑Fi; la versión con 5G cuesta más.","<b>iPad 9:</b> es el único de la lista con Lightning y botón de inicio.","<b>Apple Intelligence:</b> requiere chip M1 o posterior, o A17 Pro (mini 7) o posterior.","<b>iPad mini 8 (2026):</b> todavía sin reacondicionados; algunos datos aún no están confirmados (n/d)."]},
+ watch:{name:"Watch",F:AW_F,M:AW,ROWS:AW_ROWS,sizes:false,def:["series","se","ultra"],
+  shops:m=>[["Back Market",bmS(m.name),"24 meses garantía"],["PcComponentes","https://www.pccomponentes.com/marcas/apple/smartwatch/reacondicionado","Reacondicionados"],["Amazon Renewed",amz(m.name),"Amazon Reacondicionado"],["eBay",eby(m.name),"eBay Refurbished"],["MediaMarkt",mm(m.name),"Marketplace"],["Apple","https://www.apple.com/es/shop/refurbished/watch","Oficial · 1 año"]],
+  quiz:[
+   {k:"ecg",q:"¿Necesitas electrocardiograma?",o:[["n","No"],["y","Sí"]],f:(m,v)=>v==="n"||m.ecg===true},
+   {k:"aod",q:"¿Pantalla siempre activa?",o:[["n","No me importa"],["y","Sí"]],f:(m,v)=>v==="n"||m.aod===true},
+   {k:"bat",q:"Autonomía",o:[["n","Cargo cada día"],["y","Quiero 36 h o más"]],f:(m,v)=>v==="n"||(typeof m.bat==="number"&&m.bat>=36)},
+   {k:"bud",q:"Presupuesto máximo",o:[["200","200 €"],["300","300 €"],["400","400 €"],["600","600 €"],["99999","Sin límite"]],f:(m,v)=>m.from!==null&&m.from<=+v}],
+  tips:["<b>Compatibilidad:</b> el Apple Watch necesita un iPhone; no funciona con Android.","<b>Batería:</b> es lo que más sufre en un reloj usado; pide la salud de batería o elige batería nueva.","<b>Resistencia al agua:</b> tras abrir el reloj puede no estar garantizada; no lo uses para bucear si es reacondicionado.","<b>Correa:</b> revisa la talla (S/M o M/L) y si incluye correa original.","<b>Tamaño de caja:</b> las cajas de Series 10 y posteriores (42/46 mm) aceptan correas de 41/45 mm de modelos anteriores.","<b>Precios:</b> para relojes, RefurbMe no da un listado completo; los \"desde\" vienen de Back Market y PcComponentes (indicado en cada ficha)."]},
+ airpods:{name:"AirPods",F:AP_F,M:AP,ROWS:AP_ROWS,sizes:false,def:["std","pro","max"],
+  shops:m=>[["Back Market",bmS(m.name),"24 meses garantía"],["RefurbMe","https://www.refurb.me/es/refurbished/airpods","Compara todas las tiendas"],["Amazon Renewed",amz(m.name),"Amazon Reacondicionado"],["eBay",eby(m.name),"eBay Refurbished"],["MediaMarkt",mm(m.name),"Marketplace"]],
+  quiz:[
+   {k:"type",q:"¿Qué formato prefieres?",o:[["Abiertos","Abiertos"],["Intrauditivos","Intrauditivos (con gomas)"],["Diadema","De diadema"],["x","Me da igual"]],f:(m,v)=>v==="x"||m.type===v},
+   {k:"anc",q:"¿Cancelación activa de ruido?",o:[["n","No me importa"],["y","Sí"]],f:(m,v)=>v==="n"||m.anc===true},
+   {k:"bud",q:"Presupuesto máximo",o:[["80","80 €"],["120","120 €"],["180","180 €"],["300","300 €"],["99999","Sin límite"]],f:(m,v)=>m.from!==null&&m.from<=+v}],
+  tips:["<b>Higiene:</b> en los Pro, comprueba que incluyan gomas nuevas.","<b>Batería:</b> es el punto débil de unos AirPods usados; prioriza vendedores que garanticen autonomía.","<b>Número de serie:</b> compruébalo en checkcoverage.apple.com para descartar falsificaciones.","<b>Conector:</b> AirPods 3 y los primeros AirPods Pro 2 y Max usan Lightning.","<b>AirPods Max 2 y AirPods 5:</b> salieron en 2026; algunos datos aún no están confirmados (n/d)."]}
+};
+
+
+
+/* ======================= DEVICE ILLUSTRATIONS (schematic) ======================= */
+let UID=0;
+const COLOR_HEX={"negro":"#2e2e30","medianoche":"#232a31","grafito":"#54524f","blanco":"#f0efe9","blanco estrella":"#f4efe6","blanco nube":"#f2f1ee","plata":"#e3e4e5","oro":"#f4e8ce","oro claro":"#efe0c4","azul":"#9fb8d0","azul pacífico":"#2f4f63","azul niebla":"#a9bfd3","azul celeste":"#b9cfe4","azul profundo":"#2d3f5b","azul glaciar":"#c9dbe6","verde":"#cfdccd","verde azulado":"#a7c9c1","salvia":"#b9c4a8","rosa":"#f2c9cf","rosa pálido":"#f3d6d6","amarillo":"#f6e7a6","rojo":"#bf1e2e","morado":"#d6cfe6","morado oscuro":"#594f63","lavanda":"#d9cfe8","ultramar":"#5b6fd6","naranja cósmico":"#e8743b","burdeos":"#6e2633","negro espacial":"#2b2b2d","titanio natural":"#bab4a9","titanio azul":"#3f4a5a","titanio blanco":"#ecebe6","titanio negro":"#3b3b3c","titanio desierto":"#c9b29b","cielo nocturno":"#2b3240","oro rosa":"#e8c3b5","gris espacial":"#5d5f63","beige":"#e3d6c3"};
+function swatches(m){if(!m.cols)return"";const parts=m.cols.toLowerCase().split(",").map(s=>s.trim());const ti=parts[0].startsWith("titanio");return parts.map(p=>{let k=p;if(ti&&!p.startsWith("titanio"))k="titanio "+p;const c=COLOR_HEX[k]||COLOR_HEX[p];return c?`<i title="${p}" style="background:${c}"></i>`:""}).join("")}
+function firstColor(m){if(!m.cols)return "#2e2e30";const p=m.cols.toLowerCase().split(",")[0].trim();return COLOR_HEX[p]||"#2e2e30"}
+function shade(hex,amt){const n=parseInt(hex.slice(1),16);let r=(n>>16)+amt,g=(n>>8&255)+amt,b=(n&255)+amt;r=Math.max(0,Math.min(255,r));g=Math.max(0,Math.min(255,g));b=Math.max(0,Math.min(255,b));return "#"+((1<<24)+(r<<16)+(g<<8)+b).toString(16).slice(1)}
+function wall(id,c){return `<linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${shade(c,40)}"/><stop offset=".55" stop-color="${c}"/><stop offset="1" stop-color="${shade(c,-70)}"/></linearGradient>`}
+function phoneFront(m,c,H){const s=H/m.h,w=m.w*s,h=H,r=w*0.16,b=Math.max(2,w*0.03),id="w"+(UID++);const sw=w+6;
+ let top="";if(m.isl===false){top=`<path d="M${3+w*0.3} ${b} h${w*0.4} v${h*0.022} a${w*0.04} ${w*0.04} 0 0 1 -${w*0.04} ${w*0.04} h-${w*0.32} a${w*0.04} ${w*0.04} 0 0 1 -${w*0.04} -${w*0.04}z" fill="#000"/>`}
+ else if(m.id==="duo"){top=`<rect x="${3+w-b-w*0.06}" y="${h*0.4}" width="${w*0.035}" height="${h*0.16}" rx="${w*0.0175}" fill="#000"/>`}
+ else{const iw=w*(String(m.isl).includes("pequeña")?0.24:0.3);top=`<rect x="${3+w/2-iw/2}" y="${b+h*0.018}" width="${iw}" height="${w*0.085}" rx="${w*0.0425}" fill="#000"/>`}
+ return `<svg width="${sw.toFixed(0)}" height="${h.toFixed(0)}" viewBox="0 0 ${sw} ${h}"><defs>${wall(id,c)}</defs>
+ <rect x="0.5" y="${h*0.17}" width="3" height="${h*0.06}" rx="1.2" fill="${shade(c,-30)}"/><rect x="0.5" y="${h*0.26}" width="3" height="${h*0.1}" rx="1.2" fill="${shade(c,-30)}"/><rect x="${sw-3.5}" y="${h*0.24}" width="3" height="${h*0.13}" rx="1.2" fill="${shade(c,-30)}"/>
+ <rect x="3" y="0" width="${w}" height="${h}" rx="${r}" fill="${shade(c,-15)}"/><rect x="${3+b}" y="${b}" width="${w-2*b}" height="${h-2*b}" rx="${r-b}" fill="url(#${id})"/>${top}</svg>`}
+function phoneBack(m,c,H){const s=H/m.h,w=m.w*s,h=H,r=w*0.16;const L=v=>v&&v!=="—"&&v!==ND;
+ const n=1+(L(m.uw)?1:0)+(L(m.tele)?1:0);const lens=(x,y,R)=>`<circle cx="${x}" cy="${y}" r="${R}" fill="${shade(c,-60)}"/><circle cx="${x}" cy="${y}" r="${R*0.72}" fill="#111"/><circle cx="${x-R*0.22}" cy="${y-R*0.22}" r="${R*0.18}" fill="#4a5b70" opacity=".8"/>`;
+ const bump=shade(c,-10);let cam="";const id=m.id;
+ if(["17pro","17promax","18pro","18promax"].includes(id)){const ph=w*0.42;cam=`<rect x="0" y="${h*0.035}" width="${w}" height="${ph}" rx="${r*0.6}" fill="${bump}"/>`+lens(w*0.2,h*0.035+ph*0.3,w*0.1)+lens(w*0.2,h*0.035+ph*0.72,w*0.1)+lens(w*0.42,h*0.035+ph*0.51,w*0.1)}
+ else if(id==="air"){const ph=w*0.2;cam=`<rect x="0" y="${h*0.03}" width="${w}" height="${ph}" rx="${ph/2}" fill="${bump}"/>`+lens(w*0.18,h*0.03+ph/2,w*0.075)}
+ else if(id==="duo"){const ph=w*0.2;cam=`<rect x="${w*0.06}" y="${h*0.04}" width="${w*0.88}" height="${ph}" rx="${ph/2}" fill="${bump}"/>`+lens(w*0.22,h*0.04+ph/2,w*0.075)+lens(w*0.42,h*0.04+ph/2,w*0.075)}
+ else if(n===1){cam=`<rect x="${w*0.07}" y="${w*0.07}" width="${w*0.26}" height="${w*0.26}" rx="${w*0.07}" fill="${bump}"/>`+lens(w*0.2,w*0.2,w*0.085)}
+ else if(["16","16plus","17"].includes(id)){cam=`<rect x="${w*0.07}" y="${w*0.07}" width="${w*0.24}" height="${w*0.46}" rx="${w*0.12}" fill="${bump}"/>`+lens(w*0.19,w*0.19,w*0.085)+lens(w*0.19,w*0.41,w*0.085)}
+ else if(n===2){const q=w*0.42;cam=`<rect x="${w*0.06}" y="${w*0.06}" width="${q}" height="${q}" rx="${w*0.09}" fill="${bump}"/>`+lens(w*0.17,w*0.17,w*0.085)+lens(w*0.37,w*0.37,w*0.085)}
+ else{const q=w*0.46;cam=`<rect x="${w*0.05}" y="${w*0.05}" width="${q}" height="${q}" rx="${w*0.1}" fill="${bump}"/>`+lens(w*0.16,w*0.17,w*0.09)+lens(w*0.16,w*0.39,w*0.09)+lens(w*0.37,w*0.28,w*0.09)}
+ return `<svg width="${w.toFixed(0)}" height="${h.toFixed(0)}" viewBox="0 0 ${w} ${h}"><rect x="0" y="0" width="${w}" height="${h}" rx="${r}" fill="${c}"/><rect x="1" y="1" width="${w-2}" height="${h-2}" rx="${r-1}" fill="none" stroke="${shade(c,-25)}" stroke-width="1.2"/>${cam}</svg>`}
+function tabletFront(m,c,H){const s=H/m.h,w=m.w*s,h=H,r=w*0.07,id="w"+(UID++);const home=m.id==="ipad9";const b=home?w*0.09:w*0.045;const bs=home?w*0.05:b;
+ const horiz=String(m.front).includes("horizontal");const cam=horiz?`<circle cx="${w-bs/2}" cy="${h/2}" r="${Math.max(1.2,w*0.012)}" fill="#333"/>`:`<circle cx="${w/2}" cy="${b/2}" r="${Math.max(1.2,w*0.012)}" fill="#333"/>`;
+ const hb=home?`<circle cx="${w/2}" cy="${h-b/2}" r="${b*0.3}" fill="none" stroke="#888" stroke-width="1.2"/>`:"";
+ return `<svg width="${w.toFixed(0)}" height="${h.toFixed(0)}" viewBox="0 0 ${w} ${h}"><defs>${wall(id,c)}</defs><rect x="0" y="0" width="${w}" height="${h}" rx="${r}" fill="#1b1b1d"/><rect x="${bs}" y="${b}" width="${w-2*bs}" height="${h-2*b}" rx="${home?2:r*0.7}" fill="url(#${id})"/>${cam}${hb}</svg>`}
+function watchFront(m,c,H){const mm=Math.max(...String(m.size).match(/\d+/g).map(Number));const ultra=m.f==="ultra";const ch=H*0.62*(mm/49),cw=ultra?ch*0.9:ch*0.84;const W=cw+18,cx=9,cy=(H-ch)/2,id="w"+(UID++);
+ const band=`<rect x="${cx+cw*0.12}" y="0" width="${cw*0.76}" height="${cy+ch*0.3}" rx="${cw*0.12}" fill="${c}"/><rect x="${cx+cw*0.12}" y="${cy+ch*0.7}" width="${cw*0.76}" height="${H-cy-ch*0.7}" rx="${cw*0.12}" fill="${c}"/>`;
+ const kase=`<rect x="${cx}" y="${cy}" width="${cw}" height="${ch}" rx="${cw*(ultra?0.18:0.26)}" fill="${ultra?'#b9b2a5':'#2b2b2e'}"/><rect x="${cx+cw*0.07}" y="${cy+ch*0.065}" width="${cw*0.86}" height="${ch*0.87}" rx="${cw*(ultra?0.12:0.21)}" fill="#000"/>`;
+ const rc=[["#fa114f",.3],["#92e82a",.22],["#1eeaef",.14]].map(([col,rr])=>`<circle cx="${cx+cw/2}" cy="${cy+ch/2}" r="${cw*rr}" fill="none" stroke="${col}" stroke-width="${cw*0.055}" stroke-dasharray="${cw*rr*4.4} ${cw*rr*6.3}" stroke-linecap="round" transform="rotate(-90 ${cx+cw/2} ${cy+ch/2})"/>`).join("");
+ const crown=`<rect x="${cx+cw-1}" y="${cy+ch*0.25}" width="${ultra?7:5}" height="${ch*0.18}" rx="2" fill="${ultra?'#a59f93':'#555'}"/><rect x="${cx+cw-0.5}" y="${cy+ch*0.52}" width="3" height="${ch*0.2}" rx="1.5" fill="${ultra?'#a59f93':'#555'}"/>`;
+ const act=ultra?`<rect x="${cx-3.5}" y="${cy+ch*0.3}" width="4" height="${ch*0.2}" rx="1.5" fill="#f26a2e"/>`:"";
+ return `<svg width="${W.toFixed(0)}" height="${H.toFixed(0)}" viewBox="0 0 ${W} ${H}">${band}${crown}${act}${kase}${rc}</svg>`}
+function podsIcon(m,H){const t=m.type;const w=H*1.0;
+ if(t==="Diadema"){return `<svg width="${w}" height="${H}" viewBox="0 0 100 100"><path d="M18 58 V40 a32 32 0 0 1 64 0 V58" fill="none" stroke="#c9c9cc" stroke-width="6"/><path d="M24 30 a28 28 0 0 1 52 0" fill="none" stroke="#9a9a9e" stroke-width="3"/><rect x="8" y="50" width="22" height="38" rx="10" fill="#d9d9dc"/><rect x="70" y="50" width="22" height="38" rx="10" fill="#d9d9dc"/><rect x="12" y="55" width="14" height="28" rx="6" fill="#bdbdc1"/><rect x="74" y="55" width="14" height="28" rx="6" fill="#bdbdc1"/></svg>`}
+ const pro=t==="Intrauditivos";const cw=pro?64:56,ch=pro?46:52;
+ return `<svg width="${w}" height="${H}" viewBox="0 0 100 100"><rect x="${50-cw/2}" y="${92-ch}" width="${cw}" height="${ch}" rx="${pro?16:20}" fill="#f2f2f4" stroke="#d2d2d6"/><line x1="${50-cw/2}" y1="${92-ch+ch*0.32}" x2="${50+cw/2}" y2="${92-ch+ch*0.32}" stroke="#d2d2d6"/><circle cx="50" cy="${92-ch*0.45}" r="1.6" fill="#7bd36b"/>
+ <g transform="translate(30 6)"><ellipse cx="9" cy="10" rx="9" ry="8" fill="#fafafa" stroke="#d2d2d6"/>${pro?'<ellipse cx="3" cy="11" rx="4" ry="5" fill="#e4e4e8"/>':''}<rect x="${pro?11:12}" y="12" width="5" height="${pro?14:22}" rx="2.5" fill="#fafafa" stroke="#d2d2d6"/></g>
+ <g transform="translate(52 6)"><ellipse cx="9" cy="10" rx="9" ry="8" fill="#fafafa" stroke="#d2d2d6"/>${pro?'<ellipse cx="15" cy="11" rx="4" ry="5" fill="#e4e4e8"/>':''}<rect x="${pro?2:1}" y="12" width="5" height="${pro?14:22}" rx="2.5" fill="#fafafa" stroke="#d2d2d6"/></g></svg>`}
+let PHOTOS={};const photoKey=m=>cat+"-"+m.id;
+function photo(m){const p=PHOTOS[photoKey(m)];return p&&p.src?p:null}
+function devImg(m,H,opts={}){const p=photo(m);if(p)return `<img src="${p.src}" alt="${m.name}" loading="lazy" style="height:${Math.round(H)}px;width:auto;max-width:100%;object-fit:contain" onerror="this.replaceWith(document.createRange().createContextualFragment(drawImg(CATS[cat].M.find(x=>x.id==='${m.id}'),${Math.round(H)})))">`;return drawImg(m,H,opts)}
+function drawImg(m,H,opts={}){const c=firstColor(m);
+ if(cat==="iphone")return opts.back?phoneFront(m,c,H)+phoneBack(m,c,H):phoneFront(m,c,H);
+ if(cat==="ipad")return tabletFront(m,"#6f8fb5",H);
+ if(cat==="watch")return watchFront(m,m.f==="ultra"?"#e8742e":m.f==="se"?"#c9c3b8":"#3a4a5e",H);
+ return podsIcon(m,H*0.8)}
+
+/* ======================= STATE & RENDER ======================= */
+const HERO={iphone:["iPhone.","Encuentra el iPhone reacondicionado perfecto para ti."],ipad:["iPad.","Encuentra el iPad reacondicionado que encaja contigo."],watch:["Apple Watch.","Encuentra el reloj reacondicionado perfecto para ti."],airpods:["AirPods.","Encuentra tus AirPods reacondicionados."]};
+let cat="iphone",C=CATS[cat];
+let gsel,msel,sel,A={};
+const famIds=g=>C.M.filter(m=>m.f===g).map(m=>m.id);
+const launchTxt=m=>m.launch+" €";
+const fromTxt=m=>m.from===null?'<span class="nd">Aún sin reacondicionados</span>':`Desde <b>${m.from} €</b>`;
+function resetCat(){C=CATS[cat];gsel=new Set(C.def);msel=new Set(C.M.filter(m=>gsel.has(m.f)).map(m=>m.id));
+ sel=new Set(C.M.filter(m=>m.f===C.def[0]).map(m=>m.id).slice(0,4));if(sel.size<2)sel=new Set(C.M.slice(0,4).map(m=>m.id));A={}}
+function renderCats(){document.getElementById("cats").innerHTML=Object.keys(CATS).map(k=>`<button class="${k===cat?'on':''}" data-c="${k}">${k==="watch"?"Watch":CATS[k].name}</button>`).join("");
+ const H=HERO[cat];document.getElementById("heroTitle").textContent=H[0];document.getElementById("heroSub").textContent=H[1];
+ document.getElementById("catTitle").textContent=cat==="watch"?"Apple Watch":C.name;
+ const pr=C.M.filter(m=>m.from!==null).map(m=>m.from);document.getElementById("heroMeta").textContent=`${C.M.length} modelos · reacondicionados desde ${Math.min(...pr)} €`}
+document.getElementById("cats").onclick=e=>{const b=e.target.closest("button");if(!b)return;cat=b.dataset.c;resetCat();renderAll();show("resumen")};
+const tabs=document.querySelectorAll("#tabs button");
+function show(t){tabs.forEach(b=>b.classList.toggle("on",b.dataset.t===t));document.querySelectorAll("section.tab").forEach(s=>s.classList.toggle("on",s.id===t));window.scrollTo({top:0,behavior:"smooth"})}
+tabs.forEach(b=>b.onclick=()=>show(b.dataset.t));
+document.getElementById("buyTop").onclick=()=>show("comprar");
+
+const specList=m=>{let out="";C.ROWS.forEach(r=>{if(r.length===1){out+=`<li class="sg">${r[0]}</li>`;return}const f=r[2]||yn;out+=`<li><span>${r[1]}</span><span>${f(m[r[0]])}</span></li>`});return out};
+function renderModels(){
+ const F=C.F;const all=gsel.size===Object.keys(F).length;const gf=document.getElementById("genFilter");
+ gf.innerHTML=`<div class="lbl">Familias</div><button class="chip ${all?'on':''}" data-g="all">Todas</button>`+Object.keys(F).map(k=>`<button class="chip ${gsel.has(k)?'on':''}" data-g="${k}"><span class="dot" style="background:${F[k].c}"></span>${F[k].n}</button>`).join("")+
+  `<div class="lbl">Modelos</div>`+C.M.filter(m=>gsel.has(m.f)).map(m=>`<button class="chip ${msel.has(m.id)?'on':''}" data-m="${m.id}">${m.name}</button>`).join("");
+ const list=C.M.filter(m=>gsel.has(m.f)&&msel.has(m.id));
+ const st=document.getElementById("stage");st.style.display=list.length?"block":"none";
+ if(list.length){
+  let html="";
+  if(cat==="iphone"||cat==="ipad"){const maxH=Math.max(...list.map(m=>m.h));const px=(window.innerWidth<600?(list.length>6?110:150):(list.length>8?170:230));
+   html=list.map(m=>{const H=px*m.h/maxH;return `<figure>${devImg(m,H)}<figcaption><b>${m.name.replace(/\s*\(.*\)/,"")}</b>${dec(m.in)}" · ${m.dims||(dec(m.h)+" × "+dec(m.w)+" mm")}</figcaption></figure>`}).join("");
+   document.getElementById("stageNote").textContent=list.some(photo)?"Altura proporcional al tamaño real. Las fotos pueden tener márgenes, así que la escala es aproximada; los modelos sin foto se muestran con un dibujo esquemático.":"Dibujos esquemáticos a escala real entre sí (alto × ancho).";}
+  else if(cat==="watch"){html=list.map(m=>`<figure>${devImg(m,150)}<figcaption><b>${m.name.replace("Apple Watch ","")}</b>${m.size}</figcaption></figure>`).join("");document.getElementById("stageNote").textContent="Cajas dibujadas a escala entre sí (talla mayor de cada modelo).";}
+  else{html=list.map(m=>`<figure>${devImg(m,120)}<figcaption><b>${m.name}</b>${m.type}</figcaption></figure>`).join("");document.getElementById("stageNote").textContent="Ilustraciones esquemáticas, no a escala.";}
+  document.getElementById("sizes").innerHTML=html}
+ const fams=Object.keys(F).filter(g=>list.some(m=>m.f===g));const newest=Math.max(...C.M.map(m=>m.yr));
+ document.getElementById("cards").innerHTML=!list.length?`<p class="note center">Selecciona al menos un modelo.</p>`:fams.map(g=>`<div class="h3"><span class="dot" style="background:${F[g].c}"></span>${F[g].n}${F[g].y?` <span class="year">${F[g].y}</span>`:""}</div><div class="grid">${list.filter(m=>m.f===g).map(m=>`<div class="tile">
+  <div class="img">${devImg(m,cat==="watch"?170:cat==="airpods"?150:170,{back:true})}</div>
+  ${m.yr===newest?'<div class="new">Novedad</div>':""}<h4>${m.name}</h4><div class="tag">${m.tag}</div>
+  ${cat==="iphone"?`<div class="colors">${swatches(m)}</div>`:""}
+  <div class="price">${fromTxt(m)}</div><div class="src">${m.from===null?"":(m.src||REF)} · nuevo: ${launchTxt(m)}</div>
+  <div class="act"><button class="pillbtn" onclick="goShop('${m.id}')">Comprar</button><a href="#" onclick="cmpOne('${m.id}');return false">Comparar ›</a></div>
+  <details class="specs" open><summary><span class="op">Ver todas las especificaciones ›</span><span class="cl">Ocultar especificaciones</span></summary><ul class="keys">${specList(m)}</ul></details></div>`).join("")}</div>`).join("");
+}
+document.getElementById("genFilter").onclick=e=>{const b=e.target.closest("button");if(!b)return;const F=C.F;
+ if(b.dataset.g==="all"){const on=gsel.size<Object.keys(F).length;gsel=new Set(on?Object.keys(F):[]);msel=new Set(on?C.M.map(m=>m.id):[])}
+ else if(b.dataset.g){const g=b.dataset.g;if(gsel.has(g)){gsel.delete(g);famIds(g).forEach(i=>msel.delete(i))}else{gsel.add(g);famIds(g).forEach(i=>msel.add(i))}}
+ else if(b.dataset.m){const id=b.dataset.m;msel.has(id)?msel.delete(id):msel.add(id)}
+ renderModels()};
+window.cmpOne=id=>{sel.add(id);renderPick();renderTable();show("comparar")};
+
+function renderPresets(){const P=[...Object.keys(C.F).map(k=>[C.F[k].n,famIds(k)]),["Todos",C.M.map(m=>m.id)]];const el=document.getElementById("presets");
+ el.innerHTML=`<div class="lbl">Grupos rápidos</div>`+P.map((p,i)=>`<button class="chip" data-p="${i}">${p[0]}</button>`).join("");
+ el.onclick=e=>{const b=e.target.closest("button");if(!b)return;sel=new Set(P[b.dataset.p][1]);renderPick();renderTable()}}
+function renderPick(){document.getElementById("pick").innerHTML=`<div class="lbl">Modelos en la tabla</div>`+C.M.map(m=>`<button class="chip ${sel.has(m.id)?'on':''}" data-id="${m.id}"><span class="dot" style="background:${C.F[m.f].c}"></span>${m.name}</button>`).join("")}
+document.getElementById("pick").onclick=e=>{const b=e.target.closest("button");if(!b)return;const id=b.dataset.id;if(sel.has(id)){if(sel.size>1)sel.delete(id)}else sel.add(id);renderPick();renderTable()};
+document.getElementById("onlyDiff").onchange=()=>renderTable();
+function renderTable(){
+ const ms=C.M.filter(m=>sel.has(m.id));const od=document.getElementById("onlyDiff").checked;
+ const rows=[["Precio"],["from","Reacondicionado desde",v=>v===null?'<span class="nd">Aún no</span>':v+" €"],["launch","Precio nuevo (España)",v=>v+" €"],["yr","Año",v=>v],...C.ROWS];
+ const maxH=(cat==="iphone"||cat==="ipad")?Math.max(...ms.map(m=>m.h)):1;
+ const img=m=>cat==="iphone"||cat==="ipad"?devImg(m,125*m.h/maxH):devImg(m,cat==="watch"?125:105);
+ let h=`<thead><tr><th class="k"></th>${ms.map(m=>`<th><div class="im">${img(m)}</div><div class="nm">${m.name}</div><div class="pr">${m.from===null?"Sin reacondicionados":"Desde "+m.from+" €"}</div><button class="pillbtn" onclick="goShop('${m.id}')">Comprar</button></th>`).join("")}</tr></thead><tbody>`;let pend=null;
+ rows.forEach(r=>{if(r.length===1){pend=`<tr class="grp"><td class="k">${r[0]}</td><td colspan="${ms.length}"></td></tr>`;return}
+  const f=r[2]||yn;const vals=ms.map(m=>f(m[r[0]]));const diff=new Set(vals).size>1;if(od&&!diff&&ms.length>1)return;if(pend){h+=pend;pend=null}
+  h+=`<tr class="${diff?'diff':''}"><td class="k">${r[1]}</td>${vals.map(v=>`<td>${v}</td>`).join("")}</tr>`});
+ document.getElementById("tbl").innerHTML=h+"</tbody>";
+}
+function renderPrices(){const num=v=>typeof v==="number"?v:parseInt(v);const maxL=Math.max(...C.M.map(m=>num(m.launch)));
+ const arr=[...C.M].sort((a,b)=>(a.from===null)-(b.from===null)||(a.from-b.from));
+ document.getElementById("priceList").innerHTML=arr.map(m=>{const L=num(m.launch);return `<div class="prow"><div class="t"><span><span class="dot" style="background:${C.F[m.f].c};margin-right:8px"></span>${m.name}</span><span style="text-align:right">${m.from===null?'<span class="nd">sin reacondicionados</span>':`<b>${m.from} €</b>`} <span style="color:var(--soft)">/ ${launchTxt(m)}${m.from!==null?` · −${Math.max(0,Math.round((1-m.from/L)*100))} %`:""}</span></span></div><div class="bar"><i style="width:${m.from===null?0:m.from/maxL*100}%;background:${C.F[m.f].c}"></i></div><div class="bar" style="height:3px;margin-top:3px"><i style="width:${L/maxL*100}%;background:var(--soft);opacity:.5"></i></div><div class="note" style="margin-top:4px">${m.from===null?"":(m.src||REF)}</div></div>`}).join("")}
+const ss=document.getElementById("shopSel");
+function renderShopSel(){ss.innerHTML=Object.keys(C.F).map(g=>`<optgroup label="${C.F[g].n}">${C.M.filter(m=>m.f===g).map(m=>`<option value="${m.id}">${m.name}${m.from!==null?" · desde "+m.from+" €":""}</option>`).join("")}</optgroup>`).join("");ss.value=C.M[0].id;renderShop()}
+function renderShop(){const m=C.M.find(x=>x.id===ss.value);document.getElementById("shopBox").innerHTML=`<div class="head"><div>${devImg(m,120,{back:true})}</div><div><div style="font-size:28px;font-weight:600;line-height:1.15">${m.name}</div><div style="color:var(--mute);margin-top:4px">${m.from===null?"Aún sin reacondicionados":"Reacondicionado desde "+m.from+" €"} · nuevo ${launchTxt(m)}</div></div></div><div class="shops">${C.shops(m).map(s=>link(...s)).join("")}</div>`}
+ss.onchange=renderShop;
+window.goShop=id=>{ss.value=id;renderShop();show("comprar")};
+function renderQuiz(){document.getElementById("quizBox").innerHTML=C.quiz.map((q,i)=>`<div class="q">${q.q}</div><div class="opts" data-q="${q.k}">${q.o.map(o=>`<button data-v="${o[0]}">${o[1]}</button>`).join("")}</div>`).join("");document.getElementById("res").innerHTML="";
+ document.querySelectorAll("#quizBox .opts").forEach(o=>o.onclick=e=>{const b=e.target.closest("button");if(!b)return;o.querySelectorAll("button").forEach(x=>x.classList.toggle("on",x===b));A[o.dataset.q]=b.dataset.v;rec()})}
+function rec(){const R=document.getElementById("res");if(Object.keys(A).length<C.quiz.length){R.innerHTML="";return}
+ const ok=C.M.filter(m=>C.quiz.every(q=>q.f(m,A[q.k])));
+ if(!ok.length){R.innerHTML=`<div class="result"><div class="rt">Ningún modelo cumple todo con ese presupuesto. Sube el presupuesto o quita algún requisito.</div></div>`;return}
+ const best=[...ok].sort((a,b)=>b.yr-a.yr||a.from-b.from)[0];const cheap=[...ok].sort((a,b)=>a.from-b.from)[0];
+ const card=(m,t)=>`<div class="result"><div>${devImg(m,130,{back:true})}</div><div class="rt"><div class="k">${t}</div><h5>${m.name}</h5><div style="color:var(--mute)">Desde ${m.from} € · ${m.yr}</div><div class="act" style="display:flex;gap:16px;align-items:center;margin-top:12px"><button class="pillbtn" onclick="goShop('${m.id}')">Comprar</button><a href="#" onclick="openModel('${m.id}');return false">Ver ficha ›</a></div></div></div>`;
+ R.innerHTML=card(best,"El más moderno que encaja")+(cheap.id!==best.id?card(cheap,"El más barato que encaja"):"")+`<p class="note">Cumplen tus requisitos: ${ok.map(m=>m.name).join(", ")}.</p>`}
+window.openModel=id=>{const m=C.M.find(x=>x.id===id);gsel.add(m.f);msel=new Set([id]);renderModels();show("resumen")};
+function renderTips(){document.getElementById("tipsList").innerHTML=C.tips.map(t=>`<li>${t}</li>`).join("")}
+function renderFoot(){document.getElementById("foot").innerHTML=`Especificaciones: fichas oficiales de Apple y prensa especializada; "n/d" = dato no confirmado. Precios reacondicionados: el más bajo visto, con fuente y fecha en cada ficha (por defecto <a href="https://www.refurb.me/es/refurbished/iphone/iphone-air" target="_blank" rel="noopener">RefurbMe</a>, nov 2026). Cambian a diario. Precio nuevo: lanzamiento en España, versión base.`}
+function renderCredits(){const used=Object.entries(PHOTOS).filter(([k,p])=>p&&p.src&&(p.author||p.license));const el=document.getElementById("credits");
+ if(!used.length){el.innerHTML="";return}
+ el.innerHTML=`<p><b>Créditos de las fotos:</b> `+used.map(([k,p])=>`${k.replace(/^[a-z]+-/,"")}: ${p.source?`<a href="${p.source}" target="_blank" rel="noopener">${p.author||"autor"}</a>`:(p.author||"")}${p.license?" ("+p.license+")":""}`).join(" · ")+`</p>`}
+function renderAll(){renderCats();renderModels();renderPresets();renderPick();renderTable();renderPrices();renderShopSel();renderQuiz();renderTips();renderFoot()}
+resetCat();renderAll();
+fetch("images.json",{cache:"no-cache"}).then(r=>r.ok?r.json():{}).then(j=>{PHOTOS=Object.fromEntries(Object.entries(j).filter(([k,v])=>!k.startsWith("_")));if(Object.values(PHOTOS).some(p=>p&&p.src))renderAll();renderCredits()}).catch(()=>{});
+let rt;window.addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(()=>{renderModels();renderTable()},250)});
+
+/* ======================= VISIT COUNTER (Netlify Functions) ======================= */
+(async()=>{const el=document.getElementById("vcount");
+ try{let first=false;try{first=!sessionStorage.getItem("v_tracked")}catch(e){}
+  if(first){const r=await fetch("/api/track",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({path:location.pathname,ref:document.referrer,screen:screen.width+"x"+screen.height})});
+   if(r.ok){const j=await r.json();el.textContent=j.total.toLocaleString("es-ES");try{sessionStorage.setItem("v_tracked","1")}catch(e){}return}}
+  const r=await fetch("/api/stats");if(r.ok){const j=await r.json();el.textContent=j.total.toLocaleString("es-ES")}
+ }catch(e){/* sin backend (vista previa): se queda en — */}
+})();
+document.getElementById("visits").onclick=()=>{location.href="/admin.html"};
+</script>
+</body>
+</html>

@@ -1,0 +1,399 @@
+{
+  "_instrucciones": "Rellena 'src' con una ruta local (img/nombre.jpg) o una URL de upload.wikimedia.org. Si es de Commons, rellena autor, licencia y enlace a la página del archivo. Las entradas con 'src' vacío se ignoran y se muestra el dibujo.",
+  "iphone-12mini": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "iphone-12": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "iphone-12pro": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "iphone-12promax": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "iphone-14": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "iphone-14plus": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "iphone-14pro": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "iphone-14promax": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "iphone-15": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "iphone-15plus": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "iphone-15pro": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "iphone-15promax": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "iphone-16e": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "iphone-16": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "iphone-16plus": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "iphone-16pro": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "iphone-16promax": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "iphone-17e": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "iphone-17": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "iphone-air": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "iphone-17pro": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "iphone-17promax": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "iphone-18pro": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "iphone-18promax": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "iphone-duo": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "ipad-ipad9": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "ipad-ipad10": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "ipad-ipad11": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "ipad-mini6": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "ipad-mini7": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "ipad-mini8": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "ipad-air5": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "ipad-air11m2": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "ipad-air13m2": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "ipad-air11m3": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "ipad-air13m3": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "ipad-air11m4": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "ipad-air13m4": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "ipad-pro11m1": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "ipad-pro129m1": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "ipad-pro11m2": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "ipad-pro129m2": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "ipad-pro11m4": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "ipad-pro13m4": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "ipad-pro11m5": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "ipad-pro13m5": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "watch-s7": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "watch-s8": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "watch-s9": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "watch-s10": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "watch-s11": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "watch-s12": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "watch-se2": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "watch-se3": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "watch-u1": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "watch-u2": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "watch-u3": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "watch-u4": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "airpods-ap3": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "airpods-ap4": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "airpods-ap4anc": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "airpods-ap5": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "airpods-pro2": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "airpods-pro3": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "airpods-max1": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  },
+  "airpods-max2": {
+    "src": "",
+    "author": "",
+    "license": "",
+    "source": ""
+  }
+}
