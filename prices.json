@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-13T09:00:00+01:00",
+  "updated": "2026-11-13T15:21:45+01:00",
   "_nota": "Precio reacondicionado más bajo visto por modelo. 'from': euros (null = sin reacondicionados). 'src': fuente. 'date': fecha en que se vio. Lo actualiza la tarea programada a las 3:00 y 15:00 (hora de Madrid); si no encuentra un dato, conserva el anterior.",
   "prices": {
     "iphone-12mini": {
@@ -310,9 +310,9 @@
     },
     "watch-s12": {
       "name": "Apple Watch Series 12",
-      "from": null,
-      "src": "RefurbMe",
-      "date": "2026-11-12"
+      "from": 432,
+      "src": "PcComponentes",
+      "date": "2026-11-13"
     },
     "watch-se2": {
       "name": "Apple Watch SE (2.ª gen)",
@@ -322,9 +322,9 @@
     },
     "watch-se3": {
       "name": "Apple Watch SE 3",
-      "from": 220,
-      "src": "PcComponentes, 2026",
-      "date": null
+      "from": 232,
+      "src": "PcComponentes",
+      "date": "2026-11-13"
     },
     "watch-u1": {
       "name": "Apple Watch Ultra",
@@ -334,21 +334,21 @@
     },
     "watch-u2": {
       "name": "Apple Watch Ultra 2",
-      "from": 498,
-      "src": "Back Market, jul 2026",
-      "date": null
+      "from": 582,
+      "src": "PcComponentes",
+      "date": "2026-11-13"
     },
     "watch-u3": {
       "name": "Apple Watch Ultra 3",
       "from": 702,
-      "src": "PcComponentes, 2026",
-      "date": null
+      "src": "PcComponentes",
+      "date": "2026-11-13"
     },
     "watch-u4": {
       "name": "Apple Watch Ultra 4",
-      "from": null,
-      "src": "RefurbMe",
-      "date": "2026-11-12"
+      "from": 792,
+      "src": "PcComponentes",
+      "date": "2026-11-13"
     },
     "airpods-ap3": {
       "name": "AirPods (3.ª gen)",
