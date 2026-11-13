@@ -61,6 +61,8 @@ section.tab{display:none}section.tab.on{display:block}
 .tile{background:var(--white);border-radius:28px;padding:28px 24px 22px;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s}
 .tile:hover{transform:translateY(-3px);box-shadow:0 12px 34px rgba(0,0,0,.08)}
 .tile .img{display:flex;align-items:flex-end;justify-content:center;gap:12px;height:190px;margin-bottom:16px}
+.esim{display:inline-block;margin:8px auto 0;font-size:11.5px;font-weight:600;color:#bf4800;border:1px solid currentColor;border-radius:980px;padding:2px 9px}
+@media (prefers-color-scheme:dark){.esim{color:#ff9f0a}}
 .tile .new{font-size:12px;color:#bf4800;font-weight:600;text-align:center}
 @media (prefers-color-scheme:dark){.tile .new{color:#ff9f0a}}
 .tile h4{font-size:24px;font-weight:600;text-align:center;margin:2px 0 2px;letter-spacing:.004em;line-height:1.15}
@@ -104,7 +106,13 @@ tr.grp td{font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing
 tr.diff td:not(.k){font-weight:600}
 /* prices */
 .plist{background:var(--white);border-radius:28px;padding:10px 24px}
-.prow{padding:14px 0;border-bottom:1px solid var(--line)}.prow:last-child{border:0}
+details.pblock{border-bottom:1px solid var(--line)}details.pblock:last-child{border:0}
+details.pblock summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:18px 0;font-size:19px;font-weight:600}
+details.pblock summary::-webkit-details-marker{display:none}
+details.pblock .pn{flex:0 0 auto}details.pblock .pc{margin-left:auto;font-size:14px;font-weight:400;color:var(--mute);text-align:right}
+details.pblock .chev{color:var(--link);font-size:22px;transition:transform .2s;line-height:1}details.pblock[open] .chev{transform:rotate(90deg)}
+details.pblock .prow:first-of-type{border-top:1px solid var(--line)}
+.prow{padding:14px 0 14px 19px;border-bottom:1px solid var(--line)}.prow:last-child{border:0}
 .prow .t{display:flex;justify-content:space-between;gap:10px;font-size:15px}
 .bar{height:6px;border-radius:3px;background:var(--bg);margin-top:8px;overflow:hidden}.bar i{display:block;height:100%;border-radius:3px}
 /* shop */
@@ -162,7 +170,7 @@ footer .in p{margin:0 0 10px}
 <section class="tab" id="precios">
   <div class="h2">Cuánto te ahorras.</div>
   <div class="plist" id="priceList"></div>
-  <p class="note">Barra de color: precio reacondicionado más bajo visto. Barra gris: precio de lanzamiento en España (versión base).</p>
+  <p class="note">Barra de color: precio reacondicionado más bajo visto (versión de menor capacidad). Barra gris: precio de lanzamiento en España (versión base).</p>
 </section>
 
 <section class="tab" id="comprar">
@@ -233,13 +241,14 @@ const IPH=[
  ip({id:"18promax",f:"18",yr:2026,name:"iPhone 18 Pro Max",slug:"iphone-18-pro-max",tag:"Récord de batería",from:1479,launch:1619,h:163.4,w:78.0,in:6.9,res:"2868 × 1320",hz:120,aod:Y,isl:"Sí (más pequeña)",nits:"3000 nits",chip:"A20 Pro",ram:12,sto:"256 GB – 2 TB",ai:Y,main:"48 MP ƒ/1.48–ƒ/4 (apertura variable)",uw:"48 MP",tele:"48 MP 4x",opt:"hasta 4x (8x calidad óptica)",dig:ND,lidar:Y,front:"18 MP Center Stage",video:"4K 120 fps · ProRes",bat:43,port:"USB‑C (USB 3)",wl:"MagSafe · Qi2 25 W",mat:"Aluminio",dims:"163,4 × 78,0 × 8,75",wt:249,btn:"Acción + Control de Cámara",camc:Y,wifi:"Wi‑Fi 7",cols:"Negro, plata, azul glaciar, burdeos"}),
  ip({id:"duo",f:"18",yr:2026,name:"iPhone Duo",slug:"iphone-duo",tag:"El primer iPhone plegable",from:null,launch:2339,h:117.8,w:84.1,in:7.6,res:"Interior 2670 × 1878 · exterior 5,4\"",hz:120,aod:Y,isl:"Sí (vertical, en el lateral)",nits:"3000 nits",chip:"A20 Pro",ram:12,sto:"256 GB – 2 TB",ai:Y,main:"48 MP Fusion",uw:"48 MP Fusion (macro)",tele:"—",opt:"2x (recorte del sensor)",dig:ND,lidar:ND,front:"Center Stage + cámara bajo la pantalla interior",video:"4K 120 fps · Dolby Vision",bat:ND,port:"USB‑C",wl:"MagSafe · Qi2",mat:"Titanio grado 5 pulido",dims:"Cerrado 117,8 × 84,1 × 11,3 · abierto 5,2 de grosor",wt:254,btn:"Control de Cámara",camc:Y,wifi:ND,sim:"Solo eSIM",bio:"Touch ID (botón lateral)",cols:"Blanco estrella, cielo nocturno"})
 ];
+IPH.forEach(m=>{m.simx=m.f==="12"?"nano‑SIM + eSIM":["14","15","16"].includes(m.f)?"Solo eSIM en unidades de EE. UU.":m.id==="air"?"Solo eSIM en todo el mundo":m.f==="17"?"Solo eSIM en EE. UU., Canadá, México, Japón, Guam y Oriente Medio":m.id==="duo"?"Solo eSIM":ND});
 const IPH_ROWS=[
  ["Pantalla"],["in","Tamaño",v=>dec(v)+'"'],["res","Resolución"],["hz","Frecuencia",v=>v===120?"ProMotion 120 Hz":"60 Hz"],["aod","Siempre activa"],["isl","Dynamic Island",v=>v===false?'<span class="no">No (notch)</span>':yn(v)],["nits","Brillo máximo"],
  ["Rendimiento"],["chip","Chip"],["ram","RAM",v=>v+" GB"],["sto","Almacenamiento"],["ai","Apple Intelligence"],
  ["Cámaras"],["main","Principal"],["uw","Ultra gran angular"],["tele","Teleobjetivo"],["opt","Zoom óptico"],["dig","Zoom digital"],["lidar","Escáner LiDAR"],["front","Frontal"],["video","Vídeo"],["camc","Control de Cámara"],
  ["Batería y carga"],["bat","Reproducción vídeo",v=>v===ND?yn(v):"hasta "+v+" h"],["port","Conector"],["wl","Carga inalámbrica"],
  ["Diseño"],["mat","Material"],["dims","Medidas (mm)"],["wt","Peso",v=>v+" g"],["btn","Botones"],["bio","Desbloqueo"],["cols","Colores"],
- ["Conectividad"],["wifi","Wi‑Fi"],["sim","SIM (versión UE)"]
+ ["Conectividad"],["wifi","Wi‑Fi"],["sim","SIM (versión europea)"],["simx","SIM en unidades de otros países"]
 ];
 
 /* ======================= iPAD ======================= */
@@ -268,10 +277,11 @@ const IPD=[
  pd({id:"pro11m5",f:"pro",yr:2025,name:"iPad Pro 11\" M5 (2025)",tag:"Pro más reciente",from:929,launch:1199,h:249.7,w:177.5,in:11,disp:"Ultra Retina XDR (OLED tándem)",res:"2420 × 1668",hz:120,chip:"M5",ram:"12 / 16 GB",sto:"256 GB – 2 TB",ai:Y,bio:"Face ID (horizontal)",port:"Thunderbolt / USB 4",pencil:"Pencil Pro · Pencil USB‑C",rear:"12 MP",front:"12 MP horizontal",lidar:Y,wt:444,thick:"5,3 mm"}),
  pd({id:"pro13m5",f:"pro",yr:2025,name:"iPad Pro 13\" M5 (2025)",tag:"Tope de gama",from:1130,launch:1549,h:281.6,w:215.5,in:13,disp:"Ultra Retina XDR (OLED tándem)",res:"2752 × 2064",hz:120,chip:"M5",ram:"12 / 16 GB",sto:"256 GB – 2 TB",ai:Y,bio:"Face ID (horizontal)",port:"Thunderbolt / USB 4",pencil:"Pencil Pro · Pencil USB‑C",rear:"12 MP",front:"12 MP horizontal",lidar:Y,wt:579,thick:"5,1 mm"})
 ];
+IPD.forEach(m=>{m.sim=["ipad9","ipad10","mini6","air5","pro11m1","pro129m1","pro11m2","pro129m2"].includes(m.id)?"nano‑SIM + eSIM":m.id==="mini8"?ND:"Solo eSIM (sin bandeja, en todo el mundo)"});
 const IPD_ROWS=[
  ["Pantalla"],["in","Tamaño",v=>dec(v)+'"'],["disp","Tipo"],["res","Resolución"],["hz","Frecuencia",v=>v===120?"ProMotion 120 Hz":"60 Hz"],
  ["Rendimiento"],["chip","Chip"],["ram","RAM"],["sto","Almacenamiento"],["ai","Apple Intelligence"],
- ["Uso"],["bio","Desbloqueo"],["port","Conector"],["pencil","Apple Pencil compatible"],["cell","Conectividad"],
+ ["Uso"],["bio","Desbloqueo"],["port","Conector"],["pencil","Apple Pencil compatible"],["cell","Conectividad"],["sim","SIM (versión con datos móviles)"],
  ["Cámaras"],["rear","Trasera"],["front","Frontal"],["lidar","Escáner LiDAR"],
  ["Diseño y batería"],["wt","Peso (Wi‑Fi)",v=>v===ND?yn(v):v+" g"],["thick","Grosor"],["bat","Batería"]
 ];
@@ -319,6 +329,9 @@ const AP_ROWS=[
  ["Otros"],["ip","Resistencia"],["hr","Sensor de ritmo cardíaco"],["spk","Altavoz en estuche (Buscar)"]
 ];
 
+const gbList=m=>{const out=[];String(m.sto||"").replace(/(\d+)\s*(TB|GB)?/g,(a,n,u)=>{out.push(+n*(u==="TB"?1024:1))});return out};
+const maxGB=m=>Math.max(0,...gbList(m));const minGB=m=>Math.min(...gbList(m));
+const gbTxt=v=>v>=1024?(v/1024)+" TB":v+" GB";
 /* ======================= CATEGORIES ======================= */
 const bmS=q=>"https://www.backmarket.es/es-es/search?q="+enc(q);
 const amz=q=>"https://www.amazon.es/s?k="+enc(q+" reacondicionado");
@@ -332,8 +345,10 @@ const CATS={
    {k:"tele",q:"¿Necesitas teleobjetivo (zoom óptico)?",o:[["n","No"],["y","Sí"]],f:(m,v)=>v==="n"||m.tele!=="—"},
    {k:"hz",q:"¿Pantalla a 120 Hz?",o:[["n","No me importa"],["y","Sí"]],f:(m,v)=>v==="n"||m.hz===120},
    {k:"ai",q:"¿Apple Intelligence?",o:[["n","No me importa"],["y","Sí"]],f:(m,v)=>v==="n"||m.ai===true},
+   {k:"gb",q:"Almacenamiento que necesitas (como mínimo)",o:[["64","64 GB"],["128","128 GB"],["256","256 GB"],["512","512 GB"],["1024","1 TB"],["2048","2 TB"]],f:(m,v)=>maxGB(m)>=+v},
+   {k:"sim",q:"¿Necesitas bandeja para tarjeta SIM física?",o:[["n","No, me vale eSIM"],["y","Sí, uso tarjeta SIM"]],f:(m,v)=>v==="n"||!String(m.sim).startsWith("Solo eSIM")},
    {k:"bud",q:"Presupuesto máximo",o:[["200","200 €"],["350","350 €"],["500","500 €"],["700","700 €"],["1000","1000 €"],["99999","Sin límite"]],f:(m,v)=>m.from!==null&&m.from<=+v}],
-  tips:["<b>Batería:</b> busca salud ≥ 85 %. En un iPhone 12 o 14 merece la pena pagar el extra por batería nueva.","<b>Conector:</b> las familias 12 y 14 usan <b>Lightning</b>; desde el 15, todos son USB‑C.","<b>SIM:</b> compra la versión europea \"Libre\" (nano‑SIM + eSIM). El <b>iPhone Air</b> y el <b>iPhone Duo</b> son solo eSIM.","<b>Apple Intelligence:</b> solo en 15 Pro/Pro Max y posteriores (incluidos 16e, 17e y Air).","<b>iPhone Duo:</b> es plegable, con Touch ID en el botón lateral (sin Face ID). Aún no hay reacondicionados.","<b>Garantía:</b> Back Market y Swappie dan 24 meses; Apple, 1 año."]},
+  tips:["<b>Batería:</b> busca salud ≥ 85 %. En un iPhone 12 o 14 merece la pena pagar el extra por batería nueva.","<b>Conector:</b> las familias 12 y 14 usan <b>Lightning</b>; desde el 15, todos son USB‑C.","<b>SIM (versión europea):</b> todos los iPhone de esta lista llevan bandeja nano‑SIM + eSIM, salvo el <b>iPhone Air</b> (2025), primer iPhone solo eSIM en todo el mundo, y el <b>iPhone Duo</b> (2026).","<b>Ojo con unidades de fuera de Europa:</b> los iPhone vendidos en EE. UU. son solo eSIM desde el <b>iPhone 14</b> (2022). Con la familia 17, también los de Canadá, México, Japón, Guam, EAU, Arabia Saudí, Baréin, Kuwait, Catar y Omán. Un reacondicionado importado de esos países no tendrá ranura para tarjeta.","<b>Apple Intelligence:</b> solo en 15 Pro/Pro Max y posteriores (incluidos 16e, 17e y Air).","<b>iPhone Duo:</b> es plegable, con Touch ID en el botón lateral (sin Face ID). Aún no hay reacondicionados.","<b>Garantía:</b> Back Market y Swappie dan 24 meses; Apple, 1 año."]},
  ipad:{name:"iPad",F:IPD_F,M:IPD,ROWS:IPD_ROWS,sizes:true,def:["air"],
   shops:m=>[["Back Market",bmS(m.name.replace(/\s*\(.*\)/,"")),"24 meses garantía"],["RefurbMe","https://www.refurb.me/es/refurbished/ipad","Compara todas las tiendas"],["Amazon Renewed",amz(m.name.replace(/\s*\(.*\)/,"")),"Amazon Reacondicionado"],["eBay",eby(m.name.replace(/\s*\(.*\)/,"")),"eBay Refurbished"],["MediaMarkt",mm(m.name.replace(/\s*\(.*\)/,"")),"Marketplace"],["Apple","https://www.apple.com/es/shop/refurbished/ipad","Oficial · 1 año"]],
   quiz:[
@@ -341,8 +356,10 @@ const CATS={
    {k:"pen",q:"¿Necesitas Apple Pencil Pro?",o:[["n","No"],["y","Sí"]],f:(m,v)=>v==="n"||String(m.pencil).includes("Pro")},
    {k:"hz",q:"¿Pantalla a 120 Hz?",o:[["n","No me importa"],["y","Sí"]],f:(m,v)=>v==="n"||m.hz===120},
    {k:"ai",q:"¿Apple Intelligence?",o:[["n","No me importa"],["y","Sí"]],f:(m,v)=>v==="n"||m.ai===true},
+   {k:"gb",q:"Almacenamiento que necesitas (como mínimo)",o:[["64","64 GB"],["128","128 GB"],["256","256 GB"],["512","512 GB"],["1024","1 TB"],["2048","2 TB"]],f:(m,v)=>maxGB(m)>=+v},
+   {k:"sim",q:"¿Usarás datos móviles con tarjeta SIM física?",o:[["n","No (Wi‑Fi o eSIM)"],["y","Sí, uso tarjeta SIM"]],f:(m,v)=>v==="n"||!String(m.sim).startsWith("Solo eSIM")},
    {k:"bud",q:"Presupuesto máximo",o:[["250","250 €"],["400","400 €"],["600","600 €"],["900","900 €"],["99999","Sin límite"]],f:(m,v)=>m.from!==null&&m.from<=+v}],
-  tips:["<b>Batería:</b> pide la salud de batería; en iPad se degrada más despacio que en iPhone, pero en un 2021 conviene comprobarla.","<b>Apple Pencil:</b> cada iPad admite modelos concretos; revisa la fila \"Apple Pencil compatible\" antes de comprar uno.","<b>Datos móviles:</b> los precios \"desde\" suelen ser Wi‑Fi; la versión con 5G cuesta más.","<b>iPad 9:</b> es el único de la lista con Lightning y botón de inicio.","<b>Apple Intelligence:</b> requiere chip M1 o posterior, o A17 Pro (mini 7) o posterior.","<b>iPad mini 8 (2026):</b> todavía sin reacondicionados; algunos datos aún no están confirmados (n/d)."]},
+  tips:["<b>Batería:</b> pide la salud de batería; en iPad se degrada más despacio que en iPhone, pero en un 2021 conviene comprobarla.","<b>Apple Pencil:</b> cada iPad admite modelos concretos; revisa la fila \"Apple Pencil compatible\" antes de comprar uno.","<b>Datos móviles:</b> los precios \"desde\" suelen ser Wi‑Fi; la versión con 5G cuesta más.","<b>SIM en iPad:</b> desde 2024, los iPad con datos móviles son <b>solo eSIM en todo el mundo</b>: iPad Pro M4 y posteriores, iPad Air M2 y posteriores, iPad mini (A17 Pro) e iPad (A16). Los anteriores (iPad 9 y 10, mini 6, Air 5, Pro M1/M2) tienen bandeja nano‑SIM además de eSIM.","<b>iPad 9:</b> es el único de la lista con Lightning y botón de inicio.","<b>Apple Intelligence:</b> requiere chip M1 o posterior, o A17 Pro (mini 7) o posterior.","<b>iPad mini 8 (2026):</b> todavía sin reacondicionados; algunos datos aún no están confirmados (n/d)."]},
  watch:{name:"Watch",F:AW_F,M:AW,ROWS:AW_ROWS,sizes:false,def:["series","se","ultra"],
   shops:m=>[["Back Market",bmS(m.name),"24 meses garantía"],["PcComponentes","https://www.pccomponentes.com/marcas/apple/smartwatch/reacondicionado","Reacondicionados"],["Amazon Renewed",amz(m.name),"Amazon Reacondicionado"],["eBay",eby(m.name),"eBay Refurbished"],["MediaMarkt",mm(m.name),"Marketplace"],["Apple","https://www.apple.com/es/shop/refurbished/watch","Oficial · 1 año"]],
   quiz:[
@@ -350,7 +367,7 @@ const CATS={
    {k:"aod",q:"¿Pantalla siempre activa?",o:[["n","No me importa"],["y","Sí"]],f:(m,v)=>v==="n"||m.aod===true},
    {k:"bat",q:"Autonomía",o:[["n","Cargo cada día"],["y","Quiero 36 h o más"]],f:(m,v)=>v==="n"||(typeof m.bat==="number"&&m.bat>=36)},
    {k:"bud",q:"Presupuesto máximo",o:[["200","200 €"],["300","300 €"],["400","400 €"],["600","600 €"],["99999","Sin límite"]],f:(m,v)=>m.from!==null&&m.from<=+v}],
-  tips:["<b>Compatibilidad:</b> el Apple Watch necesita un iPhone; no funciona con Android.","<b>Batería:</b> es lo que más sufre en un reloj usado; pide la salud de batería o elige batería nueva.","<b>Resistencia al agua:</b> tras abrir el reloj puede no estar garantizada; no lo uses para bucear si es reacondicionado.","<b>Correa:</b> revisa la talla (S/M o M/L) y si incluye correa original.","<b>Tamaño de caja:</b> las cajas de Series 10 y posteriores (42/46 mm) aceptan correas de 41/45 mm de modelos anteriores.","<b>Precios:</b> para relojes, RefurbMe no da un listado completo; los \"desde\" vienen de Back Market y PcComponentes (indicado en cada ficha)."]},
+  tips:["<b>Compatibilidad:</b> el Apple Watch necesita un iPhone; no funciona con Android.","<b>Datos móviles:</b> los Apple Watch con conexión móvil no tienen tarjeta SIM: usan siempre eSIM integrada, y tu operador tiene que ofrecer el servicio para Apple Watch.","<b>Batería:</b> es lo que más sufre en un reloj usado; pide la salud de batería o elige batería nueva.","<b>Resistencia al agua:</b> tras abrir el reloj puede no estar garantizada; no lo uses para bucear si es reacondicionado.","<b>Correa:</b> revisa la talla (S/M o M/L) y si incluye correa original.","<b>Tamaño de caja:</b> las cajas de Series 10 y posteriores (42/46 mm) aceptan correas de 41/45 mm de modelos anteriores.","<b>Precios:</b> para relojes, RefurbMe no da un listado completo; los \"desde\" vienen de Back Market y PcComponentes (indicado en cada ficha)."]},
  airpods:{name:"AirPods",F:AP_F,M:AP,ROWS:AP_ROWS,sizes:false,def:["std","pro","max"],
   shops:m=>[["Back Market",bmS(m.name),"24 meses garantía"],["RefurbMe","https://www.refurb.me/es/refurbished/airpods","Compara todas las tiendas"],["Amazon Renewed",amz(m.name),"Amazon Reacondicionado"],["eBay",eby(m.name),"eBay Refurbished"],["MediaMarkt",mm(m.name),"Marketplace"]],
   quiz:[
@@ -450,7 +467,7 @@ function renderModels(){
  const fams=Object.keys(F).filter(g=>list.some(m=>m.f===g));const newest=Math.max(...C.M.map(m=>m.yr));
  document.getElementById("cards").innerHTML=!list.length?`<p class="note center">Selecciona al menos un modelo.</p>`:fams.map(g=>`<div class="h3"><span class="dot" style="background:${F[g].c}"></span>${F[g].n}${F[g].y?` <span class="year">${F[g].y}</span>`:""}</div><div class="grid">${list.filter(m=>m.f===g).map(m=>`<div class="tile">
   <div class="img">${devImg(m,cat==="watch"?170:cat==="airpods"?150:170,{back:true})}</div>
-  ${m.yr===newest?'<div class="new">Novedad</div>':""}<h4>${m.name}</h4><div class="tag">${m.tag}</div>
+  ${m.yr===newest?'<div class="new">Novedad</div>':""}<h4>${m.name}</h4><div class="tag">${m.tag}</div>${String(m.sim).startsWith("Solo eSIM")?`<div class="center"><span class="esim" title="Sin bandeja para tarjeta SIM física">Solo eSIM · sin tarjeta SIM</span></div>`:""}
   ${cat==="iphone"?`<div class="colors">${swatches(m)}</div>`:""}
   <div class="price">${fromTxt(m)}</div><div class="src">${m.from===null?"":(m.src||REF)} · nuevo: ${launchTxt(m)}</div>
   <div class="act"><button class="pillbtn" onclick="goShop('${m.id}')">Comprar</button><a href="#" onclick="cmpOne('${m.id}');return false">Comparar ›</a></div>
@@ -460,7 +477,7 @@ document.getElementById("genFilter").onclick=e=>{const b=e.target.closest("butto
  if(b.dataset.g==="all"){const on=gsel.size<Object.keys(F).length;gsel=new Set(on?Object.keys(F):[]);msel=new Set(on?C.M.map(m=>m.id):[])}
  else if(b.dataset.g){const g=b.dataset.g;if(gsel.has(g)){gsel.delete(g);famIds(g).forEach(i=>msel.delete(i))}else{gsel.add(g);famIds(g).forEach(i=>msel.add(i))}}
  else if(b.dataset.m){const id=b.dataset.m;msel.has(id)?msel.delete(id):msel.add(id)}
- renderModels()};
+ renderModels();renderPrices()};
 window.cmpOne=id=>{sel.add(id);renderPick();renderTable();show("comparar")};
 
 function renderPresets(){const P=[...Object.keys(C.F).map(k=>[C.F[k].n,famIds(k)]),["Todos",C.M.map(m=>m.id)]];const el=document.getElementById("presets");
@@ -480,9 +497,13 @@ function renderTable(){
   h+=`<tr class="${diff?'diff':''}"><td class="k">${r[1]}</td>${vals.map(v=>`<td>${v}</td>`).join("")}</tr>`});
  document.getElementById("tbl").innerHTML=h+"</tbody>";
 }
-function renderPrices(){const num=v=>typeof v==="number"?v:parseInt(v);const maxL=Math.max(...C.M.map(m=>num(m.launch)));
- const arr=[...C.M].sort((a,b)=>(a.from===null)-(b.from===null)||(a.from-b.from));
- document.getElementById("priceList").innerHTML=arr.map(m=>{const L=num(m.launch);return `<div class="prow"><div class="t"><span><span class="dot" style="background:${C.F[m.f].c};margin-right:8px"></span>${m.name}</span><span style="text-align:right">${m.from===null?'<span class="nd">sin reacondicionados</span>':`<b>${m.from} €</b>`} <span style="color:var(--soft)">/ ${launchTxt(m)}${m.from!==null?` · −${Math.max(0,Math.round((1-m.from/L)*100))} %`:""}</span></span></div><div class="bar"><i style="width:${m.from===null?0:m.from/maxL*100}%;background:${C.F[m.f].c}"></i></div><div class="bar" style="height:3px;margin-top:3px"><i style="width:${L/maxL*100}%;background:var(--soft);opacity:.5"></i></div><div class="note" style="margin-top:4px">${m.from===null?"":(m.src||REF)}</div></div>`}).join("")}
+function renderPrices(){const num=v=>typeof v==="number"?v:parseInt(v);
+ const list=C.M.filter(m=>gsel.has(m.f)&&msel.has(m.id));const el=document.getElementById("priceList");
+ if(!list.length){el.innerHTML=`<p class="note center" style="padding:20px">No hay modelos seleccionados. Elígelos en la pestaña Modelos.</p>`;return}
+ const maxL=Math.max(...list.map(m=>num(m.launch)));
+ const row=m=>{const L=num(m.launch);return `<div class="prow"><div class="t"><span>${m.name}</span><span style="text-align:right">${m.from===null?'<span class="nd">sin reacondicionados</span>':`<b>${m.from} €</b>`} <span style="color:var(--soft)">/ ${launchTxt(m)}${m.from!==null?` · −${Math.max(0,Math.round((1-m.from/L)*100))} %`:""}</span></span></div><div class="bar"><i style="width:${m.from===null?0:m.from/maxL*100}%;background:${C.F[m.f].c}"></i></div><div class="bar" style="height:3px;margin-top:3px"><i style="width:${L/maxL*100}%;background:var(--soft);opacity:.5"></i></div><div class="note" style="margin-top:4px">${m.from===null?"":(m.src||REF)}${String(m.sim).startsWith("Solo eSIM")?" · solo eSIM":""}</div></div>`};
+ el.innerHTML=`<p class="note" style="margin:6px 0 10px">Se muestran los modelos seleccionados en <a href="#" onclick="show('resumen');return false">Modelos</a>. Pulsa una familia para ver sus precios.</p>`+Object.keys(C.F).filter(g=>list.some(m=>m.f===g)).map(g=>{const ms=list.filter(m=>m.f===g).sort((a,b)=>(a.from===null)-(b.from===null)||(a.from-b.from));const pr=ms.filter(m=>m.from!==null).map(m=>m.from);
+  return `<details class="pblock"><summary><span class="dot" style="background:${C.F[g].c}"></span><span class="pn">${C.F[g].n}</span><span class="pc">${ms.length} ${ms.length===1?"modelo":"modelos"}${pr.length?` · desde <b>${Math.min(...pr)} €</b>`:""}</span><span class="chev">›</span></summary>${ms.map(row).join("")}</details>`}).join("")}
 const ss=document.getElementById("shopSel");
 function renderShopSel(){ss.innerHTML=Object.keys(C.F).map(g=>`<optgroup label="${C.F[g].n}">${C.M.filter(m=>m.f===g).map(m=>`<option value="${m.id}">${m.name}${m.from!==null?" · desde "+m.from+" €":""}</option>`).join("")}</optgroup>`).join("");ss.value=C.M[0].id;renderShop()}
 function renderShop(){const m=C.M.find(x=>x.id===ss.value);document.getElementById("shopBox").innerHTML=`<div class="head"><div>${devImg(m,120,{back:true})}</div><div><div style="font-size:28px;font-weight:600;line-height:1.15">${m.name}</div><div style="color:var(--mute);margin-top:4px">${m.from===null?"Aún sin reacondicionados":"Reacondicionado desde "+m.from+" €"} · nuevo ${launchTxt(m)}</div></div></div><div class="shops">${C.shops(m).map(s=>link(...s)).join("")}</div>`}
@@ -494,9 +515,9 @@ function rec(){const R=document.getElementById("res");if(Object.keys(A).length<C
  const ok=C.M.filter(m=>C.quiz.every(q=>q.f(m,A[q.k])));
  if(!ok.length){R.innerHTML=`<div class="result"><div class="rt">Ningún modelo cumple todo con ese presupuesto. Sube el presupuesto o quita algún requisito.</div></div>`;return}
  const best=[...ok].sort((a,b)=>b.yr-a.yr||a.from-b.from)[0];const cheap=[...ok].sort((a,b)=>a.from-b.from)[0];
- const card=(m,t)=>`<div class="result"><div>${devImg(m,130,{back:true})}</div><div class="rt"><div class="k">${t}</div><h5>${m.name}</h5><div style="color:var(--mute)">Desde ${m.from} € · ${m.yr}</div><div class="act" style="display:flex;gap:16px;align-items:center;margin-top:12px"><button class="pillbtn" onclick="goShop('${m.id}')">Comprar</button><a href="#" onclick="openModel('${m.id}');return false">Ver ficha ›</a></div></div></div>`;
+ const card=(m,t)=>`<div class="result"><div>${devImg(m,130,{back:true})}</div><div class="rt"><div class="k">${t}</div><h5>${m.name}</h5><div style="color:var(--mute)">Desde ${m.from} € · ${m.yr}</div>${A.gb&&+A.gb>minGB(m)?`<div class="note" style="margin-top:4px">El precio "desde" es de la versión de ${gbTxt(minGB(m))}; la de ${gbTxt(+A.gb)} cuesta más.</div>`:""}${String(m.sim).startsWith("Solo eSIM")?`<div class="note" style="margin-top:4px">Solo eSIM: no admite tarjeta SIM física.</div>`:""}<div class="act" style="display:flex;gap:16px;align-items:center;margin-top:12px"><button class="pillbtn" onclick="goShop('${m.id}')">Comprar</button><a href="#" onclick="openModel('${m.id}');return false">Ver ficha ›</a></div></div></div>`;
  R.innerHTML=card(best,"El más moderno que encaja")+(cheap.id!==best.id?card(cheap,"El más barato que encaja"):"")+`<p class="note">Cumplen tus requisitos: ${ok.map(m=>m.name).join(", ")}.</p>`}
-window.openModel=id=>{const m=C.M.find(x=>x.id===id);gsel.add(m.f);msel=new Set([id]);renderModels();show("resumen")};
+window.openModel=id=>{const m=C.M.find(x=>x.id===id);gsel.add(m.f);msel=new Set([id]);renderModels();renderPrices();show("resumen")};
 function renderTips(){document.getElementById("tipsList").innerHTML=C.tips.map(t=>`<li>${t}</li>`).join("")}
 function renderFoot(){document.getElementById("foot").innerHTML=`Especificaciones: fichas oficiales de Apple y prensa especializada; "n/d" = dato no confirmado. Precios reacondicionados: el más bajo visto, con fuente y fecha en cada ficha (por defecto <a href="https://www.refurb.me/es/refurbished/iphone/iphone-air" target="_blank" rel="noopener">RefurbMe</a>, nov 2026). Cambian a diario. Precio nuevo: lanzamiento en España, versión base.`}
 function renderCredits(){const used=Object.entries(PHOTOS).filter(([k,p])=>p&&p.src&&(p.author||p.license));const el=document.getElementById("credits");
