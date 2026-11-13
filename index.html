@@ -504,7 +504,8 @@ function renderCredits(){const used=Object.entries(PHOTOS).filter(([k,p])=>p&&p.
  el.innerHTML=`<p><b>Créditos de las fotos:</b> `+used.map(([k,p])=>`${k.replace(/^[a-z]+-/,"")}: ${p.source?`<a href="${p.source}" target="_blank" rel="noopener">${p.author||"autor"}</a>`:(p.author||"")}${p.license?" ("+p.license+")":""}`).join(" · ")+`</p>`}
 function renderAll(){renderCats();renderModels();renderPresets();renderPick();renderTable();renderPrices();renderShopSel();renderQuiz();renderTips();renderFoot()}
 resetCat();renderAll();
-fetch("prices.json",{cache:"no-cache"}).then(r=>r.ok?r.json():null).then(j=>{if(!j||!j.prices)return;PRICES_UPDATED=j.updated||null;
+const PRICES_URL="https://raw.githubusercontent.com/xs4com-MMDX/mobile-selector/precios/prices.json";
+fetch(PRICES_URL,{cache:"no-cache"}).then(r=>r.ok?r.json():Promise.reject()).catch(()=>fetch("prices.json",{cache:"no-cache"}).then(r=>r.ok?r.json():null)).then(j=>{if(!j||!j.prices)return;PRICES_UPDATED=j.updated||null;
  for(const [c,C2] of Object.entries(CATS))for(const m of C2.M){const p=j.prices[c+"-"+m.id];if(p&&typeof p.from==="number"){m.from=p.from;if(p.src)m.src=p.src+(p.date?", "+new Date(p.date).toLocaleDateString("es-ES",{day:"numeric",month:"short",year:"numeric"}):"")}}
  renderAll()}).catch(()=>{});
 fetch("images.json",{cache:"no-cache"}).then(r=>r.ok?r.json():{}).then(j=>{PHOTOS=Object.fromEntries(Object.entries(j).filter(([k,v])=>!k.startsWith("_")));if(Object.values(PHOTOS).some(p=>p&&p.src))renderAll();renderCredits()}).catch(()=>{});

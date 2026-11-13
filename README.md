@@ -8,6 +8,9 @@ añade tu contacto si lo publicas. Desde el panel puedes **borrar todos los regi
 
 ## Precios automáticos
 Los precios de reacondicionado están en `prices.json` (clave `categoría-modelo`, p. ej. `iphone-15pro`).
-Una tarea programada de Claude los revisa a las 3:00 y a las 15:00 (hora de Madrid), actualiza este archivo
-y hace commit en `main`; Netlify vuelve a publicar la web automáticamente. Si no encuentra un dato fiable,
-conserva el precio anterior con su fecha. También puedes editar `prices.json` a mano.
+Una tarea programada de Claude los revisa a las 3:00 y a las 15:00 (hora de Madrid) y los guarda en la rama
+**`precios`** (no en `main`). La web los lee directamente de GitHub
+(`raw.githubusercontent.com/xs4com-MMDX/mobile-selector/precios/prices.json`), así que **no hace falta volver a
+desplegar en Netlify** y no se gastan créditos (cada despliegue de producción cuesta 15 créditos).
+Si GitHub no responde, la web usa el `prices.json` de `main` como respaldo. Para cambiar un precio a mano,
+edita `prices.json` en la rama `precios`.
