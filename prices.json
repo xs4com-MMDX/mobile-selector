@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-14T03:04:09+01:00",
+  "updated": "2026-11-14T15:04:26+01:00",
   "_nota": "Precio reacondicionado más bajo visto por modelo. 'from': euros (null = sin reacondicionados). 'src': fuente. 'date': fecha en que se vio. Lo actualiza la tarea programada a las 3:00 y 15:00 (hora de Madrid); si no encuentra un dato, conserva el anterior.",
   "prices": {
     "iphone-12mini": {
@@ -312,7 +312,7 @@
       "name": "Apple Watch Series 12",
       "from": 432,
       "src": "PcComponentes",
-      "date": "2026-11-13"
+      "date": "2026-11-14"
     },
     "watch-se2": {
       "name": "Apple Watch SE (2.ª gen)",
@@ -348,7 +348,7 @@
       "name": "Apple Watch Ultra 4",
       "from": 792,
       "src": "PcComponentes",
-      "date": "2026-11-13"
+      "date": "2026-11-14"
     },
     "airpods-ap3": {
       "name": "AirPods (3.ª gen)",
