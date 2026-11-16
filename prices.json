@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-15T15:08:52+01:00",
+  "updated": "2026-11-16T03:04:01+01:00",
   "_nota": "Precio reacondicionado más bajo visto por modelo. 'from': euros (null = sin reacondicionados). 'src': fuente. 'date': fecha en que se vio. Lo actualiza la tarea programada a las 3:00 y 15:00 (hora de Madrid); si no encuentra un dato, conserva el anterior.",
   "prices": {
     "iphone-12mini": {
@@ -172,9 +172,9 @@
     },
     "ipad-mini6": {
       "name": "iPad mini 6 (2021)",
-      "from": 336,
-      "src": "RefurbMe",
-      "date": "2026-11-12"
+      "from": 312,
+      "src": "Back Market",
+      "date": "2026-11-16"
     },
     "ipad-mini7": {
       "name": "iPad mini 7 (A17 Pro, 2024)",
@@ -280,33 +280,33 @@
     },
     "watch-s7": {
       "name": "Apple Watch Series 7",
-      "from": 162,
+      "from": 164.2,
       "src": "Back Market",
-      "date": "2026-11-15"
+      "date": "2026-11-16"
     },
     "watch-s8": {
       "name": "Apple Watch Series 8",
-      "from": 181,
+      "from": 176,
       "src": "Back Market",
-      "date": "2026-11-15"
+      "date": "2026-11-16"
     },
     "watch-s9": {
       "name": "Apple Watch Series 9",
       "from": 207,
       "src": "Back Market",
-      "date": "2026-11-15"
+      "date": "2026-11-16"
     },
     "watch-s10": {
       "name": "Apple Watch Series 10",
       "from": 258,
       "src": "Back Market",
-      "date": "2026-11-15"
+      "date": "2026-11-16"
     },
     "watch-s11": {
       "name": "Apple Watch Series 11",
-      "from": 291,
+      "from": 290,
       "src": "Back Market",
-      "date": "2026-11-15"
+      "date": "2026-11-16"
     },
     "watch-s12": {
       "name": "Apple Watch Series 12",
@@ -318,31 +318,31 @@
       "name": "Apple Watch SE (2.ª gen)",
       "from": 175,
       "src": "Back Market",
-      "date": "2026-11-15"
+      "date": "2026-11-16"
     },
     "watch-se3": {
       "name": "Apple Watch SE 3",
       "from": 199,
       "src": "Back Market",
-      "date": "2026-11-15"
+      "date": "2026-11-16"
     },
     "watch-u1": {
       "name": "Apple Watch Ultra",
       "from": 302,
       "src": "Back Market",
-      "date": "2026-11-15"
+      "date": "2026-11-16"
     },
     "watch-u2": {
       "name": "Apple Watch Ultra 2",
-      "from": 400,
+      "from": 387,
       "src": "Back Market",
-      "date": "2026-11-15"
+      "date": "2026-11-16"
     },
     "watch-u3": {
       "name": "Apple Watch Ultra 3",
-      "from": 535,
+      "from": 526,
       "src": "Back Market",
-      "date": "2026-11-15"
+      "date": "2026-11-16"
     },
     "watch-u4": {
       "name": "Apple Watch Ultra 4",
