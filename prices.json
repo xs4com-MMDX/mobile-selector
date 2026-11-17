@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-16T15:05:34+01:00",
+  "updated": "2026-11-17T03:03:37+01:00",
   "_nota": "Precio reacondicionado más bajo visto por modelo. 'from': euros (null = sin reacondicionados). 'src': fuente. 'date': fecha en que se vio. Lo actualiza la tarea programada a las 3:00 y 15:00 (hora de Madrid); si no encuentra un dato, conserva el anterior.",
   "prices": {
     "iphone-12mini": {
@@ -94,9 +94,9 @@
     },
     "iphone-16pro": {
       "name": "iPhone 16 Pro",
-      "from": 618,
+      "from": 619,
       "src": "RefurbMe",
-      "date": "2026-11-12"
+      "date": "2026-11-17"
     },
     "iphone-16promax": {
       "name": "iPhone 16 Pro Max",
@@ -112,9 +112,9 @@
     },
     "iphone-17": {
       "name": "iPhone 17",
-      "from": 727,
+      "from": 769,
       "src": "RefurbMe",
-      "date": "2026-11-12"
+      "date": "2026-11-17"
     },
     "iphone-air": {
       "name": "iPhone Air",
@@ -130,9 +130,9 @@
     },
     "iphone-17promax": {
       "name": "iPhone 17 Pro Max",
-      "from": 999,
+      "from": 1011,
       "src": "RefurbMe",
-      "date": "2026-11-12"
+      "date": "2026-11-17"
     },
     "iphone-18pro": {
       "name": "iPhone 18 Pro",
@@ -280,33 +280,33 @@
     },
     "watch-s7": {
       "name": "Apple Watch Series 7",
-      "from": 164.2,
+      "from": 178.69,
       "src": "Back Market",
-      "date": "2026-11-16"
+      "date": "2026-11-17"
     },
     "watch-s8": {
       "name": "Apple Watch Series 8",
-      "from": 176,
+      "from": 180.65,
       "src": "Back Market",
-      "date": "2026-11-16"
+      "date": "2026-11-17"
     },
     "watch-s9": {
       "name": "Apple Watch Series 9",
-      "from": 207,
+      "from": 214,
       "src": "Back Market",
-      "date": "2026-11-16"
+      "date": "2026-11-17"
     },
     "watch-s10": {
       "name": "Apple Watch Series 10",
       "from": 258,
       "src": "Back Market",
-      "date": "2026-11-16"
+      "date": "2026-11-17"
     },
     "watch-s11": {
       "name": "Apple Watch Series 11",
       "from": 290,
       "src": "Back Market",
-      "date": "2026-11-16"
+      "date": "2026-11-17"
     },
     "watch-s12": {
       "name": "Apple Watch Series 12",
@@ -318,31 +318,31 @@
       "name": "Apple Watch SE (2.ª gen)",
       "from": 175,
       "src": "Back Market",
-      "date": "2026-11-16"
+      "date": "2026-11-17"
     },
     "watch-se3": {
       "name": "Apple Watch SE 3",
-      "from": 199,
+      "from": 203,
       "src": "Back Market",
-      "date": "2026-11-16"
+      "date": "2026-11-17"
     },
     "watch-u1": {
       "name": "Apple Watch Ultra",
       "from": 302,
       "src": "Back Market",
-      "date": "2026-11-16"
+      "date": "2026-11-17"
     },
     "watch-u2": {
       "name": "Apple Watch Ultra 2",
       "from": 387,
       "src": "Back Market",
-      "date": "2026-11-16"
+      "date": "2026-11-17"
     },
     "watch-u3": {
       "name": "Apple Watch Ultra 3",
-      "from": 526,
+      "from": 525,
       "src": "Back Market",
-      "date": "2026-11-16"
+      "date": "2026-11-17"
     },
     "watch-u4": {
       "name": "Apple Watch Ultra 4",
@@ -352,9 +352,9 @@
     },
     "airpods-ap3": {
       "name": "AirPods (3.ª gen)",
-      "from": 87,
+      "from": 59,
       "src": "RefurbMe",
-      "date": "2026-11-12"
+      "date": "2026-11-17"
     },
     "airpods-ap4": {
       "name": "AirPods 4",
@@ -376,9 +376,9 @@
     },
     "airpods-pro2": {
       "name": "AirPods Pro 2",
-      "from": 148,
+      "from": 151,
       "src": "RefurbMe",
-      "date": "2026-11-12"
+      "date": "2026-11-17"
     },
     "airpods-pro3": {
       "name": "AirPods Pro 3",
