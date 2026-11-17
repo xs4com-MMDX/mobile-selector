@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-17T03:03:37+01:00",
+  "updated": "2026-11-17T15:04:51+01:00",
   "_nota": "Precio reacondicionado más bajo visto por modelo. 'from': euros (null = sin reacondicionados). 'src': fuente. 'date': fecha en que se vio. Lo actualiza la tarea programada a las 3:00 y 15:00 (hora de Madrid); si no encuentra un dato, conserva el anterior.",
   "prices": {
     "iphone-12mini": {
@@ -28,9 +28,9 @@
     },
     "iphone-14": {
       "name": "iPhone 14",
-      "from": 278,
+      "from": 290,
       "src": "RefurbMe",
-      "date": "2026-11-12"
+      "date": "2026-11-17"
     },
     "iphone-14plus": {
       "name": "iPhone 14 Plus",
@@ -52,9 +52,9 @@
     },
     "iphone-15": {
       "name": "iPhone 15",
-      "from": 387,
+      "from": 406,
       "src": "RefurbMe",
-      "date": "2026-11-12"
+      "date": "2026-11-17"
     },
     "iphone-15plus": {
       "name": "iPhone 15 Plus",
@@ -66,7 +66,7 @@
       "name": "iPhone 15 Pro",
       "from": 479,
       "src": "RefurbMe",
-      "date": "2026-11-12"
+      "date": "2026-11-17"
     },
     "iphone-15promax": {
       "name": "iPhone 15 Pro Max",
@@ -76,9 +76,9 @@
     },
     "iphone-16e": {
       "name": "iPhone 16e",
-      "from": 430,
+      "from": 382,
       "src": "RefurbMe",
-      "date": "2026-11-12"
+      "date": "2026-11-17"
     },
     "iphone-16": {
       "name": "iPhone 16",
@@ -100,9 +100,9 @@
     },
     "iphone-16promax": {
       "name": "iPhone 16 Pro Max",
-      "from": 718,
+      "from": 702,
       "src": "RefurbMe",
-      "date": "2026-11-12"
+      "date": "2026-11-17"
     },
     "iphone-17e": {
       "name": "iPhone 17e",
@@ -220,9 +220,9 @@
     },
     "ipad-air11m4": {
       "name": "iPad Air 11\" M4 (2026)",
-      "from": 679,
+      "from": 699,
       "src": "RefurbMe",
-      "date": "2026-11-12"
+      "date": "2026-11-17"
     },
     "ipad-air13m4": {
       "name": "iPad Air 13\" M4 (2026)",
