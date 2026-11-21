@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-20T15:05:09+01:00",
+  "updated": "2026-11-21T03:04:00+01:00",
   "_nota": "Precio reacondicionado más bajo visto por modelo. 'from': euros (null = sin reacondicionados). 'src': fuente. 'date': fecha en que se vio. Lo actualiza la tarea programada a las 3:00 y 15:00 (hora de Madrid); si no encuentra un dato, conserva el anterior.",
   "prices": {
     "iphone-12mini": {
@@ -310,9 +310,9 @@
     },
     "watch-s12": {
       "name": "Apple Watch Series 12",
-      "from": 432,
+      "from": 432.03,
       "src": "PcComponentes",
-      "date": "2026-11-19"
+      "date": "2026-11-21"
     },
     "watch-se2": {
       "name": "Apple Watch SE (2.ª gen)",
