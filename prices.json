@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-22T15:03:58+01:00",
+  "updated": "2026-11-23T03:09:05+01:00",
   "_nota": "Precio reacondicionado más bajo visto por modelo. 'from': euros (null = sin reacondicionados). 'src': fuente. 'date': fecha en que se vio. Lo actualiza la tarea programada a las 3:00 y 15:00 (hora de Madrid); si no encuentra un dato, conserva el anterior.",
   "prices": {
     "iphone-12mini": {
@@ -292,21 +292,21 @@
     },
     "watch-s9": {
       "name": "Apple Watch Series 9",
-      "from": 214,
+      "from": 203,
       "src": "Back Market",
-      "date": "2026-11-18"
+      "date": "2026-11-23"
     },
     "watch-s10": {
       "name": "Apple Watch Series 10",
-      "from": 255,
+      "from": 260,
       "src": "Back Market",
-      "date": "2026-11-21"
+      "date": "2026-11-23"
     },
     "watch-s11": {
       "name": "Apple Watch Series 11",
-      "from": 290,
+      "from": 291,
       "src": "Back Market",
-      "date": "2026-11-18"
+      "date": "2026-11-23"
     },
     "watch-s12": {
       "name": "Apple Watch Series 12",
@@ -318,13 +318,13 @@
       "name": "Apple Watch SE (2.ª gen)",
       "from": 175,
       "src": "Back Market",
-      "date": "2026-11-21"
+      "date": "2026-11-23"
     },
     "watch-se3": {
       "name": "Apple Watch SE 3",
       "from": 199,
       "src": "Back Market",
-      "date": "2026-11-21"
+      "date": "2026-11-23"
     },
     "watch-u1": {
       "name": "Apple Watch Ultra",
@@ -336,13 +336,13 @@
       "name": "Apple Watch Ultra 2",
       "from": 387,
       "src": "Back Market",
-      "date": "2026-11-18"
+      "date": "2026-11-23"
     },
     "watch-u3": {
       "name": "Apple Watch Ultra 3",
       "from": 499,
       "src": "Back Market",
-      "date": "2026-11-20"
+      "date": "2026-11-23"
     },
     "watch-u4": {
       "name": "Apple Watch Ultra 4",
