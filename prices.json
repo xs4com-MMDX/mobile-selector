@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-24T15:05:33+01:00",
+  "updated": "2026-11-25T03:05:32+01:00",
   "_nota": "Precio reacondicionado más bajo visto por modelo. 'from': euros (null = sin reacondicionados). 'src': fuente. 'date': fecha en que se vio. Lo actualiza la tarea programada a las 3:00 y 15:00 (hora de Madrid); si no encuentra un dato, conserva el anterior.",
   "prices": {
     "iphone-12mini": {
@@ -28,9 +28,9 @@
     },
     "iphone-14": {
       "name": "iPhone 14",
-      "from": 290,
-      "src": "RefurbMe",
-      "date": "2026-11-18"
+      "from": 283,
+      "src": "Back Market",
+      "date": "2026-11-25"
     },
     "iphone-14plus": {
       "name": "iPhone 14 Plus",
@@ -52,21 +52,21 @@
     },
     "iphone-15": {
       "name": "iPhone 15",
-      "from": 406,
-      "src": "RefurbMe",
-      "date": "2026-11-20"
+      "from": 410,
+      "src": "Back Market",
+      "date": "2026-11-25"
     },
     "iphone-15plus": {
       "name": "iPhone 15 Plus",
-      "from": 419,
-      "src": "RefurbMe",
-      "date": "2026-11-12"
+      "from": 440,
+      "src": "Back Market",
+      "date": "2026-11-25"
     },
     "iphone-15pro": {
       "name": "iPhone 15 Pro",
-      "from": 479,
-      "src": "RefurbMe",
-      "date": "2026-11-18"
+      "from": 516.06,
+      "src": "Back Market",
+      "date": "2026-11-25"
     },
     "iphone-15promax": {
       "name": "iPhone 15 Pro Max",
@@ -76,15 +76,15 @@
     },
     "iphone-16e": {
       "name": "iPhone 16e",
-      "from": 382,
-      "src": "RefurbMe",
-      "date": "2026-11-17"
+      "from": 425,
+      "src": "Back Market",
+      "date": "2026-11-25"
     },
     "iphone-16": {
       "name": "iPhone 16",
-      "from": 509,
-      "src": "RefurbMe",
-      "date": "2026-11-12"
+      "from": 573,
+      "src": "Back Market",
+      "date": "2026-11-25"
     },
     "iphone-16plus": {
       "name": "iPhone 16 Plus",
@@ -112,9 +112,9 @@
     },
     "iphone-17": {
       "name": "iPhone 17",
-      "from": 769,
-      "src": "RefurbMe",
-      "date": "2026-11-20"
+      "from": 721,
+      "src": "Back Market",
+      "date": "2026-11-25"
     },
     "iphone-air": {
       "name": "iPhone Air",
@@ -294,19 +294,19 @@
       "name": "Apple Watch Series 9",
       "from": 208.71,
       "src": "Back Market",
-      "date": "2026-11-24"
+      "date": "2026-11-25"
     },
     "watch-s10": {
       "name": "Apple Watch Series 10",
       "from": 256,
       "src": "Back Market",
-      "date": "2026-11-24"
+      "date": "2026-11-25"
     },
     "watch-s11": {
       "name": "Apple Watch Series 11",
       "from": 297,
       "src": "Back Market",
-      "date": "2026-11-24"
+      "date": "2026-11-25"
     },
     "watch-s12": {
       "name": "Apple Watch Series 12",
@@ -324,7 +324,7 @@
       "name": "Apple Watch SE 3",
       "from": 199,
       "src": "Back Market",
-      "date": "2026-11-24"
+      "date": "2026-11-25"
     },
     "watch-u1": {
       "name": "Apple Watch Ultra",
@@ -336,13 +336,13 @@
       "name": "Apple Watch Ultra 2",
       "from": 387,
       "src": "Back Market",
-      "date": "2026-11-24"
+      "date": "2026-11-25"
     },
     "watch-u3": {
       "name": "Apple Watch Ultra 3",
       "from": 507,
       "src": "Back Market",
-      "date": "2026-11-24"
+      "date": "2026-11-25"
     },
     "watch-u4": {
       "name": "Apple Watch Ultra 4",
