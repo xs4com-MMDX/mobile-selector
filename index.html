@@ -123,11 +123,19 @@ details.pblock .prow:first-of-type{border-top:1px solid var(--line)}
 select{font-family:var(--font);font-size:17px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--white);color:var(--ink);width:100%;max-width:420px}
 .shopbox{background:var(--white);border-radius:28px;padding:28px 24px;margin-top:16px}
 .shopbox .head{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
-.shops{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:20px}
+.shops{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:20px}
 .shops a{display:flex;flex-direction:column;gap:2px;color:var(--ink);background:var(--bg);border-radius:18px;padding:16px 18px;font-weight:600;font-size:16px;transition:transform .2s}
 .shops a:hover{text-decoration:none;transform:scale(1.02)}
 .shops a small{color:var(--mute);font-weight:400;font-size:13px}
 .shops a::after{content:"Ir a la tienda ›";color:var(--link);font-weight:400;font-size:13px;margin-top:6px}
+.shops a .sp{display:flex;justify-content:space-between;gap:10px;font-size:14px;font-weight:400;color:var(--ink);margin-top:4px}
+.shops a .sp>span:first-child{min-width:0}.shops a .sp>span:last-child{white-space:nowrap;text-align:right;flex:none}
+.shops a .sp b{font-size:18px}.shops a .sp .na{color:var(--soft);font-size:13px}
+.shops a .sp .dt{display:block;color:var(--soft);font-size:11px;font-weight:400}
+.shops .best.nolink{display:flex;flex-direction:column;gap:2px;background:var(--bg);border-radius:18px;padding:16px 18px;font-weight:600;font-size:16px;grid-column:1/-1;border:2px solid var(--link)}
+.shops .best.nolink small{color:var(--mute);font-weight:400;font-size:14px;line-height:1.6}
+.shopsel{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.shopsel .chip .x{color:var(--soft);font-size:16px;line-height:1}
 /* quiz */
 .quiz{background:var(--white);border-radius:28px;padding:26px 24px}
 .quiz .q{margin:22px 0 10px;font-weight:600;font-size:19px}.quiz .q:first-child{margin-top:0}
@@ -180,6 +188,8 @@ footer .in p{margin:0 0 10px}
 <section class="tab" id="comprar">
   <div class="h2">Dónde comprar.</div>
   <select id="shopSel"></select>
+  <div class="shopsel" id="shopChips"></div>
+  <p class="note" style="margin-top:8px">Elige uno o varios modelos: cada tienda muestra el precio más bajo visto de cada uno. "Sin precio" = aún no tenemos un dato real de esa tienda.</p>
   <div class="shopbox" id="shopBox"></div>
   <p class="note">Back Market, Amazon, eBay y MediaMarkt son marketplaces: cada oferta la vende un reacondicionador distinto. Los reacondicionados oficiales de Apple traen batería nueva y 1 año de garantía, pero suelen ser más caros. RefurbMe compara precios entre tiendas.</p>
 </section>
@@ -513,10 +523,32 @@ function renderPrices(){const num=v=>typeof v==="number"?v:parseInt(v);
  el.innerHTML=`<p class="note" style="margin:6px 0 10px">Se muestran los modelos seleccionados en <a href="#" onclick="show('resumen');return false">Modelos</a>. Pulsa una familia para ver sus precios.</p>`+Object.keys(C.F).filter(g=>list.some(m=>m.f===g)).map(g=>{const ms=list.filter(m=>m.f===g).sort((a,b)=>(a.from===null)-(b.from===null)||(a.from-b.from));const pr=ms.filter(m=>m.from!==null).map(m=>m.from);
   return `<details class="pblock"><summary><span class="dot" style="background:${C.F[g].c}"></span><span class="pn">${C.F[g].n}</span><span class="pc">${ms.length} ${ms.length===1?"modelo":"modelos"}${pr.length?` · desde <b>${Math.min(...pr)} €</b>`:""}</span><span class="chev">›</span></summary>${ms.map(row).join("")}</details>`}).join("")}
 const ss=document.getElementById("shopSel");
-function renderShopSel(){ss.innerHTML=Object.keys(C.F).map(g=>`<optgroup label="${C.F[g].n}">${C.M.filter(m=>m.f===g).map(m=>`<option value="${m.id}">${m.name}${m.from!==null?" · desde "+m.from+" €":""}</option>`).join("")}</optgroup>`).join("");ss.value=C.M[0].id;renderShop()}
-function renderShop(){const m=C.M.find(x=>x.id===ss.value);document.getElementById("shopBox").innerHTML=`<div class="head"><div>${devImg(m,120,{back:true})}</div><div><div style="font-size:28px;font-weight:600;line-height:1.15">${m.name}</div><div style="color:var(--mute);margin-top:4px">${m.from===null?"Aún sin reacondicionados":"Reacondicionado desde "+m.from+" €"} · nuevo ${launchTxt(m)}</div></div></div><div class="shops">${m.from!==null&&buyUrl(m)?`<a class="best" href="${buyUrl(m)}" target="_blank" rel="noopener">Precio más bajo visto: <b>${m.from} €</b> en ${srcName(m)}<small>${m.src||REF}</small><span class="u">${host(buyUrl(m))}</span></a>`:""}${C.shops(m).map(s=>link(s[0],s[1],s[2]+" · "+host(s[1]))).join("")}</div>`}
-ss.onchange=renderShop;
-window.goShop=id=>{ss.value=id;renderShop();show("comprar")};
+let shopSet=[];
+const norm=x=>String(x||"").toLowerCase().replace(/[^a-z0-9]/g,"");
+const dShort=d=>d?new Date(d).toLocaleDateString("es-ES",{day:"numeric",month:"short"}):"";
+function storePrice(m,name){const st=m.stores||{};const n=norm(name);
+ for(const [k,v] of Object.entries(st))if(norm(k)===n&&v&&typeof v.from==="number")return v;
+ if(m.from!==null&&norm(srcName(m))===n)return {from:m.from,url:m.url||null,date:null};
+ return null}
+function renderShopSel(){shopSet=shopSet.filter(id=>C.M.some(m=>m.id===id));if(!shopSet.length)shopSet=[C.M[0].id];
+ ss.innerHTML=`<option value="">Añadir modelo…</option>`+Object.keys(C.F).map(g=>`<optgroup label="${C.F[g].n}">${C.M.filter(m=>m.f===g).map(m=>`<option value="${m.id}">${m.name}${m.from!==null?" · desde "+m.from+" €":""}</option>`).join("")}</optgroup>`).join("");ss.value="";renderShop()}
+function renderShop(){const ms=shopSet.map(id=>C.M.find(x=>x.id===id)).filter(Boolean);
+ document.getElementById("shopChips").innerHTML=ms.map(m=>`<button class="chip on" data-id="${m.id}" title="Quitar">${m.name}${ms.length>1?' <span class="x">×</span>':""}</button>`).join("");
+ const one=ms.length===1?ms[0]:null;
+ const head=one?`<div class="head"><div>${devImg(one,120,{back:true})}</div><div><div style="font-size:28px;font-weight:600;line-height:1.15">${one.name}</div><div style="color:var(--mute);margin-top:4px">${one.from===null?"Aún sin reacondicionados":"Reacondicionado desde "+one.from+" €"} · nuevo ${launchTxt(one)}</div></div></div>`:"";
+ const best=one?(one.from!==null&&buyUrl(one)?`<a class="best" href="${buyUrl(one)}" target="_blank" rel="noopener">Precio más bajo visto: <b>${one.from} €</b> en ${srcName(one)}<small>${one.src||REF}</small><span class="u">${host(buyUrl(one))}</span></a>`:"")
+  :`<div class="best nolink">Precio más bajo visto<small>${ms.map(m=>m.from===null?`${m.name}: aún sin reacondicionados`:`${m.name}: <b style="font-size:16px">${m.from} €</b> en ${srcName(m)}`).join("<br>")}</small></div>`;
+ const names=[];ms.forEach(m=>C.shops(m).forEach(s=>{if(!names.includes(s[0]))names.push(s[0])}));
+ const cards=names.map(n=>{const rows=ms.map(m=>{const sh=C.shops(m).find(s=>s[0]===n);return {m,sh,p:sh?storePrice(m,n):null}}).filter(r=>r.sh);
+  const pr=rows.filter(r=>r.p).map(r=>r.p.from);const min=pr.length?Math.min(...pr):Infinity;
+  const r0=rows[0];const url=(rows.length===1&&r0.p&&r0.p.url)?r0.p.url:r0.sh[1];
+  const lines=rows.map(r=>`<span class="sp"><span>${one?"Desde":r.m.name}</span>${r.p?`<span><b>${r.p.from} €</b>${r.p.date?` <span class="dt">${dShort(r.p.date)}</span>`:""}</span>`:'<span class="na">Sin precio</span>'}</span>`).join("");
+  return {min,html:`<a href="${url}" target="_blank" rel="noopener">${n}<small>${r0.sh[2]} · ${host(url)}</small>${lines}</a>`}});
+ cards.sort((a,b)=>a.min-b.min);
+ document.getElementById("shopBox").innerHTML=`${head}<div class="shops">${best}${cards.map(c=>c.html).join("")}</div>`}
+ss.onchange=()=>{const id=ss.value;if(id&&!shopSet.includes(id))shopSet.push(id);ss.value="";renderShop()};
+document.getElementById("shopChips").onclick=e=>{const b=e.target.closest("button");if(!b||shopSet.length<2)return;shopSet=shopSet.filter(x=>x!==b.dataset.id);renderShop()};
+window.goShop=id=>{shopSet=[id];renderShop();show("comprar")};
 function renderQuiz(){document.getElementById("quizBox").innerHTML=C.quiz.map((q,i)=>`<div class="q">${q.q}</div><div class="opts" data-q="${q.k}">${q.o.map(o=>`<button data-v="${o[0]}">${o[1]}</button>`).join("")}</div>`).join("");document.getElementById("res").innerHTML="";
  document.querySelectorAll("#quizBox .opts").forEach(o=>o.onclick=e=>{const b=e.target.closest("button");if(!b)return;o.querySelectorAll("button").forEach(x=>x.classList.toggle("on",x===b));A[o.dataset.q]=b.dataset.v;rec()})}
 function rec(){const R=document.getElementById("res");if(Object.keys(A).length<C.quiz.length){R.innerHTML="";return}
@@ -535,7 +567,7 @@ function renderAll(){renderCats();renderModels();renderPresets();renderPick();re
 resetCat();renderAll();
 const PRICES_URL="https://raw.githubusercontent.com/xs4com-MMDX/mobile-selector/precios/prices.json";
 fetch(PRICES_URL,{cache:"no-cache"}).then(r=>r.ok?r.json():Promise.reject()).catch(()=>fetch("prices.json",{cache:"no-cache"}).then(r=>r.ok?r.json():null)).then(j=>{if(!j||!j.prices)return;PRICES_UPDATED=j.updated||null;
- for(const [c,C2] of Object.entries(CATS))for(const m of C2.M){const p=j.prices[c+"-"+m.id];if(p&&typeof p.from==="number"){m.from=p.from;if(p.url)m.url=p.url;if(p.src)m.src=p.src+(p.date?", "+new Date(p.date).toLocaleDateString("es-ES",{day:"numeric",month:"short",year:"numeric"}):"")}}
+ for(const [c,C2] of Object.entries(CATS))for(const m of C2.M){const p=j.prices[c+"-"+m.id];if(p&&typeof p.from==="number"){m.from=p.from;if(p.url)m.url=p.url;m.stores=p.stores&&typeof p.stores==="object"?p.stores:{};if(p.src)m.src=p.src+(p.date?", "+new Date(p.date).toLocaleDateString("es-ES",{day:"numeric",month:"short",year:"numeric"}):"")}}
  renderAll()}).catch(()=>{});
 fetch("images.json",{cache:"no-cache"}).then(r=>r.ok?r.json():{}).then(j=>{PHOTOS=Object.fromEntries(Object.entries(j).filter(([k,v])=>!k.startsWith("_")));if(Object.values(PHOTOS).some(p=>p&&p.src))renderAll();renderCredits()}).catch(()=>{});
 let rt;window.addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(()=>{renderModels();renderTable()},250)});
