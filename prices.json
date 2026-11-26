@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-26T03:04:16+01:00",
-  "_nota": "Precio reacondicionado más bajo visto por modelo. 'from': euros (null = sin reacondicionados). 'src': fuente. 'date': fecha en que se vio. Lo actualiza la tarea programada a las 3:00 y 15:00 (hora de Madrid); si no encuentra un dato, conserva el anterior.",
+  "_nota": "Precio reacondicionado más bajo visto por modelo. 'from': euros (null = sin reacondicionados). 'src': fuente. 'date': fecha en que se vio. 'url' (opcional): página donde comprar ese modelo; si falta, la web usa el enlace de la tienda indicada en 'src'. Lo actualiza la tarea programada a las 3:00 y 15:00 (hora de Madrid); si no encuentra un dato, conserva el anterior.",
   "prices": {
     "iphone-12mini": {
       "name": "iPhone 12 mini",
@@ -42,7 +42,8 @@
       "name": "iPhone 14 Pro",
       "from": 371,
       "src": "RefurbMe",
-      "date": "2026-11-26"
+      "date": "2026-11-26",
+      "url": "https://www.refurb.me/es/refurbished/iphone/iphone-14-pro"
     },
     "iphone-14promax": {
       "name": "iPhone 14 Pro Max",
@@ -54,7 +55,8 @@
       "name": "iPhone 15",
       "from": 406,
       "src": "RefurbMe",
-      "date": "2026-11-26"
+      "date": "2026-11-26",
+      "url": "https://www.refurb.me/es/refurbished/iphone/iphone-15"
     },
     "iphone-15plus": {
       "name": "iPhone 15 Plus",
@@ -96,13 +98,15 @@
       "name": "iPhone 16 Pro",
       "from": 619,
       "src": "RefurbMe",
-      "date": "2026-11-26"
+      "date": "2026-11-26",
+      "url": "https://www.refurb.me/es/refurbished/iphone/iphone-16-pro"
     },
     "iphone-16promax": {
       "name": "iPhone 16 Pro Max",
       "from": 702,
       "src": "RefurbMe",
-      "date": "2026-11-26"
+      "date": "2026-11-26",
+      "url": "https://www.refurb.me/es/refurbished/iphone/iphone-16-pro-max"
     },
     "iphone-17e": {
       "name": "iPhone 17e",
@@ -114,7 +118,8 @@
       "name": "iPhone 17",
       "from": 769,
       "src": "RefurbMe",
-      "date": "2026-11-26"
+      "date": "2026-11-26",
+      "url": "https://www.refurb.me/es/refurbished/iphone/iphone-17"
     },
     "iphone-air": {
       "name": "iPhone Air",
@@ -198,13 +203,15 @@
       "name": "iPad Air 11\" M2 (2024)",
       "from": 454,
       "src": "RefurbMe",
-      "date": "2026-11-26"
+      "date": "2026-11-26",
+      "url": "https://www.refurb.me/es/stats/ipad-air/ipad-air-11-inch-m2"
     },
     "ipad-air13m2": {
       "name": "iPad Air 13\" M2 (2024)",
       "from": 729,
       "src": "RefurbMe",
-      "date": "2026-11-26"
+      "date": "2026-11-26",
+      "url": "https://www.refurb.me/es/stats/ipad-air/ipad-air-13-inch-m2"
     },
     "ipad-air11m3": {
       "name": "iPad Air 11\" M3 (2025)",
@@ -234,7 +241,8 @@
       "name": "iPad Pro 11\" M1 (2021)",
       "from": 460,
       "src": "RefurbMe",
-      "date": "2026-11-26"
+      "date": "2026-11-26",
+      "url": "https://www.refurb.me/es/stats/ipad-pro/ipad-pro-11-inch-(3rd-gen)"
     },
     "ipad-pro129m1": {
       "name": "iPad Pro 12,9\" M1 (2021)",
@@ -306,7 +314,8 @@
       "name": "Apple Watch Series 11",
       "from": 292,
       "src": "Back Market",
-      "date": "2026-11-25"
+      "date": "2026-11-25",
+      "url": "https://www.backmarket.es/es-es/p/apple-watch-series-11"
     },
     "watch-s12": {
       "name": "Apple Watch Series 12",
@@ -318,13 +327,15 @@
       "name": "Apple Watch SE (2.ª gen)",
       "from": 173,
       "src": "Back Market",
-      "date": "2026-11-25"
+      "date": "2026-11-25",
+      "url": "https://www.backmarket.es/es-es/p/apple-watch-se-series-2"
     },
     "watch-se3": {
       "name": "Apple Watch SE 3",
       "from": 199,
       "src": "Back Market",
-      "date": "2026-11-25"
+      "date": "2026-11-25",
+      "url": "https://www.backmarket.es/es-es/p/apple-watch-se-series-3"
     },
     "watch-u1": {
       "name": "Apple Watch Ultra",
@@ -342,7 +353,8 @@
       "name": "Apple Watch Ultra 3",
       "from": 506,
       "src": "Back Market",
-      "date": "2026-11-25"
+      "date": "2026-11-25",
+      "url": "https://www.backmarket.es/es-es/p/apple-watch-ultra-3"
     },
     "watch-u4": {
       "name": "Apple Watch Ultra 4",
@@ -354,7 +366,8 @@
       "name": "AirPods (3.ª gen)",
       "from": 59,
       "src": "RefurbMe",
-      "date": "2026-11-26"
+      "date": "2026-11-26",
+      "url": "https://www.refurb.me/es/refurbished/airpods/airpods/3rd-gen"
     },
     "airpods-ap4": {
       "name": "AirPods 4",
@@ -378,7 +391,8 @@
       "name": "AirPods Pro 2",
       "from": 151,
       "src": "RefurbMe",
-      "date": "2026-11-26"
+      "date": "2026-11-26",
+      "url": "https://www.refurb.me/es/refurbished/airpods/airpods-pro/2nd-gen"
     },
     "airpods-pro3": {
       "name": "AirPods Pro 3",
