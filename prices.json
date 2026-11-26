@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-26T03:04:16+01:00",
+  "updated": "2026-11-26T12:53:29+01:00",
   "_nota": "Precio reacondicionado más bajo visto por modelo. 'from': euros (null = sin reacondicionados). 'src': fuente. 'date': fecha en que se vio. 'url' (opcional): página donde comprar ese modelo; si falta, la web usa el enlace de la tienda indicada en 'src'. Lo actualiza la tarea programada a las 3:00 y 15:00 (hora de Madrid); si no encuentra un dato, conserva el anterior.",
   "prices": {
     "iphone-12mini": {
@@ -78,9 +78,10 @@
     },
     "iphone-16e": {
       "name": "iPhone 16e",
-      "from": 425,
-      "src": "Back Market",
-      "date": "2026-11-25"
+      "from": 382,
+      "src": "RefurbMe",
+      "date": "2026-11-26",
+      "url": "https://www.refurb.me/es/refurbished/iphone/iphone-16e"
     },
     "iphone-16": {
       "name": "iPhone 16",
@@ -90,9 +91,10 @@
     },
     "iphone-16plus": {
       "name": "iPhone 16 Plus",
-      "from": 519,
+      "from": 546,
       "src": "RefurbMe",
-      "date": "2026-11-12"
+      "date": "2026-11-26",
+      "url": "https://www.refurb.me/es/refurbished/iphone/iphone-16-plus"
     },
     "iphone-16pro": {
       "name": "iPhone 16 Pro",
@@ -159,9 +161,10 @@
     },
     "ipad-ipad9": {
       "name": "iPad 9 (2021)",
-      "from": 173,
+      "from": 149,
       "src": "RefurbMe",
-      "date": "2026-11-12"
+      "date": "2026-11-26",
+      "url": "https://www.refurb.me/es/refurbished/ipad/ipad/9th-gen"
     },
     "ipad-ipad10": {
       "name": "iPad 10 (2022)",
@@ -217,7 +220,8 @@
       "name": "iPad Air 11\" M3 (2025)",
       "from": 569,
       "src": "RefurbMe",
-      "date": "2026-11-12"
+      "date": "2026-11-26",
+      "url": "https://www.refurb.me/es/stats/ipad-air/ipad-air-11-inch-m3"
     },
     "ipad-air13m3": {
       "name": "iPad Air 13\" M3 (2025)",
@@ -404,7 +408,8 @@
       "name": "AirPods Max (1.ª gen)",
       "from": 205,
       "src": "RefurbMe",
-      "date": "2026-11-20"
+      "date": "2026-11-26",
+      "url": "https://www.refurb.me/es/refurbished/airpods/airpods-max/1st-gen"
     },
     "airpods-max2": {
       "name": "AirPods Max 2",
