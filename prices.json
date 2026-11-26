@@ -1,12 +1,19 @@
 {
   "updated": "2026-11-26T12:53:29+01:00",
-  "_nota": "Precio reacondicionado más bajo visto por modelo. 'from': euros (null = sin reacondicionados). 'src': fuente. 'date': fecha en que se vio. 'url' (opcional): página donde comprar ese modelo; si falta, la web usa el enlace de la tienda indicada en 'src'. Lo actualiza la tarea programada a las 3:00 y 15:00 (hora de Madrid); si no encuentra un dato, conserva el anterior.",
+  "_nota": "Precio reacondicionado más bajo visto por modelo. 'from': euros (null = sin reacondicionados). 'src': fuente. 'date': fecha en que se vio. 'url' (opcional): página donde comprar ese modelo; si falta, la web usa el enlace de la tienda indicada en 'src'. Lo actualiza la tarea programada a las 3:00 y 15:00 (hora de Madrid); si no encuentra un dato, conserva el anterior. 'stores' (opcional): precio más bajo visto en cada tienda concreta, {tienda: {from, date, url?, via?}}; la web lo muestra en 'Dónde comprar'.",
   "prices": {
     "iphone-12mini": {
       "name": "iPhone 12 mini",
       "from": 146,
       "src": "RefurbMe",
-      "date": "2026-11-12"
+      "date": "2026-11-12",
+      "stores": {
+        "Back Market": {
+          "from": 172,
+          "date": "2026-11-26",
+          "via": "RefurbMe"
+        }
+      }
     },
     "iphone-12": {
       "name": "iPhone 12",
@@ -49,7 +56,14 @@
       "name": "iPhone 14 Pro Max",
       "from": 379,
       "src": "RefurbMe",
-      "date": "2026-11-12"
+      "date": "2026-11-12",
+      "stores": {
+        "Back Market": {
+          "from": 502,
+          "date": "2026-11-26",
+          "via": "RefurbMe"
+        }
+      }
     },
     "iphone-15": {
       "name": "iPhone 15",
@@ -74,7 +88,14 @@
       "name": "iPhone 15 Pro Max",
       "from": 535,
       "src": "RefurbMe",
-      "date": "2026-11-12"
+      "date": "2026-11-12",
+      "stores": {
+        "Back Market": {
+          "from": 664,
+          "date": "2026-11-26",
+          "via": "RefurbMe"
+        }
+      }
     },
     "iphone-16e": {
       "name": "iPhone 16e",
@@ -87,7 +108,14 @@
       "name": "iPhone 16",
       "from": 573,
       "src": "Back Market",
-      "date": "2026-11-25"
+      "date": "2026-11-25",
+      "stores": {
+        "Apple": {
+          "from": 829,
+          "date": "2026-11-26",
+          "via": "RefurbMe"
+        }
+      }
     },
     "iphone-16plus": {
       "name": "iPhone 16 Plus",
