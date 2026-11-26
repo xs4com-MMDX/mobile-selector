@@ -69,6 +69,10 @@ section.tab{display:none}section.tab.on{display:block}
 .tile .tag{text-align:center;color:var(--mute);font-size:15px}
 .tile .price{text-align:center;font-size:17px;margin:14px 0 2px}
 .tile .price b{font-weight:600}
+.buy{color:var(--link);white-space:nowrap}
+.shops a.best{grid-column:1/-1;border:2px solid var(--link)}
+.shops a.best b{font-size:22px}
+.shops a.best .u{color:var(--soft);font-weight:400;font-size:12px;word-break:break-all}
 .tile .src{text-align:center;font-size:12px;color:var(--soft)}
 .tile .act{display:flex;justify-content:center;align-items:center;gap:18px;margin:14px 0 6px}
 .colors{display:flex;justify-content:center;gap:6px;margin-top:10px;flex-wrap:wrap}
@@ -436,6 +440,10 @@ let cat="iphone",C=CATS[cat];
 let gsel,msel,sel,A={};
 const famIds=g=>C.M.filter(m=>m.f===g).map(m=>m.id);
 const launchTxt=m=>m.launch+" €";
+const srcName=m=>String(m.src||REF).split(",")[0].trim();
+const buyUrl=m=>{if(m.url)return m.url;const n=srcName(m).toLowerCase();const s=C.shops(m).find(x=>x[0].toLowerCase()===n);return s?s[1]:null};
+const host=u=>{try{return new URL(u).hostname.replace(/^www\./,"")}catch(e){return u}};
+const srcLink=m=>{if(m.from===null)return "";const u=buyUrl(m);return u?`<a class="buy" href="${u}" target="_blank" rel="noopener">${m.from} € en ${m.src||REF} ›</a>`:(m.src||REF)};
 const fromTxt=m=>m.from===null?'<span class="nd">Aún sin reacondicionados</span>':`Desde <b>${m.from} €</b>`;
 function resetCat(){C=CATS[cat];gsel=new Set(C.def);msel=new Set(C.M.filter(m=>gsel.has(m.f)).map(m=>m.id));
  sel=new Set(C.M.filter(m=>m.f===C.def[0]).map(m=>m.id).slice(0,4));if(sel.size<2)sel=new Set(C.M.slice(0,4).map(m=>m.id));A={}}
@@ -469,7 +477,7 @@ function renderModels(){
   <div class="img">${devImg(m,cat==="watch"?170:cat==="airpods"?150:170,{back:true})}</div>
   ${m.yr===newest?'<div class="new">Novedad</div>':""}<h4>${m.name}</h4><div class="tag">${m.tag}</div>${String(m.sim).startsWith("Solo eSIM")?`<div class="center"><span class="esim" title="Sin bandeja para tarjeta SIM física">Solo eSIM · sin tarjeta SIM</span></div>`:""}
   ${cat==="iphone"?`<div class="colors">${swatches(m)}</div>`:""}
-  <div class="price">${fromTxt(m)}</div><div class="src">${m.from===null?"":(m.src||REF)} · nuevo: ${launchTxt(m)}</div>
+  <div class="price">${fromTxt(m)}</div><div class="src">${srcLink(m)}${m.from===null?"":" · "}nuevo: ${launchTxt(m)}</div>
   <div class="act"><button class="pillbtn" onclick="goShop('${m.id}')">Comprar</button><a href="#" onclick="cmpOne('${m.id}');return false">Comparar ›</a></div>
   <details class="specs" open><summary><span class="op">Ver todas las especificaciones ›</span><span class="cl">Ocultar especificaciones</span></summary><ul class="keys">${specList(m)}</ul></details></div>`).join("")}</div>`).join("");
 }
@@ -491,7 +499,7 @@ function renderTable(){
  const rows=[["Precio"],["from","Reacondicionado desde",v=>v===null?'<span class="nd">Aún no</span>':v+" €"],["launch","Precio nuevo (España)",v=>v+" €"],["yr","Año",v=>v],...C.ROWS];
  const maxH=(cat==="iphone"||cat==="ipad")?Math.max(...ms.map(m=>m.h)):1;
  const img=m=>cat==="iphone"||cat==="ipad"?devImg(m,125*m.h/maxH):devImg(m,cat==="watch"?125:105);
- let h=`<thead><tr><th class="k"></th>${ms.map(m=>`<th><div class="im">${img(m)}</div><div class="nm">${m.name}</div><div class="pr">${m.from===null?"Sin reacondicionados":"Desde "+m.from+" €"}</div><button class="pillbtn" onclick="goShop('${m.id}')">Comprar</button></th>`).join("")}</tr></thead><tbody>`;let pend=null;
+ let h=`<thead><tr><th class="k"></th>${ms.map(m=>`<th><div class="im">${img(m)}</div><div class="nm">${m.name}</div><div class="pr">${m.from===null?"Sin reacondicionados":"Desde "+m.from+" €"}</div><div class="note" style="margin-top:2px">${srcLink(m)}</div><button class="pillbtn" onclick="goShop('${m.id}')">Comprar</button></th>`).join("")}</tr></thead><tbody>`;let pend=null;
  rows.forEach(r=>{if(r.length===1){pend=`<tr class="grp"><td class="k">${r[0]}</td><td colspan="${ms.length}"></td></tr>`;return}
   const f=r[2]||yn;const vals=ms.map(m=>f(m[r[0]]));const diff=new Set(vals).size>1;if(od&&!diff&&ms.length>1)return;if(pend){h+=pend;pend=null}
   h+=`<tr class="${diff?'diff':''}"><td class="k">${r[1]}</td>${vals.map(v=>`<td>${v}</td>`).join("")}</tr>`});
@@ -501,12 +509,12 @@ function renderPrices(){const num=v=>typeof v==="number"?v:parseInt(v);
  const list=C.M.filter(m=>gsel.has(m.f)&&msel.has(m.id));const el=document.getElementById("priceList");
  if(!list.length){el.innerHTML=`<p class="note center" style="padding:20px">No hay modelos seleccionados. Elígelos en la pestaña Modelos.</p>`;return}
  const maxL=Math.max(...list.map(m=>num(m.launch)));
- const row=m=>{const L=num(m.launch);return `<div class="prow"><div class="t"><span>${m.name}</span><span style="text-align:right">${m.from===null?'<span class="nd">sin reacondicionados</span>':`<b>${m.from} €</b>`} <span style="color:var(--soft)">/ ${launchTxt(m)}${m.from!==null?` · −${Math.max(0,Math.round((1-m.from/L)*100))} %`:""}</span></span></div><div class="bar"><i style="width:${m.from===null?0:m.from/maxL*100}%;background:${C.F[m.f].c}"></i></div><div class="bar" style="height:3px;margin-top:3px"><i style="width:${L/maxL*100}%;background:var(--soft);opacity:.5"></i></div><div class="note" style="margin-top:4px">${m.from===null?"":(m.src||REF)}${String(m.sim).startsWith("Solo eSIM")?" · solo eSIM":""}</div></div>`};
+ const row=m=>{const L=num(m.launch);return `<div class="prow"><div class="t"><span>${m.name}</span><span style="text-align:right">${m.from===null?'<span class="nd">sin reacondicionados</span>':`<b>${m.from} €</b>`} <span style="color:var(--soft)">/ ${launchTxt(m)}${m.from!==null?` · −${Math.max(0,Math.round((1-m.from/L)*100))} %`:""}</span></span></div><div class="bar"><i style="width:${m.from===null?0:m.from/maxL*100}%;background:${C.F[m.f].c}"></i></div><div class="bar" style="height:3px;margin-top:3px"><i style="width:${L/maxL*100}%;background:var(--soft);opacity:.5"></i></div><div class="note" style="margin-top:4px">${srcLink(m)}${String(m.sim).startsWith("Solo eSIM")?" · solo eSIM":""}</div></div>`};
  el.innerHTML=`<p class="note" style="margin:6px 0 10px">Se muestran los modelos seleccionados en <a href="#" onclick="show('resumen');return false">Modelos</a>. Pulsa una familia para ver sus precios.</p>`+Object.keys(C.F).filter(g=>list.some(m=>m.f===g)).map(g=>{const ms=list.filter(m=>m.f===g).sort((a,b)=>(a.from===null)-(b.from===null)||(a.from-b.from));const pr=ms.filter(m=>m.from!==null).map(m=>m.from);
   return `<details class="pblock"><summary><span class="dot" style="background:${C.F[g].c}"></span><span class="pn">${C.F[g].n}</span><span class="pc">${ms.length} ${ms.length===1?"modelo":"modelos"}${pr.length?` · desde <b>${Math.min(...pr)} €</b>`:""}</span><span class="chev">›</span></summary>${ms.map(row).join("")}</details>`}).join("")}
 const ss=document.getElementById("shopSel");
 function renderShopSel(){ss.innerHTML=Object.keys(C.F).map(g=>`<optgroup label="${C.F[g].n}">${C.M.filter(m=>m.f===g).map(m=>`<option value="${m.id}">${m.name}${m.from!==null?" · desde "+m.from+" €":""}</option>`).join("")}</optgroup>`).join("");ss.value=C.M[0].id;renderShop()}
-function renderShop(){const m=C.M.find(x=>x.id===ss.value);document.getElementById("shopBox").innerHTML=`<div class="head"><div>${devImg(m,120,{back:true})}</div><div><div style="font-size:28px;font-weight:600;line-height:1.15">${m.name}</div><div style="color:var(--mute);margin-top:4px">${m.from===null?"Aún sin reacondicionados":"Reacondicionado desde "+m.from+" €"} · nuevo ${launchTxt(m)}</div></div></div><div class="shops">${C.shops(m).map(s=>link(...s)).join("")}</div>`}
+function renderShop(){const m=C.M.find(x=>x.id===ss.value);document.getElementById("shopBox").innerHTML=`<div class="head"><div>${devImg(m,120,{back:true})}</div><div><div style="font-size:28px;font-weight:600;line-height:1.15">${m.name}</div><div style="color:var(--mute);margin-top:4px">${m.from===null?"Aún sin reacondicionados":"Reacondicionado desde "+m.from+" €"} · nuevo ${launchTxt(m)}</div></div></div><div class="shops">${m.from!==null&&buyUrl(m)?`<a class="best" href="${buyUrl(m)}" target="_blank" rel="noopener">Precio más bajo visto: <b>${m.from} €</b> en ${srcName(m)}<small>${m.src||REF}</small><span class="u">${host(buyUrl(m))}</span></a>`:""}${C.shops(m).map(s=>link(s[0],s[1],s[2]+" · "+host(s[1]))).join("")}</div>`}
 ss.onchange=renderShop;
 window.goShop=id=>{ss.value=id;renderShop();show("comprar")};
 function renderQuiz(){document.getElementById("quizBox").innerHTML=C.quiz.map((q,i)=>`<div class="q">${q.q}</div><div class="opts" data-q="${q.k}">${q.o.map(o=>`<button data-v="${o[0]}">${o[1]}</button>`).join("")}</div>`).join("");document.getElementById("res").innerHTML="";
@@ -527,7 +535,7 @@ function renderAll(){renderCats();renderModels();renderPresets();renderPick();re
 resetCat();renderAll();
 const PRICES_URL="https://raw.githubusercontent.com/xs4com-MMDX/mobile-selector/precios/prices.json";
 fetch(PRICES_URL,{cache:"no-cache"}).then(r=>r.ok?r.json():Promise.reject()).catch(()=>fetch("prices.json",{cache:"no-cache"}).then(r=>r.ok?r.json():null)).then(j=>{if(!j||!j.prices)return;PRICES_UPDATED=j.updated||null;
- for(const [c,C2] of Object.entries(CATS))for(const m of C2.M){const p=j.prices[c+"-"+m.id];if(p&&typeof p.from==="number"){m.from=p.from;if(p.src)m.src=p.src+(p.date?", "+new Date(p.date).toLocaleDateString("es-ES",{day:"numeric",month:"short",year:"numeric"}):"")}}
+ for(const [c,C2] of Object.entries(CATS))for(const m of C2.M){const p=j.prices[c+"-"+m.id];if(p&&typeof p.from==="number"){m.from=p.from;if(p.url)m.url=p.url;if(p.src)m.src=p.src+(p.date?", "+new Date(p.date).toLocaleDateString("es-ES",{day:"numeric",month:"short",year:"numeric"}):"")}}
  renderAll()}).catch(()=>{});
 fetch("images.json",{cache:"no-cache"}).then(r=>r.ok?r.json():{}).then(j=>{PHOTOS=Object.fromEntries(Object.entries(j).filter(([k,v])=>!k.startsWith("_")));if(Object.values(PHOTOS).some(p=>p&&p.src))renderAll();renderCredits()}).catch(()=>{});
 let rt;window.addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(()=>{renderModels();renderTable()},250)});
