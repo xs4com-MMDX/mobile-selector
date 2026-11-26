@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-25T15:04:53+01:00",
+  "updated": "2026-11-26T03:04:16+01:00",
   "_nota": "Precio reacondicionado más bajo visto por modelo. 'from': euros (null = sin reacondicionados). 'src': fuente. 'date': fecha en que se vio. Lo actualiza la tarea programada a las 3:00 y 15:00 (hora de Madrid); si no encuentra un dato, conserva el anterior.",
   "prices": {
     "iphone-12mini": {
@@ -10,9 +10,9 @@
     },
     "iphone-12": {
       "name": "iPhone 12",
-      "from": 149,
+      "from": 169,
       "src": "RefurbMe",
-      "date": "2026-11-12"
+      "date": "2026-11-26"
     },
     "iphone-12pro": {
       "name": "iPhone 12 Pro",
@@ -42,7 +42,7 @@
       "name": "iPhone 14 Pro",
       "from": 371,
       "src": "RefurbMe",
-      "date": "2026-11-12"
+      "date": "2026-11-26"
     },
     "iphone-14promax": {
       "name": "iPhone 14 Pro Max",
@@ -52,9 +52,9 @@
     },
     "iphone-15": {
       "name": "iPhone 15",
-      "from": 410,
-      "src": "Back Market",
-      "date": "2026-11-25"
+      "from": 406,
+      "src": "RefurbMe",
+      "date": "2026-11-26"
     },
     "iphone-15plus": {
       "name": "iPhone 15 Plus",
@@ -64,9 +64,9 @@
     },
     "iphone-15pro": {
       "name": "iPhone 15 Pro",
-      "from": 516.06,
-      "src": "Back Market",
-      "date": "2026-11-25"
+      "from": 511,
+      "src": "RefurbMe",
+      "date": "2026-11-26"
     },
     "iphone-15promax": {
       "name": "iPhone 15 Pro Max",
@@ -96,13 +96,13 @@
       "name": "iPhone 16 Pro",
       "from": 619,
       "src": "RefurbMe",
-      "date": "2026-11-20"
+      "date": "2026-11-26"
     },
     "iphone-16promax": {
       "name": "iPhone 16 Pro Max",
       "from": 702,
       "src": "RefurbMe",
-      "date": "2026-11-17"
+      "date": "2026-11-26"
     },
     "iphone-17e": {
       "name": "iPhone 17e",
@@ -112,27 +112,27 @@
     },
     "iphone-17": {
       "name": "iPhone 17",
-      "from": 721,
-      "src": "Back Market",
-      "date": "2026-11-25"
+      "from": 769,
+      "src": "RefurbMe",
+      "date": "2026-11-26"
     },
     "iphone-air": {
       "name": "iPhone Air",
-      "from": 689,
+      "from": 666,
       "src": "RefurbMe",
-      "date": "2026-11-12"
+      "date": "2026-11-26"
     },
     "iphone-17pro": {
       "name": "iPhone 17 Pro",
-      "from": 941,
+      "from": 917,
       "src": "RefurbMe",
-      "date": "2026-11-12"
+      "date": "2026-11-26"
     },
     "iphone-17promax": {
       "name": "iPhone 17 Pro Max",
-      "from": 1011,
+      "from": 1031,
       "src": "RefurbMe",
-      "date": "2026-11-20"
+      "date": "2026-11-26"
     },
     "iphone-18pro": {
       "name": "iPhone 18 Pro",
@@ -196,15 +196,15 @@
     },
     "ipad-air11m2": {
       "name": "iPad Air 11\" M2 (2024)",
-      "from": 550,
+      "from": 454,
       "src": "RefurbMe",
-      "date": "2026-11-12"
+      "date": "2026-11-26"
     },
     "ipad-air13m2": {
       "name": "iPad Air 13\" M2 (2024)",
-      "from": 679,
+      "from": 729,
       "src": "RefurbMe",
-      "date": "2026-11-12"
+      "date": "2026-11-26"
     },
     "ipad-air11m3": {
       "name": "iPad Air 11\" M3 (2025)",
@@ -232,9 +232,9 @@
     },
     "ipad-pro11m1": {
       "name": "iPad Pro 11\" M1 (2021)",
-      "from": 485,
+      "from": 460,
       "src": "RefurbMe",
-      "date": "2026-11-12"
+      "date": "2026-11-26"
     },
     "ipad-pro129m1": {
       "name": "iPad Pro 12,9\" M1 (2021)",
@@ -354,7 +354,7 @@
       "name": "AirPods (3.ª gen)",
       "from": 59,
       "src": "RefurbMe",
-      "date": "2026-11-20"
+      "date": "2026-11-26"
     },
     "airpods-ap4": {
       "name": "AirPods 4",
@@ -378,7 +378,7 @@
       "name": "AirPods Pro 2",
       "from": 151,
       "src": "RefurbMe",
-      "date": "2026-11-20"
+      "date": "2026-11-26"
     },
     "airpods-pro3": {
       "name": "AirPods Pro 3",
