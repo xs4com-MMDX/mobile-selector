@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-26T12:53:29+01:00",
+  "updated": "2026-11-26T15:03:46+01:00",
   "_nota": "Precio reacondicionado más bajo visto por modelo. 'from': euros (null = sin reacondicionados). 'src': fuente. 'date': fecha en que se vio. 'url' (opcional): página donde comprar ese modelo; si falta, la web usa el enlace de la tienda indicada en 'src'. Lo actualiza la tarea programada a las 3:00 y 15:00 (hora de Madrid); si no encuentra un dato, conserva el anterior. 'stores' (opcional): precio más bajo visto en cada tienda concreta, {tienda: {from, date, url?, via?}}; la web lo muestra en 'Dónde comprar'.",
   "prices": {
     "iphone-12mini": {
@@ -54,16 +54,17 @@
     },
     "iphone-14promax": {
       "name": "iPhone 14 Pro Max",
-      "from": 379,
+      "from": 414,
       "src": "RefurbMe",
-      "date": "2026-11-12",
+      "date": "2026-11-26",
       "stores": {
         "Back Market": {
           "from": 502,
           "date": "2026-11-26",
           "via": "RefurbMe"
         }
-      }
+      },
+      "url": "https://www.refurb.me/es/stats/iphone/iphone-14-pro-max"
     },
     "iphone-15": {
       "name": "iPhone 15",
@@ -155,7 +156,8 @@
       "name": "iPhone Air",
       "from": 666,
       "src": "RefurbMe",
-      "date": "2026-11-26"
+      "date": "2026-11-26",
+      "url": "https://www.refurb.me/es/stats/iphone/iphone-air"
     },
     "iphone-17pro": {
       "name": "iPhone 17 Pro",
@@ -165,9 +167,10 @@
     },
     "iphone-17promax": {
       "name": "iPhone 17 Pro Max",
-      "from": 1031,
+      "from": 1011,
       "src": "RefurbMe",
-      "date": "2026-11-26"
+      "date": "2026-11-26",
+      "url": "https://www.refurb.me/es/refurbished/iphone/iphone-17-pro-max"
     },
     "iphone-18pro": {
       "name": "iPhone 18 Pro",
