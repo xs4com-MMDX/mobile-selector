@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-27T03:03:45+01:00",
+  "updated": "2026-11-27T15:03:54+01:00",
   "_nota": "Precio reacondicionado más bajo visto por modelo. 'from': euros (null = sin reacondicionados). 'src': fuente. 'date': fecha en que se vio. 'url' (opcional): página donde comprar ese modelo; si falta, la web usa el enlace de la tienda indicada en 'src'. Lo actualiza la tarea programada a las 3:00 y 15:00 (hora de Madrid); si no encuentra un dato, conserva el anterior. 'stores' (opcional): precio más bajo visto en cada tienda concreta, {tienda: {from, date, url?, via?}}; la web lo muestra en 'Dónde comprar'.",
   "prices": {
     "iphone-12mini": {
@@ -24,15 +24,17 @@
     },
     "iphone-12pro": {
       "name": "iPhone 12 Pro",
-      "from": 222,
+      "from": 192,
       "src": "RefurbMe",
-      "date": "2026-11-12"
+      "date": "2026-11-27",
+      "url": "https://www.refurb.me/es/refurbished/iphone/iphone-12-pro/compatible-with-ios-15"
     },
     "iphone-12promax": {
       "name": "iPhone 12 Pro Max",
-      "from": 267,
+      "from": 258,
       "src": "RefurbMe",
-      "date": "2026-11-12"
+      "date": "2026-11-27",
+      "url": "https://www.refurb.me/es/refurbished/iphone/iphone-12-pro-max/with-5g-network"
     },
     "iphone-14": {
       "name": "iPhone 14",
@@ -89,16 +91,17 @@
     },
     "iphone-15promax": {
       "name": "iPhone 15 Pro Max",
-      "from": 535,
+      "from": 519,
       "src": "RefurbMe",
-      "date": "2026-11-12",
+      "date": "2026-11-27",
       "stores": {
         "Back Market": {
           "from": 664,
           "date": "2026-11-26",
           "via": "RefurbMe"
         }
-      }
+      },
+      "url": "https://www.refurb.me/es/refurbished/iphone/iphone-15-pro-max/with-magsafe"
     },
     "iphone-16e": {
       "name": "iPhone 16e",
@@ -268,13 +271,15 @@
       "name": "iPad Air 11\" M4 (2026)",
       "from": 699,
       "src": "RefurbMe",
-      "date": "2026-11-20"
+      "date": "2026-11-27",
+      "url": "https://www.refurb.me/es/refurbished/ipad/ipad-air/11-inch-m4"
     },
     "ipad-air13m4": {
       "name": "iPad Air 13\" M4 (2026)",
       "from": 859,
       "src": "RefurbMe",
-      "date": "2026-11-20"
+      "date": "2026-11-27",
+      "url": "https://www.refurb.me/es/refurbished/ipad/ipad-air/13-inch-m4"
     },
     "ipad-pro11m1": {
       "name": "iPad Pro 11\" M1 (2021)",
@@ -309,9 +314,10 @@
     },
     "ipad-pro13m4": {
       "name": "iPad Pro 13\" M4 (2024)",
-      "from": 909,
+      "from": 935,
       "src": "RefurbMe",
-      "date": "2026-11-12"
+      "date": "2026-11-27",
+      "url": "https://www.refurb.me/es/stats/ipad-pro/ipad-pro-13-inch-m4"
     },
     "ipad-pro11m5": {
       "name": "iPad Pro 11\" M5 (2025)",
