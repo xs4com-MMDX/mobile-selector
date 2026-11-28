@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-28T03:04:07+01:00",
+  "updated": "2026-11-28T15:03:48+01:00",
   "_nota": "Precio reacondicionado más bajo visto por modelo. 'from': euros (null = sin reacondicionados). 'src': fuente. 'date': fecha en que se vio. 'url' (opcional): página donde comprar ese modelo; si falta, la web usa el enlace de la tienda indicada en 'src'. Lo actualiza la tarea programada a las 3:00 y 15:00 (hora de Madrid); si no encuentra un dato, conserva el anterior. 'stores' (opcional): precio más bajo visto en cada tienda concreta, {tienda: {from, date, url?, via?}}; la web lo muestra en 'Dónde comprar'.",
   "prices": {
     "iphone-12mini": {
@@ -41,7 +41,7 @@
       "name": "iPhone 14",
       "from": 290,
       "src": "RefurbMe",
-      "date": "2026-11-27",
+      "date": "2026-11-28",
       "url": "https://www.refurb.me/es/refurbished/iphone/iphone-14"
     },
     "iphone-14plus": {
@@ -76,7 +76,7 @@
       "name": "iPhone 15",
       "from": 406,
       "src": "RefurbMe",
-      "date": "2026-11-26",
+      "date": "2026-11-28",
       "url": "https://www.refurb.me/es/refurbished/iphone/iphone-15"
     },
     "iphone-15plus": {
@@ -116,16 +116,17 @@
     },
     "iphone-16": {
       "name": "iPhone 16",
-      "from": 573,
-      "src": "Back Market",
-      "date": "2026-11-25",
+      "from": 534,
+      "src": "RefurbMe",
+      "date": "2026-11-28",
       "stores": {
         "Apple": {
           "from": 829,
           "date": "2026-11-26",
           "via": "RefurbMe"
         }
-      }
+      },
+      "url": "https://www.refurb.me/es/refurbished/iphone/iphone-16/water-resistant"
     },
     "iphone-16plus": {
       "name": "iPhone 16 Plus",
@@ -138,14 +139,14 @@
       "name": "iPhone 16 Pro",
       "from": 619,
       "src": "RefurbMe",
-      "date": "2026-11-26",
+      "date": "2026-11-28",
       "url": "https://www.refurb.me/es/refurbished/iphone/iphone-16-pro"
     },
     "iphone-16promax": {
       "name": "iPhone 16 Pro Max",
       "from": 702,
       "src": "RefurbMe",
-      "date": "2026-11-27",
+      "date": "2026-11-28",
       "url": "https://www.refurb.me/es/refurbished/iphone/iphone-16-pro-max"
     },
     "iphone-17e": {
@@ -158,14 +159,14 @@
       "name": "iPhone 17",
       "from": 769,
       "src": "RefurbMe",
-      "date": "2026-11-27",
+      "date": "2026-11-28",
       "url": "https://www.refurb.me/es/refurbished/iphone/iphone-17"
     },
     "iphone-air": {
       "name": "iPhone Air",
       "from": 666,
       "src": "RefurbMe",
-      "date": "2026-11-26",
+      "date": "2026-11-28",
       "url": "https://www.refurb.me/es/stats/iphone/iphone-air"
     },
     "iphone-17pro": {
