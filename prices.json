@@ -1,26 +1,27 @@
 {
-  "updated": "2026-11-27T15:03:54+01:00",
+  "updated": "2026-11-28T03:04:07+01:00",
   "_nota": "Precio reacondicionado más bajo visto por modelo. 'from': euros (null = sin reacondicionados). 'src': fuente. 'date': fecha en que se vio. 'url' (opcional): página donde comprar ese modelo; si falta, la web usa el enlace de la tienda indicada en 'src'. Lo actualiza la tarea programada a las 3:00 y 15:00 (hora de Madrid); si no encuentra un dato, conserva el anterior. 'stores' (opcional): precio más bajo visto en cada tienda concreta, {tienda: {from, date, url?, via?}}; la web lo muestra en 'Dónde comprar'.",
   "prices": {
     "iphone-12mini": {
       "name": "iPhone 12 mini",
-      "from": 146,
+      "from": 151,
       "src": "RefurbMe",
-      "date": "2026-11-12",
+      "date": "2026-11-28",
       "stores": {
         "Back Market": {
           "from": 172,
           "date": "2026-11-26",
           "via": "RefurbMe"
         }
-      }
+      },
+      "url": "https://www.refurb.me/es/refurbished/iphone/iphone-12-mini/water-resistant"
     },
     "iphone-12": {
       "name": "iPhone 12",
-      "from": 169,
+      "from": 165,
       "src": "RefurbMe",
-      "date": "2026-11-27",
-      "url": "https://www.refurb.me/es/stats/iphone/iphone-12"
+      "date": "2026-11-28",
+      "url": "https://www.refurb.me/es/refurbished/iphone/iphone-12/compatible-with-ios-18"
     },
     "iphone-12pro": {
       "name": "iPhone 12 Pro",
@@ -47,7 +48,8 @@
       "name": "iPhone 14 Plus",
       "from": 288,
       "src": "RefurbMe",
-      "date": "2026-11-12"
+      "date": "2026-11-28",
+      "url": "https://www.refurb.me/es/stats/iphone/iphone-14-plus"
     },
     "iphone-14pro": {
       "name": "iPhone 14 Pro",
@@ -79,15 +81,17 @@
     },
     "iphone-15plus": {
       "name": "iPhone 15 Plus",
-      "from": 440,
-      "src": "Back Market",
-      "date": "2026-11-25"
+      "from": 413,
+      "src": "RefurbMe",
+      "date": "2026-11-28",
+      "url": "https://www.refurb.me/es/refurbished/iphone/iphone-15-plus/blue"
     },
     "iphone-15pro": {
       "name": "iPhone 15 Pro",
       "from": 511,
       "src": "RefurbMe",
-      "date": "2026-11-26"
+      "date": "2026-11-28",
+      "url": "https://www.refurb.me/es/stats/iphone/iphone-15-pro"
     },
     "iphone-15promax": {
       "name": "iPhone 15 Pro Max",
@@ -175,7 +179,7 @@
       "name": "iPhone 17 Pro Max",
       "from": 1011,
       "src": "RefurbMe",
-      "date": "2026-11-26",
+      "date": "2026-11-28",
       "url": "https://www.refurb.me/es/refurbished/iphone/iphone-17-pro-max"
     },
     "iphone-18pro": {
@@ -212,9 +216,10 @@
     },
     "ipad-ipad11": {
       "name": "iPad 11 (A16, 2025)",
-      "from": 404,
+      "from": 417,
       "src": "RefurbMe",
-      "date": "2026-11-12"
+      "date": "2026-11-28",
+      "url": "https://www.refurb.me/es/refurbished/ipad/ipad/11th-gen/under-1500"
     },
     "ipad-mini6": {
       "name": "iPad mini 6 (2021)",
@@ -411,7 +416,7 @@
       "name": "AirPods (3.ª gen)",
       "from": 59,
       "src": "RefurbMe",
-      "date": "2026-11-27",
+      "date": "2026-11-28",
       "url": "https://www.refurb.me/es/refurbished/airpods/airpods/3rd-gen"
     },
     "airpods-ap4": {
@@ -436,7 +441,7 @@
       "name": "AirPods Pro 2",
       "from": 151,
       "src": "RefurbMe",
-      "date": "2026-11-27",
+      "date": "2026-11-28",
       "url": "https://www.refurb.me/es/refurbished/airpods/airpods-pro/2nd-gen"
     },
     "airpods-pro3": {
@@ -449,7 +454,7 @@
       "name": "AirPods Max (1.ª gen)",
       "from": 205,
       "src": "RefurbMe",
-      "date": "2026-11-27",
+      "date": "2026-11-28",
       "url": "https://www.refurb.me/es/refurbished/airpods/airpods-max/1st-gen"
     },
     "airpods-max2": {
